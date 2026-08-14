@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Current AI workflow pipeline">
+  <defs>
+    <linearGradient id="wbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080c11"/>
+      <stop offset="100%" stop-color="#0b1219"/>
+    </linearGradient>
+
+    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2ee6a6" stop-opacity="0.05"/>
+      <stop offset="50%" stop-color="#2ee6a6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#2ee6a6" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <pattern id="wgrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#131f27" stroke-width="1"/>
+    </pattern>
+
+    <filter id="wglow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <clipPath id="wframe"><rect x="0" y="0" width="900" height="300" rx="12"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#wframe)">
+    <rect width="900" height="300" fill="url(#wbg)"/>
+    <rect width="900" height="300" fill="url(#wgrid)" opacity="0.6"/>
+    <rect x="0" y="0" width="900" height="2" fill="#2ee6a6" opacity="0.5"/>
+
+    <text x="28" y="42" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="17" font-weight="700" fill="#f2f6f8" letter-spacing="1.5">CURRENT AI WORKFLOW</text>
+    <text x="28" y="64" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="12.5" fill="#5f757f">how an idea becomes a shipped, reviewed interface</text>
+
+    <g transform="translate(722,28)">
+      <rect x="0" y="0" width="150" height="24" rx="12" fill="#0c2019" stroke="#2ee6a6" stroke-width="1"/>
+      <circle cx="15" cy="12" r="3.6" fill="#2ee6a6">
+        <animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="27" y="16" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10.5" fill="#2ee6a6" letter-spacing="1.2">PIPELINE ACTIVE</text>
+    </g>
+
+    <rect x="24" y="162" width="852" height="2" fill="url(#rail)"/>
+
+    <g font-family="'JetBrains Mono','Fira Code','Courier New',monospace">
+
+      <g>
+        <rect x="24" y="100" width="186" height="126" rx="9" fill="#0d151c" stroke="#1d3038" stroke-width="1.3"/>
+        <rect x="24" y="100" width="186" height="3" rx="1.5" fill="#2ee6a6" opacity="0.85"/>
+        <text x="42" y="128" font-size="11" fill="#3f5560" letter-spacing="1.5">01</text>
+        <text x="42" y="152" font-size="16" font-weight="700" fill="#f2f6f8">Plan</text>
+        <text x="42" y="174" font-size="11.5" fill="#6b8089">Spec, architecture</text>
+        <text x="42" y="190" font-size="11.5" fill="#6b8089">and edge cases</text>
+        <rect x="42" y="200" width="72" height="18" rx="4" fill="#0f1f1a" stroke="#22483d" stroke-width="1"/>
+        <text x="78" y="212.5" font-size="10" fill="#2ee6a6" text-anchor="middle">Claude</text>
+      </g>
+
+      <g>
+        <rect x="246" y="100" width="186" height="126" rx="9" fill="#0d151c" stroke="#1d3038" stroke-width="1.3"/>
+        <rect x="246" y="100" width="186" height="3" rx="1.5" fill="#2ee6a6" opacity="0.85"/>
+        <text x="264" y="128" font-size="11" fill="#3f5560" letter-spacing="1.5">02</text>
+        <text x="264" y="152" font-size="16" font-weight="700" fill="#f2f6f8">Build</text>
+        <text x="264" y="174" font-size="11.5" fill="#6b8089">Components, motion</text>
+        <text x="264" y="190" font-size="11.5" fill="#6b8089">and state wiring</text>
+        <rect x="264" y="200" width="66" height="18" rx="4" fill="#0f1f1a" stroke="#22483d" stroke-width="1"/>
+        <text x="297" y="212.5" font-size="10" fill="#2ee6a6" text-anchor="middle">Cursor</text>
+        <rect x="336" y="200" width="62" height="18" rx="4" fill="#0f1f1a" stroke="#22483d" stroke-width="1"/>
+        <text x="367" y="212.5" font-size="10" fill="#2ee6a6" text-anchor="middle">v0</text>
+      </g>
+
+      <g>
+        <rect x="468" y="100" width="186" height="126" rx="9" fill="#0d151c" stroke="#1d3038" stroke-width="1.3"/>
+        <rect x="468" y="100" width="186" height="3" rx="1.5" fill="#2ee6a6" opacity="0.85"/>
+        <text x="486" y="128" font-size="11" fill="#3f5560" letter-spacing="1.5">03</text>
+        <text x="486" y="152" font-size="16" font-weight="700" fill="#f2f6f8">Review</text>
+        <text x="486" y="174" font-size="11.5" fill="#6b8089">Refactor, a11y pass</text>
+        <text x="486" y="190" font-size="11.5" fill="#6b8089">and perf budget</text>
+        <rect x="486" y="200" width="106" height="18" rx="4" fill="#0f1f1a" stroke="#22483d" stroke-width="1"/>
+        <text x="539" y="212.5" font-size="10" fill="#2ee6a6" text-anchor="middle">Claude Code</text>
+      </g>
+
+      <g>
+        <rect x="690" y="100" width="186" height="126" rx="9" fill="#0d151c" stroke="#1d3038" stroke-width="1.3"/>
+        <rect x="690" y="100" width="186" height="3" rx="1.5" fill="#2ee6a6" opacity="0.85"/>
+        <text x="708" y="128" font-size="11" fill="#3f5560" letter-spacing="1.5">04</text>
+        <text x="708" y="152" font-size="16" font-weight="700" fill="#f2f6f8">Ship</text>
+        <text x="708" y="174" font-size="11.5" fill="#6b8089">Preview, deploy</text>
+        <text x="708" y="190" font-size="11.5" fill="#6b8089">and measure</text>
+        <rect x="708" y="200" width="66" height="18" rx="4" fill="#0f1f1a" stroke="#22483d" stroke-width="1"/>
+        <text x="741" y="212.5" font-size="10" fill="#2ee6a6" text-anchor="middle">Vercel</text>
+        <rect x="780" y="200" width="72" height="18" rx="4" fill="#0f1f1a" stroke="#22483d" stroke-width="1"/>
+        <text x="816" y="212.5" font-size="10" fill="#2ee6a6" text-anchor="middle">Actions</text>
+      </g>
+    </g>
+
+    <g fill="#2ee6a6">
+      <circle cx="210" cy="163" r="4" filter="url(#wglow)">
+        <animate attributeName="cx" values="210;246" dur="1.6s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="0s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="432" cy="163" r="4" filter="url(#wglow)">
+        <animate attributeName="cx" values="432;468" dur="1.6s" begin="0.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="0.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="654" cy="163" r="4" filter="url(#wglow)">
+        <animate attributeName="cx" values="654;690" dur="1.6s" begin="1s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="1s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <g font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#4a5f69">
+      <circle cx="30" cy="262" r="3" fill="#2ee6a6" opacity="0.7"/>
+      <text x="42" y="266">AI drafts, I decide — every generated line gets read, shaped and owned.</text>
+    </g>
+
+    <rect x="0" y="298" width="900" height="2" fill="#2ee6a6" opacity="0.5"/>
+  </g>
+</svg>
