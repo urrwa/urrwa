@@ -1,0 +1,78 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#dce8ef"/>
+                  <stop offset="55%" stop-color="#e9e6da"/>
+                  <stop offset="100%" stop-color="#f2ecda"/>
+          </linearGradient>
+    </defs>
+
+    <rect x="0" y="0" width="1200" height="300" rx="18" fill="url(#sky)"/>
+    <rect x="0" y="0" width="1200" height="300" rx="18" fill="none" stroke="#2b2b2b" stroke-width="2" opacity="0.35"/>
+
+    <g transform="translate(1080,64)">
+          <circle r="30" fill="#f5d97a" stroke="#2b2b2b" stroke-width="1.6"/>
+          <g stroke="#e0b84f" stroke-width="2" stroke-linecap="round">
+                  <line x1="0" y1="-42" x2="0" y2="-34"/>
+                  <line x1="0" y1="42" x2="0" y2="34"/>
+                  <line x1="-42" y1="0" x2="-34" y2="0"/>
+                  <line x1="42" y1="0" x2="34" y2="0"/>
+                  <line x1="-30" y1="-30" x2="-24" y2="-24"/>
+                  <line x1="30" y1="30" x2="24" y2="24"/>
+                  <line x1="-30" y1="30" x2="-24" y2="24"/>
+                  <line x1="30" y1="-30" x2="24" y2="-24"/>
+          </g>
+    </g>
+
+    <g fill="#ffffff" stroke="#8c8c8c" stroke-width="1.4" opacity="0.9">
+          <path d="M70,58 q-10,-14 8,-16 q4,-12 20,-8 q10,-10 22,-2 q14,-2 12,10 q10,4 2,12 q-4,8 -14,6 q-8,6 -18,0 q-12,6 -20,-2 q-14,2 -12,-10 z"/>
+          <path d="M900,150 q-8,-10 6,-12 q4,-9 16,-6 q8,-8 17,-1 q11,-2 9,7 q8,3 1,9 q-3,6 -11,5 q-6,5 -14,0 q-9,5 -15,-2 q-11,1 -9,-8 z" opacity="0.7"/>
+    </g>
+
+    <path d="M0,246 C 40,238 80,252 130,244 C 180,236 220,250 270,242
+                 C 320,234 360,248 410,240 C 460,232 500,246 550,238
+                 C 600,230 640,244 690,236 C 740,228 780,242 830,234
+                 C 880,226 920,240 970,232 C 1020,224 1060,238 1110,230
+                 C 1140,226 1170,232 1200,228 L1200,300 L0,300 Z"
+              fill="#a9cdb0" stroke="#2f5233" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M0,246 C 40,238 80,252 130,244 C 180,236 220,250 270,242
+                 C 320,234 360,248 410,240 C 460,232 500,246 550,238
+                 C 600,230 640,244 690,236 C 740,228 780,242 830,234
+                 C 880,226 920,240 970,232 C 1020,224 1060,238 1110,230
+                 C 1140,226 1170,232 1200,228"
+              fill="none" stroke="#2f5233" stroke-width="2.5"/>
+
+    <g stroke="#2b2b2b" stroke-width="1.4" fill="none">
+          <g transform="translate(150,258)">
+                  <circle r="5" fill="#f2b6c6"/>
+                  <circle cx="8" cy="0" r="5" fill="#f2b6c6"/>
+                  <circle cx="-8" cy="0" r="5" fill="#f2b6c6"/>
+                  <circle cx="0" cy="8" r="5" fill="#f2b6c6"/>
+                  <circle cx="0" cy="-8" r="5" fill="#f2b6c6"/>
+                  <circle r="3.5" fill="#f5d97a"/>
+                  <line x1="0" y1="10" x2="0" y2="26"/>
+          </g>
+          <g transform="translate(1040,252)">
+                  <circle r="5" fill="#c9b6f2"/>
+                  <circle cx="8" cy="0" r="5" fill="#c9b6f2"/>
+                  <circle cx="-8" cy="0" r="5" fill="#c9b6f2"/>
+                  <circle cx="0" cy="8" r="5" fill="#c9b6f2"/>
+                  <circle cx="0" cy="-8" r="5" fill="#c9b6f2"/>
+                  <circle r="3.5" fill="#f5d97a"/>
+                  <line x1="0" y1="10" x2="0" y2="24"/>
+          </g>
+    </g>
+
+    <text x="600" y="140" text-anchor="middle"
+              font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700"
+              fill="#2b2b2b" letter-spacing="2">URWAH IMTIAZ</text>
+
+    <text x="600" y="180" text-anchor="middle"
+              font-family="Verdana, Geneva, sans-serif" font-size="19"
+              fill="#3f6b4f">Creative Frontend Developer  •  Motion &amp; 3D Web Experiences</text>
+
+    <g transform="translate(600,205)" text-anchor="middle">
+          <rect x="-118" y="-16" width="236" height="30" rx="6" fill="#f7f1de" stroke="#2b2b2b" stroke-width="1.4"/>
+          <text x="0" y="5" font-family="Georgia, serif" font-size="14" fill="#2b2b2b" letter-spacing="1">react &amp; next.js &amp; gsap &amp; three.js</text>
+    </g>
+</svg>
