@@ -1,3 +1,5 @@
+![banner](./assets/banner.svg)
+
 # 💫 About Me:
 🔭 I'm currently working on The Sketch Dimension, a hand-drawn interactive portfolio world<br>
 👯 I'm looking to collaborate on creative frontend, motion design & WebGL/Three.js projects<br>
