@@ -4,65 +4,107 @@
 
 <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=20&duration=3000&pause=1000&color=2EE6A6&center=true&vCenter=true&width=650&lines=Hey+there%2C+I'm+Urwah+Imtiaz+%F0%9F%91%8B;Creative+Frontend+Developer;React+%C2%B7+Next.js+%C2%B7+GSAP+%C2%B7+Three.js" alt="Typing SVG" />
 
-![Followers](https://img.shields.io/github/followers/urrwa?label=Followers&style=for-the-badge&color=0A0E14&labelColor=2EE6A6&logo=github&logoColor=0A0E14)
-[![Profile Views](https://komarev.com/ghpvc/?username=urrwa&color=2ee6a6&style=for-the-badge&label=Profile+Views)](https://visitcount.itsvg.in)
+<img src="https://img.shields.io/github/stars/urrwa?style=for-the-badge&label=STARS&color=0A0E14&labelColor=2EE6A6&logo=github&logoColor=0A0E14" />
+<img src="https://img.shields.io/github/followers/urrwa?style=for-the-badge&label=FOLLOWERS&color=0A0E14&labelColor=2EE6A6&logo=github&logoColor=0A0E14" />
+<img src="https://komarev.com/ghpvc/?username=urrwa&style=for-the-badge&label=PROFILE+VIEWS&color=2ee6a6" />
 
 </div>
 
 <br/>
 
+## Who Am I?
+
 <table>
 <tr>
-<td width="65%" valign="top">
+<td width="33%" align="center" valign="top">
 
-<h3>💫 About Me</h3>
+<img src="https://github.com/urrwa.png" width="150" style="border-radius:12px;" />
 
-<ul>
-<li>🔭 Currently working on <b>The Sketch Dimension</b> — a hand-drawn interactive portfolio world</li>
-<li>👯 Looking to collaborate on creative frontend, motion design & WebGL/Three.js projects</li>
-<li>🤝 Looking for help with advanced shader work in Three.js</li>
-<li>🌱 Currently learning WebGL shaders while finishing my BS in AI at FAST-NUCES</li>
-<li>💬 Ask me about React, Next.js, GSAP, Framer Motion & Three.js</li>
-<li>⚡ Fun fact: I'd rather build a portfolio you explore than one you scroll through</li>
-</ul>
+<br/><br/>
+
+<b>Urwah Imtiaz</b>
+
+<i>Creative Frontend Developer</i>
+
+<br/>
+
+📍 Pakistan
+<br/>
+🎓 BS Artificial Intelligence — FAST-NUCES
+<br/>
+🌱 Currently deep in WebGL shaders
+
+<br/>
+
+<a href="https://linkedin.com/in/urwahimtiaz">LinkedIn</a> · <a href="https://github.com/urrwa">GitHub</a>
 
 </td>
-<td width="35%" align="center">
+<td width="67%" valign="top">
 
-<img src="https://github.com/urrwa.png" width="220" style="border-radius:12px;border:2px solid #2ee6a6;" />
+<p>I'm a <b>Creative Frontend Developer</b> and final-year AI undergraduate at FAST-NUCES, building interfaces where motion, depth and interaction do real work — not decoration.</p>
+
+<p>My focus sits at the layer where design intent becomes engineering: <b>React</b> and <b>Next.js</b> for structure, <b>GSAP</b> and <b>Framer Motion</b> for choreography, and <b>Three.js / WebGL</b> for the moments a flat page isn't enough. I care about the details people feel but rarely name — easing curves, perceived latency, whether a transition lands or just happens.</p>
+
+<p>Right now I'm building <b>The Sketch Dimension</b>, a hand-drawn interactive portfolio world you explore rather than scroll — while finishing my degree and pushing further into shader work.</p>
+
+<p>Open to collaborating on creative frontend, motion design and WebGL projects.</p>
 
 </td>
 </tr>
 </table>
 
+## Current AI Workflow
+
 <div align="center">
 
-<h3>🛠️ Tech Stack</h3>
+![AI workflow](./assets/ai-workflow.svg)
+
+</div>
+
+> [!NOTE]
+> **Interfaces are judged in milliseconds.**
+> I design for how it feels first, then write the code that defends it. AI accelerates the drafting — the taste, the structure and the final call stay mine.
+
+## You Can Click Here
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-2EE6A6?style=for-the-badge&logo=linkedin&logoColor=0A0E14)](https://linkedin.com/in/urwahimtiaz)
+[![GitHub](https://img.shields.io/badge/GITHUB-2EE6A6?style=for-the-badge&logo=github&logoColor=0A0E14)](https://github.com/urrwa)
+
+</div>
+
+## Tech Stack
+
+<div align="center">
 
 <img src="https://skillicons.dev/icons?i=react,nextjs,typescript,tailwind,threejs,figma,git,github&theme=dark" />
 
-<h3>📊 GitHub Stats</h3>
+</div>
+
+## GitHub Stats
+
+<div align="center">
 
 <img height="165" src="https://github-readme-stats.shion.dev/api?username=urrwa&show_icons=true&theme=dark&hide_border=true&bg_color=0A0E14&title_color=2EE6A6&icon_color=2EE6A6&text_color=C9D1D9" />
 <img height="165" src="https://streak-stats.demolab.com/?user=urrwa&theme=dark&hide_border=true&background=0A0E14&ring=2EE6A6&fire=2EE6A6&currStreakLabel=2EE6A6&sideLabels=C9D1D9&currStreakNum=C9D1D9&sideNums=C9D1D9&dates=6b7b83" />
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=urrwa&theme=react-dark&bg_color=0A0E14&color=2EE6A6&line=2EE6A6&point=F2F5F7&area=true&area_color=2EE6A6&hide_border=true" width="100%"/>
 
-<h3>🐍 Contribution Snake</h3>
+</div>
+
+## Contribution Snake
+
+<div align="center">
 
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/urrwa/urrwa/output/github-contribution-grid-snake-dark.svg" />
 <img alt="snake" src="https://raw.githubusercontent.com/urrwa/urrwa/output/github-contribution-grid-snake.svg" />
 </picture>
 
-<!-- snake generated by GitHub Action: .github/workflows/snake.yml (Platane/snk) -->
-
-<h3>🔗 Connect</h3>
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-2EE6A6?style=for-the-badge&logo=linkedin&logoColor=0A0E14)](https://linkedin.com/in/urwahimtiaz)
-[![GitHub](https://img.shields.io/badge/GitHub-2EE6A6?style=for-the-badge&logo=github&logoColor=0A0E14)](https://github.com/urrwa)
-
 </div>
+
+<!-- snake generated by GitHub Action: .github/workflows/snake.yml (Platane/snk) -->
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0E14,100:0F1720&height=110&section=footer&text=Thanks%20for%20visiting!&fontColor=2EE6A6&fontSize=20&fontAlignY=75" width="100%"/>
 
