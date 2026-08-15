@@ -2,11 +2,11 @@
 
 ![banner](./assets/banner.svg)
 
-<img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=20&duration=3000&pause=1000&color=2EE6A6&center=true&vCenter=true&width=650&lines=Hey+there%2C+I'm+Urwah+Imtiaz+%F0%9F%91%8B;Creative+Frontend+Developer;React+%C2%B7+Next.js+%C2%B7+GSAP+%C2%B7+Three.js" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com/?font=Georgia&size=20&duration=3200&pause=1100&color=E8B4BC&center=true&vCenter=true&width=650&lines=Hey+there%2C+I'm+Urwah+Imtiaz+%E2%9C%A6;Creative+Frontend+Developer;React+%C2%B7+Next.js+%C2%B7+GSAP+%C2%B7+Three.js;Turning+sketches+into+shipped+interfaces" alt="Typing SVG" />
 
-<img src="https://img.shields.io/github/stars/urrwa?style=for-the-badge&label=STARS&color=0A0E14&labelColor=2EE6A6&logo=github&logoColor=0A0E14" />
-<img src="https://img.shields.io/github/followers/urrwa?style=for-the-badge&label=FOLLOWERS&color=0A0E14&labelColor=2EE6A6&logo=github&logoColor=0A0E14" />
-<img src="https://komarev.com/ghpvc/?username=urrwa&style=for-the-badge&label=PROFILE+VIEWS&color=2ee6a6" />
+<img src="https://img.shields.io/github/stars/urrwa?style=for-the-badge&label=STARS&color=0D0710&labelColor=8C2F39&logo=github&logoColor=F5E9DE" />
+<img src="https://img.shields.io/github/followers/urrwa?style=for-the-badge&label=FOLLOWERS&color=0D0710&labelColor=6B4226&logo=github&logoColor=F5E9DE" />
+<img src="https://komarev.com/ghpvc/?username=urrwa&style=for-the-badge&label=PROFILE+VIEWS&color=0D0710&labelColor=C9A66B" />
 
 </div>
 
@@ -18,7 +18,7 @@
 <tr>
 <td width="33%" align="center" valign="top">
 
-<img src="https://github.com/urrwa.png" width="150" style="border-radius:12px;" />
+<img src="https://github.com/urrwa.png" width="150" style="border-radius:12px; border: 2px solid #8C2F39;" />
 
 <br/><br/>
 
@@ -33,6 +33,8 @@
 🎓 BS Artificial Intelligence — FAST-NUCES
 <br/>
 🌱 Currently deep in WebGL shaders
+<br/>
+☕ Fueled by chai and a good playlist
 
 <br/>
 
@@ -45,13 +47,33 @@
 
 <p>My focus sits at the layer where design intent becomes engineering: <b>React</b> and <b>Next.js</b> for structure, <b>GSAP</b> and <b>Framer Motion</b> for choreography, and <b>Three.js / WebGL</b> for the moments a flat page isn't enough. I care about the details people feel but rarely name — easing curves, perceived latency, whether a transition lands or just happens.</p>
 
-<p>Right now I'm building <b>The Sketch Dimension</b>, a hand-drawn interactive portfolio world you explore rather than scroll — while finishing my degree and pushing further into shader work.</p>
+<p>Everything I build starts away from the keyboard — a sketchbook, a mood board, a scribbled layout — before it ever becomes a component. That hand-drawn instinct is exactly what's shaping my current project.</p>
 
-<p>Open to collaborating on creative frontend, motion design and WebGL projects.</p>
+<blockquote>
+✦ Right now I'm building <b>The Sketch Dimension</b> — a hand-drawn interactive portfolio world you explore rather than scroll — while finishing my degree and pushing further into shader work.
+</blockquote>
+
+<p>Open to collaborating on creative frontend, motion design and WebGL projects. If it needs to feel alive, I'm in.</p>
 
 </td>
 </tr>
 </table>
+
+## Beyond the Code
+
+<div align="center">
+
+<table>
+<tr>
+<td width="20%" align="center">📓<br/><sub><b>Sketchbook</b><br/>before Figma<br/>before code</sub></td>
+<td width="20%" align="center">🌙<br/><sub><b>Most creative</b><br/>11 PM &mdash; 3 AM</sub></td>
+<td width="20%" align="center">🎧<br/><sub><b>Debugging</b><br/>needs a playlist<br/>on loop</sub></td>
+<td width="20%" align="center">🧵<br/><sub><b>Will nudge</b><br/>a transition by<br/>20ms and smile</sub></td>
+<td width="20%" align="center">🎨<br/><sub><b>Believes UI</b><br/>should feel like<br/>a mood board</sub></td>
+</tr>
+</table>
+
+</div>
 
 ## Current AI Workflow
 
@@ -65,20 +87,27 @@
 > **Interfaces are judged in milliseconds.**
 > I design for how it feels first, then write the code that defends it. AI accelerates the drafting — the taste, the structure and the final call stay mine.
 
-## You Can Click Here
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LINKEDIN-2EE6A6?style=for-the-badge&logo=linkedin&logoColor=0A0E14)](https://linkedin.com/in/urwahimtiaz)
-[![GitHub](https://img.shields.io/badge/GITHUB-2EE6A6?style=for-the-badge&logo=github&logoColor=0A0E14)](https://github.com/urrwa)
-
-</div>
-
 ## Tech Stack
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=react,nextjs,typescript,tailwind,threejs,figma,git,github&theme=dark" />
+**Frontend & Structure**
+<br/>
+<img src="https://skillicons.dev/icons?i=react,nextjs,typescript,javascript,tailwind&theme=dark" />
+
+<br/><br/>
+
+**Motion, 3D & Design**
+<br/>
+<img src="https://skillicons.dev/icons?i=threejs,figma&theme=dark" />
+<img src="https://img.shields.io/badge/GSAP-8C2F39?style=for-the-badge&logo=greensock&logoColor=F5E9DE" />
+<img src="https://img.shields.io/badge/Framer_Motion-6B4226?style=for-the-badge&logo=framer&logoColor=F5E9DE" />
+
+<br/><br/>
+
+**Tools**
+<br/>
+<img src="https://skillicons.dev/icons?i=git,github,vercel,vscode&theme=dark" />
 
 </div>
 
@@ -86,10 +115,18 @@
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.shion.dev/api?username=urrwa&show_icons=true&theme=dark&hide_border=true&bg_color=0A0E14&title_color=2EE6A6&icon_color=2EE6A6&text_color=C9D1D9" />
-<img height="165" src="https://streak-stats.demolab.com/?user=urrwa&theme=dark&hide_border=true&background=0A0E14&ring=2EE6A6&fire=2EE6A6&currStreakLabel=2EE6A6&sideLabels=C9D1D9&currStreakNum=C9D1D9&sideNums=C9D1D9&dates=6b7b83" />
+<img height="165" src="https://github-readme-stats.shion.dev/api?username=urrwa&show_icons=true&theme=dark&hide_border=true&bg_color=0D0710&title_color=E8B4BC&icon_color=C9A66B&text_color=F5E9DE" />
+<img height="165" src="https://streak-stats.demolab.com/?user=urrwa&theme=dark&hide_border=true&background=0D0710&ring=8C2F39&fire=E8B4BC&currStreakLabel=E8B4BC&sideLabels=F5E9DE&currStreakNum=F5E9DE&sideNums=F5E9DE&dates=B79C8C" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=urrwa&theme=react-dark&bg_color=0A0E14&color=2EE6A6&line=2EE6A6&point=F2F5F7&area=true&area_color=2EE6A6&hide_border=true" width="100%"/>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=urrwa&bg_color=0D0710&color=C9A66B&line=8C2F39&point=F5E9DE&area=true&area_color=8C2F39&hide_border=true" width="100%"/>
+
+</div>
+
+## Trophy Case
+
+<div align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=urrwa&theme=gruvbox&no-frame=true&no-bg=true&margin-w=12&margin-h=12&row=1&column=7" />
 
 </div>
 
@@ -106,6 +143,18 @@
 
 <!-- snake generated by GitHub Action: .github/workflows/snake.yml (Platane/snk) -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0E14,100:0F1720&height=110&section=footer&text=Thanks%20for%20visiting!&fontColor=2EE6A6&fontSize=20&fontAlignY=75" width="100%"/>
+## Let's Connect
 
-<!-- Themed to match mikewall.dev — dark background, monospace, neon-green accents -->
+<div align="center">
+
+<p>If this corner of GitHub gave you even a little inspiration — a follow means a lot and keeps the shader experiments coming. ✦</p>
+
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-8C2F39?style=for-the-badge&logo=linkedin&logoColor=F5E9DE)](https://linkedin.com/in/urwahimtiaz)
+[![GitHub](https://img.shields.io/badge/GITHUB-6B4226?style=for-the-badge&logo=github&logoColor=F5E9DE)](https://github.com/urrwa)
+[![Follow](https://img.shields.io/github/followers/urrwa?style=for-the-badge&label=FOLLOW&color=0D0710&labelColor=C9A66B&logo=github&logoColor=0D0710)](https://github.com/urrwa)
+
+</div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D0710,50:5C1A2B,100:6B4226&height=110&section=footer&text=Thanks%20for%20visiting!&fontColor=E8B4BC&fontSize=20&fontAlignY=75" width="100%"/>
+
+<!-- Themed in dark red, brown & navy — a soft, aesthetic take on a dark developer profile -->
