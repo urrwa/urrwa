@@ -1,176 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="Urwah Imtiaz - Creative Frontend Developer">
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#070a0f"/>
-      <stop offset="55%" stop-color="#0a1017"/>
-      <stop offset="100%" stop-color="#0c1520"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0E1A"/>
+      <stop offset="38%" stop-color="#3B0F1E"/>
+      <stop offset="68%" stop-color="#5C1A2B"/>
+      <stop offset="100%" stop-color="#6B4226"/>
     </linearGradient>
 
-    <radialGradient id="halo" cx="26%" cy="38%" r="58%">
-      <stop offset="0%" stop-color="#2ee6a6" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#2ee6a6" stop-opacity="0"/>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#E8B4BC" stop-opacity="0.22"/>
+      <stop offset="55%" stop-color="#E8B4BC" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#E8B4BC" stop-opacity="0"/>
     </radialGradient>
 
-    <radialGradient id="halo2" cx="86%" cy="82%" r="48%">
-      <stop offset="0%" stop-color="#3aa0ff" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#3aa0ff" stop-opacity="0"/>
-    </radialGradient>
-
-    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M36 0H0V36" fill="none" stroke="#17262f" stroke-width="1"/>
-    </pattern>
-
-    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2ee6a6" stop-opacity="0"/>
-      <stop offset="45%" stop-color="#2ee6a6" stop-opacity="1"/>
-      <stop offset="55%" stop-color="#a5ffe0" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#2ee6a6" stop-opacity="0"/>
+    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F6E9DE"/>
+      <stop offset="55%" stop-color="#F0D2C9"/>
+      <stop offset="100%" stop-color="#D9A66B"/>
     </linearGradient>
 
-    <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#2ee6a6" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#2ee6a6" stop-opacity="0.11"/>
-      <stop offset="100%" stop-color="#2ee6a6" stop-opacity="0"/>
-    </linearGradient>
-
-    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="7" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000000" flood-opacity="0.45"/>
     </filter>
 
-    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="2.5" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-
-    <clipPath id="frame"><rect x="0" y="0" width="1200" height="320" rx="14"/></clipPath>
-    <clipPath id="term"><rect x="56" y="46" width="1088" height="234" rx="10"/></clipPath>
-
-    <mask id="typeRole" maskUnits="userSpaceOnUse" x="80" y="210" width="700" height="28">
-      <rect x="88" y="210" width="0" height="28" fill="#ffffff">
-        <animate attributeName="width" values="0;530;530;0;0" keyTimes="0;0.38;0.78;0.93;1" dur="8s" repeatCount="indefinite"/>
-      </rect>
-    </mask>
+    <g id="sparkle">
+      <path d="M0,-9 C0.8,-3 3,-0.8 9,0 C3,0.8 0.8,3 0,9 C-0.8,3 -3,0.8 -9,0 C-3,-0.8 -0.8,-3 0,-9 Z" fill="#E8C9A0"/>
+    </g>
+    <g id="sparkleSmall">
+      <path d="M0,-5 C0.5,-1.6 1.6,-0.5 5,0 C1.6,0.5 0.5,1.6 0,5 C-0.5,1.6 -1.6,0.5 -5,0 C-1.6,-0.5 -0.5,-1.6 0,-5 Z" fill="#E8B4BC"/>
+    </g>
   </defs>
 
-  <g clip-path="url(#frame)">
-    <rect width="1200" height="320" fill="url(#bg)"/>
-    <rect width="1200" height="320" fill="url(#grid)" opacity="0.5"/>
-    <rect width="1200" height="320" fill="url(#halo)"/>
-    <rect width="1200" height="320" fill="url(#halo2)"/>
+  <!-- background -->
+  <rect width="1200" height="320" fill="url(#bg)"/>
+  <rect width="1200" height="320" fill="url(#glow)"/>
 
-    <g opacity="0.55">
-      <circle cx="180" cy="70" r="2" fill="#2ee6a6">
-        <animate attributeName="cy" values="70;40;70" dur="7s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.2;1;0.2" dur="7s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="1040" cy="60" r="1.8" fill="#3aa0ff">
-        <animate attributeName="cy" values="60;92;60" dur="9s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.15;0.9;0.15" dur="9s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="300" cy="298" r="2.2" fill="#2ee6a6">
-        <animate attributeName="cy" values="298;268;298" dur="11s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.15;0.8;0.15" dur="11s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="880" cy="300" r="1.6" fill="#a5ffe0">
-        <animate attributeName="cy" values="300;276;300" dur="8s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.1;0.7;0.1" dur="8s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-    <rect x="0" y="0" width="1200" height="3" fill="#132a26"/>
-    <rect x="-420" y="0" width="420" height="3" fill="url(#sweep)">
-      <animate attributeName="x" values="-420;1200" dur="4.5s" repeatCount="indefinite"/>
-    </rect>
-
-    <rect x="56" y="46" width="1088" height="234" rx="10" fill="#0b1016" stroke="#1e3038" stroke-width="1.5"/>
-    <rect x="56" y="46" width="1088" height="38" rx="10" fill="#101a22"/>
-    <rect x="56" y="72" width="1088" height="12" fill="#101a22"/>
-    <line x1="56" y1="84" x2="1144" y2="84" stroke="#1e3038" stroke-width="1"/>
-
-    <circle cx="84" cy="65" r="6" fill="#ff5f56"/>
-    <circle cx="106" cy="65" r="6" fill="#ffbd2e"/>
-    <circle cx="128" cy="65" r="6" fill="#27c93f"/>
-    <text x="600" y="70" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="13" fill="#5d707a">urwah@github: ~/portfolio</text>
-
-    <g clip-path="url(#term)">
-      <rect x="56" y="46" width="1088" height="90" fill="url(#scan)">
-        <animate attributeName="y" values="20;280;20" dur="9s" repeatCount="indefinite"/>
-      </rect>
-    </g>
-
-    <g transform="translate(0,0)">
-      <rect x="88" y="102" width="168" height="27" rx="13.5" fill="#0c2019" stroke="#2ee6a6" stroke-width="1.2"/>
-      <circle cx="105" cy="115.5" r="4" fill="#2ee6a6">
-        <animate attributeName="opacity" values="1;0.25;1" dur="2s" repeatCount="indefinite"/>
-      </circle>
-      <text x="118" y="120" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11.5" fill="#2ee6a6" letter-spacing="1.4">SYSTEMS ONLINE</text>
-    </g>
-
-    <text x="88" y="156" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="15" fill="#2ee6a6">$ <tspan fill="#68787f">whoami</tspan></text>
-
-    <g filter="url(#glow)" opacity="0.5">
-      <text x="88" y="194" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="42" font-weight="700" fill="#2ee6a6">Urwah Imtiaz</text>
-    </g>
-    <text x="88" y="194" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="42" font-weight="700" fill="#f4f8fa">Urwah Imtiaz</text>
-    <rect x="400" y="166" width="13" height="32" fill="#2ee6a6" filter="url(#soft)">
-      <animate attributeName="opacity" values="1;1;0.05;0.05" keyTimes="0;0.45;0.5;1" dur="1.1s" repeatCount="indefinite"/>
-    </rect>
-
-    <g mask="url(#typeRole)">
-      <text x="88" y="230" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="16" fill="#8fa3ac">Creative Frontend Developer <tspan fill="#39505a">::</tspan> <tspan fill="#2ee6a6">AI Undergrad @ FAST-NUCES</tspan></text>
-    </g>
-    <rect y="213" width="9" height="21" fill="#2ee6a6" opacity="0.85">
-      <animate attributeName="x" values="88;618;618;88;88" keyTimes="0;0.38;0.78;0.93;1" dur="8s" repeatCount="indefinite"/>
-    </rect>
-
-    <g font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="12">
-      <g>
-        <rect x="88" y="246" width="64" height="26" rx="6" fill="#0f1c1a" stroke="#22483d" stroke-width="1"/>
-        <text x="120" y="263" text-anchor="middle" fill="#2ee6a6">React</text>
-      </g>
-      <g>
-        <rect x="162" y="246" width="78" height="26" rx="6" fill="#0f1c1a" stroke="#22483d" stroke-width="1"/>
-        <text x="201" y="263" text-anchor="middle" fill="#2ee6a6">Next.js</text>
-      </g>
-      <g>
-        <rect x="250" y="246" width="100" height="26" rx="6" fill="#0f1c1a" stroke="#22483d" stroke-width="1"/>
-        <text x="300" y="263" text-anchor="middle" fill="#2ee6a6">TypeScript</text>
-      </g>
-      <g>
-        <rect x="360" y="246" width="58" height="26" rx="6" fill="#0f1c1a" stroke="#22483d" stroke-width="1"/>
-        <text x="389" y="263" text-anchor="middle" fill="#2ee6a6">GSAP</text>
-      </g>
-      <g>
-        <rect x="428" y="246" width="86" height="26" rx="6" fill="#0f1c1a" stroke="#22483d" stroke-width="1"/>
-        <text x="471" y="263" text-anchor="middle" fill="#2ee6a6">Three.js</text>
-      </g>
-      <g>
-        <rect x="524" y="246" width="86" height="26" rx="6" fill="#0f1c1a" stroke="#22483d" stroke-width="1"/>
-        <text x="567" y="263" text-anchor="middle" fill="#2ee6a6">Tailwind</text>
-      </g>
-    </g>
-
-    <g>
-      <rect x="840" y="98" width="276" height="172" rx="8" fill="#080d13" stroke="#1c2c34" stroke-width="1.2"/>
-      <line x1="840" y1="124" x2="1116" y2="124" stroke="#1c2c34" stroke-width="1"/>
-      <circle cx="856" cy="111" r="3.2" fill="#2ee6a6" opacity="0.8"/>
-      <text x="870" y="115" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#4e626c">profile.ts</text>
-
-      <g font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="12.5">
-        <text x="858" y="148" fill="#4e626c">const <tspan fill="#e8eef1">urwah</tspan> = {</text>
-        <text x="858" y="170" fill="#5d7f8e">  role<tspan fill="#4e626c">:</tspan> <tspan fill="#2ee6a6">"frontend"</tspan><tspan fill="#4e626c">,</tspan></text>
-        <text x="858" y="192" fill="#5d7f8e">  stack<tspan fill="#4e626c">:</tspan> <tspan fill="#2ee6a6">[react, three]</tspan></text>
-        <text x="858" y="214" fill="#5d7f8e">  vibe<tspan fill="#4e626c">:</tspan> <tspan fill="#2ee6a6">"explorable"</tspan></text>
-        <text x="858" y="236" fill="#5d7f8e">  coffee<tspan fill="#4e626c">:</tspan> <tspan fill="#a5ffe0">Infinity</tspan></text>
-        <text x="858" y="258" fill="#4e626c">}</text>
-      </g>
-
-      <rect x="842" y="136" width="272" height="20" fill="#2ee6a6" opacity="0.06">
-        <animate attributeName="y" values="136;240;136" dur="6s" repeatCount="indefinite"/>
-      </rect>
-    </g>
-
-    <rect x="0" y="317" width="1200" height="3" fill="#132a26"/>
+  <!-- subtle grain of tiny dots for texture -->
+  <g opacity="0.12">
+    <circle cx="80" cy="60" r="1.4" fill="#F5E8DC"/>
+    <circle cx="160" cy="140" r="1" fill="#F5E8DC"/>
+    <circle cx="1120" cy="80" r="1.4" fill="#F5E8DC"/>
+    <circle cx="1050" cy="230" r="1" fill="#F5E8DC"/>
+    <circle cx="240" cy="250" r="1" fill="#F5E8DC"/>
+    <circle cx="980" cy="150" r="1.2" fill="#F5E8DC"/>
   </g>
+
+  <!-- outer ornamental frame -->
+  <rect x="18" y="18" width="1164" height="284" rx="6" fill="none" stroke="#D9A66B" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <!-- corner flourishes -->
+  <g stroke="#E8B4BC" stroke-width="1.4" fill="none" opacity="0.85">
+    <path d="M34,60 Q34,34 60,34"/>
+    <path d="M1166,60 Q1166,34 1140,34"/>
+    <path d="M34,260 Q34,286 60,286"/>
+    <path d="M1166,260 Q1166,286 1140,286"/>
+  </g>
+  <use href="#sparkleSmall" x="60" y="34"/>
+  <use href="#sparkleSmall" x="1140" y="34"/>
+  <use href="#sparkleSmall" x="60" y="286"/>
+  <use href="#sparkleSmall" x="1140" y="286"/>
+
+  <!-- scattered sparkles -->
+  <use href="#sparkle" x="120" y="90" opacity="0.9">
+    <animate attributeName="opacity" values="0.35;0.95;0.35" dur="3.6s" repeatCount="indefinite"/>
+  </use>
+  <use href="#sparkleSmall" x="200" y="200" opacity="0.7">
+    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.8s" repeatCount="indefinite"/>
+  </use>
+  <use href="#sparkle" x="1080" y="230" opacity="0.9">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="4.2s" repeatCount="indefinite"/>
+  </use>
+  <use href="#sparkleSmall" x="1010" y="90" opacity="0.7">
+    <animate attributeName="opacity" values="0.9;0.35;0.9" dur="3.1s" repeatCount="indefinite"/>
+  </use>
+  <use href="#sparkleSmall" x="150" y="255" opacity="0.6"/>
+  <use href="#sparkleSmall" x="1055" y="60" opacity="0.6"/>
+
+  <!-- eyebrow tag -->
+  <g font-family="Georgia, 'Times New Roman', serif" letter-spacing="6">
+    <text x="600" y="105" text-anchor="middle" font-size="14" fill="#E8B4BC" opacity="0.9">W E L C O M E &#160; T O &#160; M Y &#160; C O R N E R</text>
+  </g>
+  <use href="#sparkleSmall" x="378" y="100"/>
+  <use href="#sparkleSmall" x="822" y="100"/>
+
+  <!-- name -->
+  <text x="600" y="180" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="url(#nameGrad)" letter-spacing="3" filter="url(#softShadow)">Urwah Imtiaz</text>
+
+  <!-- divider -->
+  <g stroke="#D9A66B" stroke-width="1.2" opacity="0.8">
+    <line x1="430" y1="205" x2="555" y2="205"/>
+    <line x1="645" y1="205" x2="770" y2="205"/>
+  </g>
+  <use href="#sparkleSmall" x="600" y="205"/>
+
+  <!-- subtitle -->
+  <text x="600" y="240" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="27" fill="#F0D2C9">Creative Frontend Developer</text>
+
+  <!-- tagline -->
+  <text x="600" y="272" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" letter-spacing="2" fill="#C9A66B">React &#183; Next.js &#183; GSAP &#183; Three.js &#183; WebGL</text>
 </svg>
