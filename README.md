@@ -160,5 +160,3 @@
       <!-- Themed in dark red, brown & navy — a soft, aesthetic take on a dark developer profile -->
 
       ---
-  </tr>
-</table>
