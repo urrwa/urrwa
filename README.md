@@ -2,7 +2,7 @@
 
 ![banner](./assets/banner.svg)
 
-<img src="https://readme-typing-svg.demolab.com/?font=Georgia&size=20&duration=3200&pause=1100&color=E8B4BC&center=true&vCenter=true&width=650&lines=Hey+there%2C+I'm+Urwah+Imtiaz+%E2%9C%A6;Creative+Frontend+Developer;React+%C2%B7+Next.js+%C2%B7+GSAP+%C2%B7+Three.js;Turning+sketches+into+shipped+interfaces" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com/?font=Georgia&size=20&duration=3200&pause=1100&color=E8B4BC&center=true&vCenter=true&width=650&lines=Hey+there%2C+I'm+Urwah+Imtiaz;Creative+Frontend+Developer;React+%C2%B7+Next.js+%C2%B7+GSAP+%C2%B7+Three.js;Turning+sketches+into+shipped+interfaces" alt="Typing SVG" />
 
 <img src="https://img.shields.io/github/stars/urrwa?style=for-the-badge&label=STARS&color=0D0710&labelColor=8C2F39&logo=github&logoColor=F5E9DE" />
 <img src="https://img.shields.io/github/followers/urrwa?style=for-the-badge&label=FOLLOWERS&color=0D0710&labelColor=6B4226&logo=github&logoColor=F5E9DE" />
@@ -12,7 +12,7 @@
 
 <br/>
 
-## Who Am I?
+## Who Am I? ✦
 
 <table>
 <tr>
