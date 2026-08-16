@@ -28,13 +28,13 @@
 
       <br/>
 
-      Pakistan
+📍       Pakistan
       <br/>
-      BS Artificial Intelligence — FAST-NUCES
+🎓       BS Artificial Intelligence — FAST-NUCES
       <br/>
-      Currently deep in WebGL shaders
+🌱       Currently deep in WebGL shaders
       <br/>
-      Fueled by chai and a good playlist
+☕       Fueled by chai and a good playlist
 
       <br/>
 
