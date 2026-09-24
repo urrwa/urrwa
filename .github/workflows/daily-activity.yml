@@ -1,0 +1,32 @@
+name: Daily Activity
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update daily log
+        run: |
+          mkdir -p .daily
+          echo "Last active: $(date -u '+%Y-%m-%d %H:%M UTC')" > .daily/activity.txt
+          echo "Streak update $(date -u '+%Y-%m-%d')" >> .daily/activity.txt
+
+      - name: Commit and push
+        run: |
+          git config --global user.email "urwahimtiaz857@gmail.com"
+          git config --global user.name "urrwa"
+          git add .daily/activity.txt
+          git diff --cached --quiet || git commit -m "chore: daily activity update $(date -u '+%Y-%m-%d')"
+          git push
