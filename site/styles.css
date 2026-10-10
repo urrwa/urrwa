@@ -115,3 +115,14 @@ tbody tr:last-child>*{border-bottom:0}
   .timeline li::before{left:0;top:-6px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* language switch */
+.lang{display:flex;margin-left:auto;margin-right:8px;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--muted);font-family:inherit;font-weight:600;font-size:.75rem;line-height:1;letter-spacing:.08em;padding:8px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+@media (min-width:960px){
+  .lang{order:3;margin:0 0 0 20px}
+  .nav{order:2}
+  .header__row{justify-content:flex-start}
+  .logo{margin-right:auto}
+}
