@@ -110,10 +110,10 @@ h1,h2,h3,.quote p{font-family:var(--serif);font-weight:400;letter-spacing:-.01em
 section.s h2{font-weight:300;font-size:clamp(38px,5.6vw,80px)}
 .card h3,.ph h3,.cycle h3{font-weight:500;font-size:26px}
 .stats b{font-family:var(--serif);font-weight:300}
-.cap{transform:translateY(34px);filter:blur(10px);transition:opacity 1.3s cubic-bezier(.16,1,.3,1),transform 1.3s cubic-bezier(.16,1,.3,1),filter 1.3s cubic-bezier(.16,1,.3,1)}
-.cap.on{filter:blur(0)}
-.rv{transform:translateY(46px);filter:blur(6px);transition:opacity 1.4s cubic-bezier(.16,1,.3,1),transform 1.4s cubic-bezier(.16,1,.3,1),filter 1.4s cubic-bezier(.16,1,.3,1)}
-.rv.in{filter:blur(0)}
+.cap{transform:translateY(34px);transition:opacity 1.3s cubic-bezier(.16,1,.3,1),transform 1.3s cubic-bezier(.16,1,.3,1),filter 1.3s cubic-bezier(.16,1,.3,1)}
+
+.rv{transform:translateY(46px);transition:opacity 1.4s cubic-bezier(.16,1,.3,1),transform 1.4s cubic-bezier(.16,1,.3,1),filter 1.4s cubic-bezier(.16,1,.3,1)}
+
 .card{background:linear-gradient(160deg,#141416,#0d0d0f);border-color:#2a2722;box-shadow:inset 0 1px 0 rgba(230,205,154,.06)}
 .btn{font-weight:400;letter-spacing:.16em;text-transform:uppercase;font-size:11.5px;padding:15px 30px}
 #stage:before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
@@ -172,7 +172,7 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
 /* level badge (bottom right) */
 .level{position:absolute;right:clamp(18px,3.4vw,52px);bottom:clamp(22px,5vh,46px);display:flex;align-items:center;gap:16px;z-index:7;pointer-events:none}
 .lv-txt{font-size:11.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--fg);transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1),filter 1.1s;text-shadow:0 1px 14px rgba(0,0,0,.7)}
-.lv-txt.sw{opacity:0;transform:translateY(10px);filter:blur(5px)}
+.lv-txt.sw{opacity:0;transform:translateY(10px);}
 .lv-ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--acc);color:#15120b;font-size:12px;font-weight:500;letter-spacing:.06em;box-shadow:0 0 0 7px rgba(201,166,107,.18);font-variant-numeric:tabular-nums;transition:transform .9s cubic-bezier(.16,1,.3,1)}
 .lv-ic.sw{transform:scale(.7)}
 .hint{left:min(8vw,120px);transform:none;bottom:26px}
@@ -186,10 +186,10 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
 .level{gap:14px;align-items:flex-end}
 .lv-col{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
 .lv-zone{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:#d8d3c8;transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1),filter 1.1s;text-shadow:0 1px 14px rgba(0,0,0,.7)}
-.lv-zone.sw{opacity:0;transform:translateY(8px);filter:blur(5px)}
+.lv-zone.sw{opacity:0;transform:translateY(8px);}
 .lv-big{font-family:'Cormorant Garamond',var(--serif);font-size:clamp(22px,2.3vw,34px);font-weight:500;letter-spacing:.06em;text-transform:uppercase;line-height:1;color:var(--fg);text-shadow:0 2px 20px rgba(0,0,0,.7);display:inline-block}
 .lv-big.tick{animation:tk .38s cubic-bezier(.16,1,.3,1)}
-@keyframes tk{from{opacity:.0;transform:translateY(.45em);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+@keyframes tk{from{opacity:.0;transform:translateY(.45em);}to{opacity:1;transform:none;filter:none}}
 .lv-ic.tick{animation:tkc .38s cubic-bezier(.16,1,.3,1)}
 @keyframes tkc{from{transform:scale(.82)}to{transform:none}}
 .co{position:absolute;z-index:6;display:flex;align-items:center;gap:12px;opacity:0;pointer-events:none;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--fg);text-shadow:0 1px 14px rgba(0,0,0,.8);white-space:nowrap;transform:translate(0,0)}
@@ -222,7 +222,7 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
 @media(max-width:820px){.logo .ph{font-size:19px}}
 #wm{position:fixed;left:0;top:0;z-index:60;transform-origin:0 0;white-space:nowrap;font-family:Marcellus,'Cormorant Garamond',serif;font-weight:400;line-height:1;letter-spacing:.06em;color:var(--fg);will-change:transform;text-shadow:0 2px 46px rgba(0,0,0,.45);opacity:0;transition:opacity .4s}
 #wm.ready{opacity:1}
-#wm .wl{display:inline-block;opacity:0;transform:translateY(.4em);filter:blur(10px);transition:opacity 1.3s cubic-bezier(.16,1,.3,1),transform 1.4s cubic-bezier(.16,1,.3,1),filter 1.3s;transition-delay:calc(var(--i)*85ms)}
+#wm .wl{display:inline-block;opacity:0;transform:translateY(.4em);transition:opacity 1.3s cubic-bezier(.16,1,.3,1),transform 1.4s cubic-bezier(.16,1,.3,1),filter 1.3s;transition-delay:calc(var(--i)*85ms)}
 #wm.go .wl{opacity:1;transform:none;filter:none}
 #wm .wl.it,#wmg .wl.it{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.06em;line-height:.9}
 .hmeta{position:absolute;left:min(8vw,120px);right:min(8vw,120px);top:63%;display:flex;justify-content:space-between;gap:30px;z-index:5;font-size:12.5px;letter-spacing:.08em;color:#ece6d8;text-shadow:0 1px 14px rgba(0,0,0,.8);pointer-events:none;transition:opacity .2s}
@@ -425,7 +425,7 @@ html.menu-open,.menu-open body{overflow:hidden}
   <div class="stmt-mask"><h2 class="stmt-big" data-fit><span data-en="5 days.">5 Tage.</span></h2></div>
   <div class="stmt-row">
     <p class="stmt-txt" data-en="From engagement to the delivered property report — reviewed and signed by a partner. No public listing.">Von der Beauftragung bis zum gelieferten Objektreport — geprüft und gezeichnet von einem Partner. Ohne öffentliches Inserat.</p>
-    <div class="stmt-img" style="background-image:url(frames/0062.webp)"></div>
+    <div class="stmt-img" style="background-image:url(frames/0077.webp)"></div>
   </div>
 </div></section>
 <section class="s" id="these"><div class="wrap">
@@ -619,7 +619,7 @@ html.menu-open,.menu-open body{overflow:hidden}
   <div class="stmt-mask"><h2 class="stmt-big" data-fit><span data-en="8–12 units">8–12 Einheiten</span></h2></div>
   <div class="stmt-row">
     <p class="stmt-txt" data-en="notarised in the first 100 days. From one region, one segment and one repeatable playbook.">in den ersten 100 Tagen notariell beurkundet. Aus einer Region, einem Segment und einem wiederholbaren Playbook.</p>
-    <div class="stmt-img" style="background-image:url(frames/0212.webp)"></div>
+    <div class="stmt-img" style="background-image:url(frames/0265.webp)"></div>
   </div>
 </div></section>
 <section class="s cta" id="start"><div class="wrap">
@@ -627,7 +627,7 @@ html.menu-open,.menu-open body{overflow:hidden}
   <h2 class="rv" data-en="Start narrow. Supply first. Prove it.">Enger starten. Angebot zuerst. Beweisen.</h2>
   <p class="lead rv" data-en="One pair of regions, one buyer tier, one property profile. Put the property report at the centre of every conversation, make the partners visible — eight to twelve units and a repeatable playbook in 100 days.">Ein Regionenpaar, ein Käufertier, ein Objektprofil. Den Objektreport in den Mittelpunkt jedes Gesprächs stellen, die Partner sichtbar machen — acht bis zwölf Einheiten und ein wiederholbares Playbook in 100 Tagen.</p>
   <a class="pbtn rv" href="#top"><span class="pb-t" data-en="For approval — start Phase 0">Zur Freigabe — Phase 0 starten</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
-  <div class="pic rv" style="background-image:url(frames/0243.webp)"></div>
+  <div class="pic rv" style="background-image:url(frames/0304.webp)"></div>
 </div></section>
 </main>
 
@@ -639,7 +639,7 @@ html.menu-open,.menu-open body{overflow:hidden}
 
 <script>
 (()=>{
-const N=243, cv=document.getElementById('cv'), ctx=cv.getContext('2d');
+const N=304, cv=document.getElementById('cv'), ctx=cv.getContext('2d');
 const film=document.getElementById('film'), caps=[...document.querySelectorAll('.cap')];
 const trackEl=document.querySelector('.track'),levelEl=document.querySelector('.level'),bar=document.getElementById('bar'), hint=document.getElementById('hint');
 const imgs=new Array(N), loaded=new Array(N).fill(false);
@@ -648,20 +648,19 @@ function checkSize(){const w=innerWidth,h=innerHeight;if(!w||!h||(w===vw0&&h===v
 function size(){const d=Math.min(devicePixelRatio||1,1.5);cv.width=Math.round(innerWidth*d);cv.height=Math.round(innerHeight*d);lastKey='';kick()}
 function near(i){for(let k=0;k<N;k++){if(i-k>=0&&loaded[i-k])return i-k;if(i+k<N&&loaded[i+k])return i+k}return -1}
 function blit(im,alpha,p){
-  const cw=cv.width,ch=cv.height,zoom=1.0+0.07*(1-p);
+  const cw=cv.width,ch=cv.height,zoom=1;
   const s=Math.max(cw/im.width,ch/im.height)*zoom,w=im.width*s,h=im.height*s;
   ctx.globalAlpha=alpha;ctx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h);
 }
 let rA=0,rB=0,rAl=0,warmAt=-99,prevI=0;
 function warm(i){if(i===warmAt)return;const dir=i>=prevI?1:-1;prevI=i;warmAt=i;for(let k=-5;k<=18;k++){const j=i+k*dir;if(j>=0&&j<N&&loaded[j]&&imgs[j].decode)imgs[j].decode().catch(()=>{})}}
 function render(){
-  const f=smooth*(N-1),i0=Math.min(N-1,Math.floor(f)),a=f-i0;
-  const key=f.toFixed(3)+'|'+cv.width+'|'+near(i0)+'|'+near(Math.min(N-1,i0+1));if(key===lastKey)return;
-  const A=near(i0),B=near(Math.min(N-1,i0+1));if(A<0)return;lastKey=key;warm(i0);rA=A;rB=B<0?A:B;rAl=a;
+  // one sharp source frame at a time: no blending, no crossfade, no second layer
+  const i0=Math.min(N-1,Math.max(0,Math.round(smooth*(N-1))));
+  const key=i0+'|'+cv.width+'|'+near(i0);if(key===lastKey)return;
+  const A=near(i0);if(A<0)return;lastKey=key;warm(i0);rA=A;rB=A;rAl=0;
   ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='medium';
   ctx.globalAlpha=1;blit(imgs[A],1,smooth);
-  if(B>=0&&B!==A&&a>0.04&&a<0.96)blit(imgs[B],a,smooth);else if(B>=0&&B!==A&&a>=0.96){ctx.globalAlpha=1;blit(imgs[B],1,smooth)}
-  ctx.globalAlpha=1;
 }
 const sm=(x)=>{x=Math.min(1,Math.max(0,x));return x*x*(3-2*x)};
 function readTarget(){
@@ -713,7 +712,7 @@ function tick(t){
   render();ui(r);levelUI(smooth);moveWM(smooth);
   raf=(smooth!==target||vel!==0||par!==parT)?requestAnimationFrame(tick):(lastT=0);
 }
-window.__dbg=()=>({smooth,vel,target});
+window.__dbg=()=>({smooth,vel,target,rA,i:Math.round(smooth*(N-1))});
 function kick(){if(!raf)raf=requestAnimationFrame(tick)}
 function load(i){return new Promise(r=>{const im=new Image();im.decoding='async';im.onload=()=>{imgs[i]=im;loaded[i]=true;r()};im.onerror=r;im.src='frames/'+String(i+1).padStart(4,'0')+'.webp'})}
 async function boot(){
@@ -761,7 +760,7 @@ window.__fit=fit;
    and the mask follows the same video frames, so the occlusion stays glued to the building while it moves. */
 const wmc=document.getElementById('wmc'),wx=wmc.getContext('2d'),root0=document.documentElement,logoPh=document.querySelector('#topbar .logo .ph');
 let par=0,parT=0,introA=0,wmKey='',G=null;
-const NMASK=21,PT=0.075,maskImgs=[],maskOK=[];
+const NMASK=28,PT=0.075,maskImgs=[],maskOK=[];
 for(let i=0;i<NMASK;i++){const m=new Image();m.onload=()=>{maskOK[i]=true;wmKey=''};m.src='masks/m'+String(i).padStart(2,'0')+'.png';maskImgs[i]=m}
 const ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 const WM_FAM='"Bodoni Moda","Playfair Display",Georgia,serif',WM_T='ARVENTAS',WM_TRACK=.14;
@@ -782,7 +781,7 @@ function drawWM(p){
   wmc.style.opacity=op;root0.style.setProperty('--lg',sm((t-.88)/.12).toFixed(3));
   if(op<=0.001||!loaded[0])return;
   const d=Math.min(devicePixelRatio||1,2),vw=innerWidth,vh=innerHeight,cw=Math.round(vw*d),ch=Math.round(vh*d);
-  const zoom=1.0+0.07*(1-p),useMask=vw>=820&&t<.985;
+  const zoom=1,useMask=vw>=820&&t<.985;
   const key=[cw,ch,zoom.toFixed(4),t.toFixed(4),useMask?rA+'/'+rB+'/'+rAl.toFixed(3):'-',maskOK.filter(Boolean).length].join('|');
   if(key===wmKey)return;wmKey=key;
   if(wmc.width!==cw||wmc.height!==ch){wmc.width=cw;wmc.height=ch}
