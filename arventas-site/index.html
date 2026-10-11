@@ -326,7 +326,7 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
   <div class="stmt-mask"><h2 class="stmt-big" data-fit><span data-en="5 days.">5 Tage.</span></h2></div>
   <div class="stmt-row">
     <p class="stmt-txt" data-en="From engagement to the delivered property report — reviewed and signed by a partner. No public listing.">Von der Beauftragung bis zum gelieferten Objektreport — geprüft und gezeichnet von einem Partner. Ohne öffentliches Inserat.</p>
-    <div class="stmt-img" style="background-image:url(frames/0062.webp)"></div>
+    <div class="stmt-img" style="background-image:url(frames/0031.webp)"></div>
   </div>
 </div></section>
 <section class="s" id="these"><div class="wrap">
@@ -520,7 +520,7 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
   <div class="stmt-mask"><h2 class="stmt-big" data-fit><span data-en="8–12 units">8–12 Einheiten</span></h2></div>
   <div class="stmt-row">
     <p class="stmt-txt" data-en="notarised in the first 100 days. From one region, one segment and one repeatable playbook.">in den ersten 100 Tagen notariell beurkundet. Aus einer Region, einem Segment und einem wiederholbaren Playbook.</p>
-    <div class="stmt-img" style="background-image:url(frames/0212.webp)"></div>
+    <div class="stmt-img" style="background-image:url(frames/0106.webp)"></div>
   </div>
 </div></section>
 <section class="s cta" id="start"><div class="wrap">
@@ -539,7 +539,7 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
 
 <script>
 (()=>{
-const N=243, cv=document.getElementById('cv'), ctx=cv.getContext('2d');
+const N=122, cv=document.getElementById('cv'), ctx=cv.getContext('2d');
 const film=document.getElementById('film'), caps=[...document.querySelectorAll('.cap')];
 const nav=document.getElementById('nav'), bar=document.getElementById('bar'), hint=document.getElementById('hint');
 const imgs=new Array(N), loaded=new Array(N).fill(false);
@@ -614,15 +614,15 @@ function kick(){if(!raf)raf=requestAnimationFrame(tick)}
 function load(i){return new Promise(r=>{const im=new Image();im.decoding='async';im.onload=()=>{imgs[i]=im;loaded[i]=true;r()};im.onerror=r;im.src='frames/'+String(i+1).padStart(4,'0')+'.webp'})}
 async function boot(){
   // coarse-to-fine: every 6th frame first (page opens as soon as these are in), then 3rd, then the rest in the background
-  const order=[],seen=new Set(),add=i=>{if(i<N&&!seen.has(i)){seen.add(i);order.push(i)}};
-  for(let i=0;i<N;i+=6)add(i);add(N-1);const coarse=order.length;
-  for(let i=0;i<N;i+=3)add(i);for(let i=0;i<N;i++)add(i);
+  const order=[],seen=new Set(),add=i=>{if(i>=0&&i<N&&!seen.has(i)){seen.add(i);order.push(i)}};
+  add(0);add(N-1);for(let i=0;i<N;i+=12)add(i);const coarse=order.length;      // ~12 frames: the page opens on these
+  for(let i=0;i<N;i+=6)add(i);for(let i=0;i<N;i+=3)add(i);for(let i=0;i<N;i++)add(i);
   const lb=document.getElementById('lb');let started=0,got=0,hidden=false;
   const hide=()=>{if(hidden)return;hidden=true;layoutWM();wm.classList.add('ready');setTimeout(()=>wm.classList.add('go'),250);const l=document.getElementById('loader');if(l){l.style.opacity=0;setTimeout(()=>l.remove(),700)}};
   smooth=target=0;size();readTarget();smooth=target;kick();
   const q=order.slice();
-  const workers=Array.from({length:8},async()=>{while(q.length){await load(q.shift());got++;if(!hidden)lb.style.width=Math.min(100,got/coarse*100)+'%';if(got>=coarse)hide();kick()}});
-  setTimeout(hide,6000);                       // never keep the visitor waiting longer than 6s
+  const workers=Array.from({length:10},async()=>{while(q.length){await load(q.shift());got++;if(!hidden)lb.style.width=Math.min(100,got/coarse*100)+'%';if(got>=coarse)hide();kick()}});
+  setTimeout(hide,3500);                       // never keep the visitor waiting longer than 3.5s
   await Promise.all(workers);hide();kick();
 }
 
