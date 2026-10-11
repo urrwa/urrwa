@@ -258,22 +258,74 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
 .cta .pbtn{margin-bottom:6px}
 @media(max-width:520px){.pbtn{font-size:10.5px;letter-spacing:.1em}.pb-t{padding:12px 14px}.pb-a{width:38px}.navr .pbtn .pb-a svg{width:15px}}
 @media(prefers-reduced-motion:reduce){.pb-t:before,.pb-t,.pb-a svg{transition-duration:.01s}}
+
+/* push menu: top is empty, everything lives in the sidebar */
+:root{--W:min(92vw,clamp(340px,32vw,500px));--cream:#efe9d6;--ink:#16130d;--push:0px}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;justify-content:space-between;align-items:flex-start;padding:22px 34px;pointer-events:none}
+#topbar>*{pointer-events:auto}
+#topbar .logo{position:relative}
+.menubtn{width:54px;height:54px;border-radius:50%;border:0;background:var(--acc);cursor:pointer;display:grid;place-items:center;position:relative;transition:transform .5s cubic-bezier(.65,0,.35,1),box-shadow .4s}
+.menubtn:hover{box-shadow:0 0 0 7px rgba(201,166,107,.22)}
+.menubtn:focus-visible{outline:2px solid var(--acc2);outline-offset:4px}
+.menubtn i{position:absolute;left:50%;top:50%;width:20px;height:1.5px;background:#15120b;margin-left:-10px;transition:transform .6s cubic-bezier(.65,0,.35,1)}
+.menubtn i:first-child{transform:translateY(-4px)}.menubtn i:last-child{transform:translateY(4px)}
+.menu-open .menubtn i:first-child{transform:rotate(45deg)}.menu-open .menubtn i:last-child{transform:rotate(-45deg)}
+.menu-open .menubtn{background:var(--ink)}.menu-open .menubtn i{background:var(--cream)}
+#page{transition:transform .85s cubic-bezier(.76,0,.24,1);transform-origin:left center}
+.menu-open #page{transform:translateX(calc(var(--W) * -1)) }
+#wm,#cut{transition:left .85s cubic-bezier(.76,0,.24,1),opacity .4s}
+.menu-open #wm,.menu-open #cut{left:calc(var(--W) * -1)}
+.menu-open #topbar .logo{opacity:0}
+#topbar .logo{transition:opacity .4s}
+#scrim{position:fixed;inset:0;z-index:68;background:rgba(0,0,0,.0);pointer-events:none;transition:background .85s}
+.menu-open #scrim{background:rgba(0,0,0,.38);pointer-events:auto;cursor:pointer}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:var(--W);z-index:69;background:var(--cream);color:var(--ink);transform:translateX(101%);visibility:hidden;transition:transform .85s cubic-bezier(.76,0,.24,1),visibility 0s .85s;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(84px,11vh,104px) clamp(22px,2.6vw,38px) clamp(22px,4vh,38px);border-radius:22px 0 0 22px;overflow-y:auto}
+.menu-open #drawer{transform:none;visibility:visible;transition:transform .85s cubic-bezier(.76,0,.24,1),visibility 0s}
+#drawer ul{list-style:none}
+#drawer .dr-nav li a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:.14em 12px;margin:0 -12px;font-family:'Cormorant Garamond',var(--serif);font-weight:500;font-size:clamp(30px,2.9vw,44px);line-height:1.1;letter-spacing:-.01em;color:var(--ink);transition:background .35s,padding .45s cubic-bezier(.16,1,.3,1)}
+#drawer .dr-nav li a em{font-family:Inter,sans-serif;font-style:normal;font-size:11px;letter-spacing:.16em;color:rgba(22,19,13,.45);font-weight:400}
+#drawer .dr-nav li a:hover,#drawer .dr-nav li a:focus-visible{background:rgba(201,166,107,.34);padding-left:22px;outline:none}
+#drawer .dr-nav li{opacity:0;transform:translateY(34px);transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1)}
+.menu-open #drawer .dr-nav li{opacity:1;transform:none;transition-delay:calc(.28s + var(--i)*.06s)}
+.dr-foot{margin-top:28px;border-top:1px solid rgba(22,19,13,.16);padding-top:22px;display:flex;flex-direction:column;gap:22px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .7s cubic-bezier(.16,1,.3,1)}
+.menu-open .dr-foot{opacity:1;transform:none;transition-delay:.7s}
+.dr-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.dr-cols h4{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(22,19,13,.5);font-weight:500;margin-bottom:8px}
+.dr-cols p{font-size:12.5px;line-height:1.5;color:var(--ink)}
+#drawer .lang button{color:rgba(22,19,13,.5)}#drawer .lang button[aria-pressed=true]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+#drawer .lang i{background:rgba(22,19,13,.25)}
+#drawer .pbtn{align-self:flex-start;color:var(--ink);background:transparent;border-color:var(--ink)}
+#drawer .pbtn .pb-t:before{background:var(--ink)}
+#drawer .pbtn:hover .pb-t,#drawer .pbtn:focus-visible .pb-t{color:var(--cream)}
+#drawer .pbtn .pb-a{background:var(--ink);color:var(--cream);border-left-color:rgba(239,233,214,.35)}
+html.menu-open,.menu-open body{overflow:hidden}
+@media(max-width:820px){#topbar{padding:16px}.logo small{display:none}.dr-cols{grid-template-columns:repeat(2,minmax(0,1fr))}.menubtn{width:48px;height:48px}}
+@media(prefers-reduced-motion:reduce){#page,#drawer,#wm,#cut{transition-duration:.01s}}
 </style>
 </head>
 <body>
 <div id="loader"><div class="logo">ARVENTAS</div><i><b id="lb"></b></i></div>
 
-<nav id="nav">
+<header id="topbar">
   <a class="logo" href="#top" aria-label="ARVENTAS"><span class="ph">ARVENTAS</span><small data-en="Real-Estate Intelligence">Immobilien-Intelligenz</small></a>
-  <ul>
-    <li><a href="#these" data-en="Thesis">These</a></li><li><a href="#jetzt" data-en="Market window">Marktfenster</a></li><li><a href="#engine" data-en="Engine">Engine</a></li>
-    <li><a href="#zielgruppen" data-en="Audiences">Zielgruppen</a></li><li><a href="#launch" data-en="100 days">100 Tage</a></li><li><a href="#roadmap" data-en="Roadmap">Roadmap</a></li>
-  </ul>
-  <div class="navr"><div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-l="de" aria-pressed="true">DE</button><i></i><button type="button" data-l="en" aria-pressed="false">EN</button></div><a class="pbtn" href="#start"><span class="pb-t" data-en="Next steps">Nächste Schritte</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
-</nav>
+  <button type="button" id="menubtn" class="menubtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><i></i><i></i></button>
+</header>
+<div id="scrim" aria-hidden="true"></div>
+<aside id="drawer" aria-label="Navigation" aria-hidden="true">
+  <div class="dr-nav"><ul><li style="--i:0"><a href="#these" data-go><span data-en="Thesis">These</span><em>01</em></a></li><li style="--i:1"><a href="#jetzt" data-go><span data-en="Market window">Marktfenster</span><em>02</em></a></li><li style="--i:2"><a href="#engine" data-go><span data-en="Engine">Engine</span><em>03</em></a></li><li style="--i:3"><a href="#zielgruppen" data-go><span data-en="Audiences">Zielgruppen</span><em>04</em></a></li><li style="--i:4"><a href="#portfolio" data-go><span data-en="Offer portfolio">Angebotsportfolio</span><em>05</em></a></li><li style="--i:5"><a href="#launch" data-go><span data-en="First 100 days">Erste 100 Tage</span><em>06</em></a></li><li style="--i:6"><a href="#roadmap" data-go><span data-en="Roadmap">Roadmap</span><em>07</em></a></li><li style="--i:7"><a href="#start" data-go><span data-en="Next steps">Nächste Schritte</span><em>08</em></a></li></ul></div>
+  <div class="dr-foot">
+    <div class="dr-cols">
+      <div><h4 data-en="Language">Sprache</h4><div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-l="de" aria-pressed="true">DE</button><i></i><button type="button" data-l="en" aria-pressed="false">EN</button></div></div>
+      <div><h4 data-en="Region">Region</h4><p data-en="Bavaria &amp; Baden-Württemberg">Bayern &amp; Baden-Württemberg</p></div>
+      <div><h4 data-en="Status">Status</h4><p data-en="For approval · August 2026">Zur Freigabe · August 2026</p></div>
+    </div>
+    <a class="pbtn" href="#start" data-go><span class="pb-t" data-en="Next steps">Nächste Schritte</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+</aside>
 
 <a id="wm" href="#top" aria-label="ARVENTAS"></a>
 <canvas id="cut" aria-hidden="true"></canvas>
+<div id="page">
 <div id="top"></div>
 <div id="film">
   <div id="stage">
@@ -536,12 +588,13 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
   <div><div class="logo" style="color:var(--fg);margin-bottom:12px">ARVENTAS</div><p data-en="Prepared by Branded Genius for the ARVENTAS founding partners, August 2026. Status: for approval. Funnel rates, CPL assumptions and capacity figures are planning estimates. Regulatory references require confirmation by ARVENTAS legal counsel before customer-facing use.">Erstellt von Branded Genius für die ARVENTAS Gründungspartner, August 2026. Status: Zur Freigabe. Funnel-Raten, CPL-Annahmen und Kapazitätswerte sind Planungsschätzungen. Regulatorische Verweise bedürfen vor kundenseitiger Verwendung der Bestätigung durch die Rechtsberatung von ARVENTAS.</p></div>
   <div><p data-en="Off-market real-estate intelligence<br>Bavaria &amp; Baden-Württemberg">Off-Market Immobilien-Intelligenz<br>Bayern &amp; Baden-Württemberg</p></div>
 </div></footer>
+</div>
 
 <script>
 (()=>{
 const N=122, cv=document.getElementById('cv'), ctx=cv.getContext('2d');
 const film=document.getElementById('film'), caps=[...document.querySelectorAll('.cap')];
-const nav=document.getElementById('nav'), bar=document.getElementById('bar'), hint=document.getElementById('hint');
+const bar=document.getElementById('bar'), hint=document.getElementById('hint');
 const imgs=new Array(N), loaded=new Array(N).fill(false);
 let target=0, smooth=0, lastKey='', raf=0, lastT=0, vw0=0, vh0=0;
 function checkSize(){const w=innerWidth,h=innerHeight;if(!w||!h||(w===vw0&&h===vh0))return;vw0=w;vh0=h;size();if(window.__fit)__fit();if(window.__lay)__lay()}
@@ -572,7 +625,6 @@ function ui(r){
   caps.forEach(c=>{const a=+c.dataset.in,b=+c.dataset.out;c.classList.toggle('on',p>=a&&p<b)});
   bar.style.width=(p*100)+'%';bar.style.opacity=(r.bottom>innerHeight*.5)?1:0;
   hint.style.opacity=p<.02?1:0;
-  nav.classList.toggle('solid',r.bottom<innerHeight*.9||p>.02);
 }
 
 /* levels: live floor counter */
@@ -694,6 +746,23 @@ function moveWM(p){
   drawCut(p);
   logoSm.style.opacity=Math.max(0,(t-.85)/.15);
 }
+
+/* push menu */
+const root=document.documentElement,mb=document.getElementById('menubtn'),dr=document.getElementById('drawer'),scrim=document.getElementById('scrim');
+function setMenu(open){
+  root.classList.toggle('menu-open',open);document.body.classList.toggle('menu-open',open);
+  mb.setAttribute('aria-expanded',String(open));mb.setAttribute('aria-label',open?(curLang==='en'?'Close menu':'Menü schließen'):(curLang==='en'?'Open menu':'Menü öffnen'));
+  dr.setAttribute('aria-hidden',String(!open));
+  if(open)setTimeout(()=>{const f=dr.querySelector('a');f&&f.focus({preventScroll:true})},900);else mb.focus({preventScroll:true});
+  setTimeout(()=>{layoutWM();checkSize()},900);
+}
+mb.addEventListener('click',()=>setMenu(!root.classList.contains('menu-open')));
+scrim.addEventListener('click',()=>setMenu(false));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&root.classList.contains('menu-open'))setMenu(false)});
+dr.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href');const t=id&&document.querySelector(id);if(!t)return;e.preventDefault();
+  setMenu(false);setTimeout(()=>{t.scrollIntoView({behavior:'smooth',block:'start'})},520);
+}));
 /* language */
 const els=[...document.querySelectorAll('[data-en]')];
 els.forEach(e=>{e.dataset.de=e.innerHTML});
