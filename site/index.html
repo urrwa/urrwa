@@ -6,8 +6,7 @@
   <title>ARVENTAS – Go-to-Market- &amp; Wachstumsstrategie</title>
   <meta name="description" content="Off-Market-Immobilien-Intelligenz für Bayern &amp; Baden-Württemberg: Go-to-Market- und Wachstumsstrategie von ARVENTAS.">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="scene.js" defer></script>
+  <script src="film.js" defer></script>
   <script src="main.js" defer></script>
 </head>
 <body>
@@ -34,35 +33,48 @@
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <canvas id="scene" aria-hidden="true"></canvas>
-      <div class="container">
-        <p class="eyebrow" data-en="Off-market real estate intelligence · Bavaria &amp; Baden-Württemberg">Off-Market Immobilien-Intelligenz · Bayern &amp; Baden-Württemberg</p>
-        <h1 data-en="Go-to-Market &amp; Growth Strategy">Go-to-Market- &amp; Wachstumsstrategie</h1>
-        <p class="hero__lead" data-en="How ARVENTAS turns off-market access, four decades of transaction experience and an AI-assisted analysis engine into a self-reinforcing, two-sided transaction business.">Wie ARVENTAS Off-Market-Zugang, vier Jahrzehnte Transaktionserfahrung und eine KI-gestützte Analyse-Engine in ein sich selbst verstärkendes zweiseitiges Transaktionsgeschäft überführt.</p>
-        <div class="hero__cta">
-          <a class="btn" href="#these" data-en="Read the strategy">Strategie lesen</a>
-          <a class="btn btn--ghost" href="#launch" data-en="Go to the 100-day plan">Zum 100-Tage-Plan</a>
-        </div>
-        <dl class="meta">
-          <div><dt data-en="Prepared by">Erstellt von</dt><dd>Branded Genius</dd></div>
-          <div><dt data-en="Prepared for">Erstellt für</dt><dd data-en="ARVENTAS founding partners">ARVENTAS Gründungspartner</dd></div>
-          <div><dt data-en="Date">Datum</dt><dd data-en="August 2026">August 2026</dd></div>
-          <div><dt data-en="Status">Status</dt><dd data-en="For approval">Zur Freigabe</dd></div>
-        </dl>
-      </div>
-    </section>
+    <!-- FILM -->
+    <div id="loader"><div class="mark">ARVENTAS</div><div class="bar"><i id="loadbar"></i></div></div>
+    <div id="top"></div>
+    <div id="track">
+      <div id="stage">
+        <canvas id="film" aria-hidden="true"></canvas>
+        <div id="vignette"></div>
 
-    <!-- KENNZAHLEN -->
-    <section class="stats" aria-label="Kernkennzahlen">
-      <div class="container grid grid--4">
-        <div class="stat"><strong>8–12</strong><span data-en="Units notarised in the first 100 days">Einheiten notariell beurkundet in den ersten 100 Tagen</span></div>
-        <div class="stat"><strong>3–5</strong><span data-en="Off-market properties secured under mandate">Off-Market-Objekte unter Mandat gesichert</span></div>
-        <div class="stat"><strong>600</strong><span data-en="Qualified investors in the buyer pool">Qualifizierte Investoren im Käuferpool</span></div>
-        <div class="stat"><strong data-en="5 days">5 Tage</strong><span data-en="From order to property report">Von der Beauftragung bis zum Objektreport</span></div>
+        <div class="caption cap-center" data-in="-0.05" data-hold="0.02" data-out="0.07">
+          <h1><span data-en="ARVENTAS">ARVENTAS</span></h1>
+          <p data-en="Off-market real estate intelligence for Bavaria &amp; Baden-Württemberg">Off-Market Immobilien-Intelligenz für Bayern &amp; Baden-Württemberg</p>
+        </div>
+
+        <div class="caption cap-left" data-in="0.09" data-hold="0.14" data-out="0.2">
+          <h2><span data-en="The door no portal shows.">Die Tür, die kein Portal zeigt.</span></h2>
+          <p data-en="Properties that never reach the open market.">Objekte, die nie am offenen Markt erscheinen.</p>
+        </div>
+
+        <div class="caption cap-right" data-in="0.26" data-hold="0.31" data-out="0.38">
+          <h2><span data-en="Every unit.">Jede Einheit.</span> <span class="gold" data-en="Analysed.">Analysiert.</span></h2>
+          <p data-en="Value, potential and yield in five working days.">Wert, Potenzial und Rendite in fünf Arbeitstagen.</p>
+        </div>
+
+        <div class="caption cap-left" data-in="0.45" data-hold="0.5" data-out="0.57">
+          <h2><span data-en="Legally checked.">Rechtlich geprüft.</span></h2>
+          <p data-en="The conversion traffic light shows green, yellow or red.">Die Umwandlungs-Ampel zeigt Grün, Gelb oder Rot.</p>
+        </div>
+
+        <div class="caption cap-right" data-in="0.63" data-hold="0.68" data-out="0.76">
+          <h2><span data-en="The buyer is">Der Käufer</span> <span class="gold" data-en="already waiting.">wartet schon.</span></h2>
+          <p data-en="Qualified investors, matched to the property.">Qualifizierte Investoren, passend gematcht.</p>
+        </div>
+
+        <div class="caption cap-bottom" data-in="0.86" data-hold="0.94" data-out="1.1">
+          <h1><span data-en="ARVENTAS">ARVENTAS</span></h1>
+          <p data-en="From an unlisted property to the buyer it belongs to.">Vom unveröffentlichten Objekt zum passenden Käufer.</p>
+          <a class="cta" href="#these" data-en="Read the strategy">Strategie lesen</a>
+        </div>
+
+        <div id="scroll-cue" data-en="Scroll">Scroll</div>
       </div>
-    </section>
+    </div>
 
     <!-- 01 -->
     <section class="section" id="these">
