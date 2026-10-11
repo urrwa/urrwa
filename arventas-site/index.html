@@ -585,16 +585,18 @@ function tick(t){
 function kick(){if(!raf)raf=requestAnimationFrame(tick)}
 function load(i){return new Promise(r=>{const im=new Image();im.decoding='async';im.onload=()=>{imgs[i]=im;loaded[i]=true;r()};im.onerror=r;im.src='frames/'+String(i+1).padStart(4,'0')+'.webp'})}
 async function boot(){
-  const first=[0,60,120,180,242];await Promise.all(first.map(load));
-  const lb=document.getElementById('lb');let done=0,hidden=false;
-  const rest=[...Array(N).keys()].filter(i=>!first.includes(i));
+  // coarse-to-fine: every 6th frame first (page opens as soon as these are in), then 3rd, then the rest in the background
+  const order=[],seen=new Set(),add=i=>{if(i<N&&!seen.has(i)){seen.add(i);order.push(i)}};
+  for(let i=0;i<N;i+=6)add(i);add(N-1);const coarse=order.length;
+  for(let i=0;i<N;i+=3)add(i);for(let i=0;i<N;i++)add(i);
+  const lb=document.getElementById('lb');let started=0,got=0,hidden=false;
   const hide=()=>{if(hidden)return;hidden=true;layoutWM();wm.classList.add('ready');setTimeout(()=>wm.classList.add('go'),250);const l=document.getElementById('loader');if(l){l.style.opacity=0;setTimeout(()=>l.remove(),700)}};
-  const q=rest.slice();
-  const workers=Array.from({length:6},async()=>{while(q.length){await load(q.shift());done++;lb.style.width=(done/rest.length*100)+'%';kick()}});
   smooth=target=0;size();readTarget();smooth=target;kick();
+  const q=order.slice();
+  const workers=Array.from({length:8},async()=>{while(q.length){await load(q.shift());got++;if(!hidden)lb.style.width=Math.min(100,got/coarse*100)+'%';if(got>=coarse)hide();kick()}});
+  setTimeout(hide,6000);                       // never keep the visitor waiting longer than 6s
   await Promise.all(workers);hide();kick();
 }
-
 
 /* swash italics: some A/E letters in big headings turn italic, like a hand-lettered serif */
 const swEls=[...document.querySelectorAll('.cap h1,.cap h2,section.s h2')];
