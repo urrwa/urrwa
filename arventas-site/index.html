@@ -282,12 +282,12 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
 #drawer{position:fixed;top:0;right:0;bottom:0;width:var(--W);z-index:69;background:var(--cream);color:var(--ink);transform:translateX(101%);visibility:hidden;transition:transform .85s cubic-bezier(.76,0,.24,1),visibility 0s .85s;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(84px,11vh,104px) clamp(22px,2.6vw,38px) clamp(22px,4vh,38px);border-radius:22px 0 0 22px;overflow-y:auto}
 .menu-open #drawer{transform:none;visibility:visible;transition:transform .85s cubic-bezier(.76,0,.24,1),visibility 0s}
 #drawer ul{list-style:none}
-#drawer .dr-nav li a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:.14em 12px;margin:0 -12px;font-family:'Cormorant Garamond',var(--serif);font-weight:500;font-size:clamp(30px,2.9vw,44px);line-height:1.1;letter-spacing:-.01em;color:var(--ink);transition:background .35s,padding .45s cubic-bezier(.16,1,.3,1)}
+#drawer .dr-nav li a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:.14em 12px;margin:0 -12px;font-family:'Cormorant Garamond',var(--serif);font-weight:500;font-size:clamp(28px,2.55vw,40px);line-height:1.08;letter-spacing:-.01em;color:var(--ink);transition:background .35s,padding .45s cubic-bezier(.16,1,.3,1)}
 #drawer .dr-nav li a em{font-family:Inter,sans-serif;font-style:normal;font-size:11px;letter-spacing:.16em;color:rgba(22,19,13,.45);font-weight:400}
 #drawer .dr-nav li a:hover,#drawer .dr-nav li a:focus-visible{background:rgba(201,166,107,.34);padding-left:22px;outline:none}
 #drawer .dr-nav li{opacity:0;transform:translateY(34px);transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1)}
 .menu-open #drawer .dr-nav li{opacity:1;transform:none;transition-delay:calc(.28s + var(--i)*.06s)}
-.dr-foot{margin-top:28px;border-top:1px solid rgba(22,19,13,.16);padding-top:22px;display:flex;flex-direction:column;gap:22px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .7s cubic-bezier(.16,1,.3,1)}
+.dr-foot{margin-top:18px;border-top:1px solid rgba(22,19,13,.16);padding-top:22px;display:flex;flex-direction:column;gap:22px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .7s cubic-bezier(.16,1,.3,1)}
 .menu-open .dr-foot{opacity:1;transform:none;transition-delay:.7s}
 .dr-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .dr-cols h4{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(22,19,13,.5);font-weight:500;margin-bottom:8px}
@@ -301,6 +301,18 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
 html.menu-open,.menu-open body{overflow:hidden}
 @media(max-width:820px){#topbar{padding:16px}.logo small{display:none}.dr-cols{grid-template-columns:repeat(2,minmax(0,1fr))}.menubtn{width:48px;height:48px}}
 @media(prefers-reduced-motion:reduce){#page,#drawer,#wm,#cut{transition-duration:.01s}}
+
+/* language toggle: two flags in a pill with a sliding thumb */
+.lang{display:inline-flex;position:relative;gap:0;padding:5px;border-radius:999px;background:rgba(22,19,13,.07);border:1px solid rgba(22,19,13,.07);font-size:12px;letter-spacing:.08em}
+.lang .lg-thumb{position:absolute;top:5px;bottom:5px;left:5px;width:calc((100% - 10px)/2);border-radius:999px;background:#fff;box-shadow:0 2px 10px rgba(22,19,13,.12);transition:transform .55s cubic-bezier(.65,0,.35,1)}
+.lang[data-v=en] .lg-thumb{transform:translateX(100%)}
+#drawer .lang button,.lang button{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:7px 18px 7px 7px;border-radius:999px;color:rgba(22,19,13,.42);text-decoration:none;font:inherit;letter-spacing:.08em;background:none;border:0;cursor:pointer;transition:color .4s}
+#drawer .lang button[aria-pressed=true]{color:var(--ink);text-decoration:none}
+.lang button .fl{width:26px;height:26px;flex:none;border-radius:50%;filter:grayscale(.55);opacity:.55;transition:filter .4s,opacity .4s}
+.lang button[aria-pressed=true] .fl{filter:none;opacity:1}
+.lang button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.lang .lg-thumb{transition-duration:.01s}}
+.dr-cols{grid-template-columns:repeat(2,minmax(0,1fr))!important}.dr-cols>div:first-child{grid-column:1/-1}
 </style>
 </head>
 <body>
@@ -315,7 +327,7 @@ html.menu-open,.menu-open body{overflow:hidden}
   <div class="dr-nav"><ul><li style="--i:0"><a href="#these" data-go><span data-en="Thesis">These</span><em>01</em></a></li><li style="--i:1"><a href="#jetzt" data-go><span data-en="Market window">Marktfenster</span><em>02</em></a></li><li style="--i:2"><a href="#engine" data-go><span data-en="Engine">Engine</span><em>03</em></a></li><li style="--i:3"><a href="#zielgruppen" data-go><span data-en="Audiences">Zielgruppen</span><em>04</em></a></li><li style="--i:4"><a href="#portfolio" data-go><span data-en="Offer portfolio">Angebotsportfolio</span><em>05</em></a></li><li style="--i:5"><a href="#launch" data-go><span data-en="First 100 days">Erste 100 Tage</span><em>06</em></a></li><li style="--i:6"><a href="#roadmap" data-go><span data-en="Roadmap">Roadmap</span><em>07</em></a></li><li style="--i:7"><a href="#start" data-go><span data-en="Next steps">Nächste Schritte</span><em>08</em></a></li></ul></div>
   <div class="dr-foot">
     <div class="dr-cols">
-      <div><h4 data-en="Language">Sprache</h4><div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-l="de" aria-pressed="true">DE</button><i></i><button type="button" data-l="en" aria-pressed="false">EN</button></div></div>
+      <div><h4 data-en="Language">Sprache</h4><div class="lang" role="group" aria-label="Sprache / Language" data-v="de"><span class="lg-thumb"></span><button type="button" data-l="de" aria-pressed="true"><svg class="fl" viewBox="0 0 24 24" aria-hidden="true"><clipPath id="cfD"><circle cx="12" cy="12" r="12"/></clipPath><g clip-path="url(#cfD)"><rect width="24" height="8" fill="#111"/><rect y="8" width="24" height="8" fill="#d4202f"/><rect y="16" width="24" height="8" fill="#f2c200"/></g></svg><span>DE</span></button><button type="button" data-l="en" aria-pressed="false"><svg class="fl" viewBox="0 0 24 24" aria-hidden="true"><clipPath id="cfE"><circle cx="12" cy="12" r="12"/></clipPath><g clip-path="url(#cfE)"><rect width="24" height="24" fill="#1f3a8a"/><path d="M0 0L24 24M24 0L0 24" stroke="#fff" stroke-width="4.4"/><path d="M0 0L24 24M24 0L0 24" stroke="#d6213b" stroke-width="1.6"/><path d="M12 0V24M0 12H24" stroke="#fff" stroke-width="7"/><path d="M12 0V24M0 12H24" stroke="#d6213b" stroke-width="4"/></g></svg><span>EN</span></button></div></div>
       <div><h4 data-en="Region">Region</h4><p data-en="Bavaria &amp; Baden-Württemberg">Bayern &amp; Baden-Württemberg</p></div>
       <div><h4 data-en="Status">Status</h4><p data-en="For approval · August 2026">Zur Freigabe · August 2026</p></div>
     </div>
@@ -768,7 +780,7 @@ const els=[...document.querySelectorAll('[data-en]')];
 els.forEach(e=>{e.dataset.de=e.innerHTML});
 function setLang(l){
   els.forEach(e=>{e.innerHTML=l==='en'?e.dataset.en:e.dataset.de});
-  document.documentElement.lang=l;curLang=l;if(zIdx>=0){paintZone();paintFloor()}after();
+  document.documentElement.lang=l;curLang=l;document.querySelectorAll('.lang').forEach(x=>x.dataset.v=l);if(zIdx>=0){paintZone();paintFloor()}after();
   document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===l)));
   try{localStorage.setItem('arv-lang',l)}catch(e){}
 }
