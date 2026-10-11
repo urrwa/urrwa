@@ -767,7 +767,7 @@ function layoutWM(){
 window.__lay=()=>layoutWM();
 
 /* the name sits BEHIND the building: frame 0, clipped to the building outline, drawn above the wordmark */
-const POLY=[[352,140],[370,125],[430,98],[490,92],[500,12],[682,10],[700,6],[780,0],[822,24],[848,98],[886,185],[886,330],[333,330],[333,215],[352,215]].map(([x,y])=>[(x+300)/1600,y/830]);
+const POLY=[[352,140],[370,125],[430,98],[490,92],[500,12],[682,10],[700,6],[780,0],[822,24],[848,98],[886,185],[886,830],[333,830],[333,215],[352,215]].map(([x,y])=>[(x+300)/1600,y/830]);
 let cutKey='';
 function drawCut(p){
   if(p>=0.022||!loaded[0]){cut.style.display='none';cutKey='';return}
@@ -777,7 +777,7 @@ function drawCut(p){
   if(cut.width!==cw||cut.height!==ch){cut.width=cw;cut.height=ch}
   const im=imgs[0],zoom=1.0+0.07*(1-p),sc=Math.max(cw/im.width,ch/im.height)*zoom,w=im.width*sc,h=im.height*sc,ox=(cw-w)/2,oy=(ch-h)/2;
   cc.globalCompositeOperation='source-over';cc.clearRect(0,0,cw,ch);cc.save();
-  const navPx=Math.round(84*d);cc.beginPath();cc.rect(0,navPx,cw,ch-navPx);cc.clip();
+  const wr=wm.getBoundingClientRect(),pad=8*d;cc.beginPath();cc.rect(Math.max(0,wr.left*d-pad),Math.max(0,wr.top*d-pad),wr.width*d+2*pad,wr.height*d+2*pad);cc.clip();
   cc.beginPath();POLY.forEach(([u,v],i)=>{const x=ox+u*w,y=oy+v*h;i?cc.lineTo(x,y):cc.moveTo(x,y)});cc.closePath();cc.clip();
   cc.drawImage(im,ox,oy,w,h);
   cc.globalCompositeOperation='source-atop';            // same darkening the stage overlay applies to the video
