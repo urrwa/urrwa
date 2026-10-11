@@ -218,7 +218,7 @@ section.s:nth-of-type(5n) h2{font-family:'Marcellus',serif;font-weight:400}
 @media(prefers-reduced-motion:reduce){.stmt-big{transform:none;transition:none}.stmt-img{opacity:1;transform:none;transition:none}}
 
 /* wordmark: giant at the middle, travels up to become the logo */
-.logo .ph{font-family:Marcellus,'Cormorant Garamond',serif;font-weight:400;font-size:24px;letter-spacing:.06em;line-height:1}
+.logo .ph{font-family:'Bodoni Moda','Playfair Display',serif;font-weight:400;font-size:24px;letter-spacing:.06em;line-height:1}
 @media(max-width:820px){.logo .ph{font-size:19px}}
 #wm{position:fixed;left:0;top:0;z-index:60;transform-origin:0 0;white-space:nowrap;font-family:Marcellus,'Cormorant Garamond',serif;font-weight:400;line-height:1;letter-spacing:.06em;color:var(--fg);will-change:transform;text-shadow:0 2px 46px rgba(0,0,0,.45);opacity:0;transition:opacity .4s}
 #wm.ready{opacity:1}
@@ -652,12 +652,12 @@ function blit(im,alpha,p){
   const s=Math.max(cw/im.width,ch/im.height)*zoom,w=im.width*s,h=im.height*s;
   ctx.globalAlpha=alpha;ctx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h);
 }
-let warmAt=-99,prevI=0;
+let rA=0,rB=0,rAl=0,warmAt=-99,prevI=0;
 function warm(i){if(i===warmAt)return;const dir=i>=prevI?1:-1;prevI=i;warmAt=i;for(let k=-5;k<=18;k++){const j=i+k*dir;if(j>=0&&j<N&&loaded[j]&&imgs[j].decode)imgs[j].decode().catch(()=>{})}}
 function render(){
   const f=smooth*(N-1),i0=Math.min(N-1,Math.floor(f)),a=f-i0;
   const key=f.toFixed(3)+'|'+cv.width+'|'+near(i0)+'|'+near(Math.min(N-1,i0+1));if(key===lastKey)return;
-  const A=near(i0),B=near(Math.min(N-1,i0+1));if(A<0)return;lastKey=key;warm(i0);
+  const A=near(i0),B=near(Math.min(N-1,i0+1));if(A<0)return;lastKey=key;warm(i0);rA=A;rB=B<0?A:B;rAl=a;
   ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='medium';
   ctx.globalAlpha=1;blit(imgs[A],1,smooth);
   if(B>=0&&B!==A&&a>0.04&&a<0.96)blit(imgs[B],a,smooth);else if(B>=0&&B!==A&&a>=0.96){ctx.globalAlpha=1;blit(imgs[B],1,smooth)}
@@ -756,43 +756,49 @@ function parallax(){stmts.forEach(st=>{const r=st.getBoundingClientRect(),m=Math
 function after(){swEls.forEach(swash);fit()}
 window.__fit=fit;
 
-/* hero wordmark: letters are drawn on their own canvas, then the building (mask cut from the footage's first frame)
-   is erased out of them, so the real video shows through. No second copy of the building, no colour seam. */
-const wmc=document.getElementById('wmc'),wx=wmc.getContext('2d'),root0=document.documentElement;
-let par=0,parT=0,introA=0,wmKey='';
-const maskImg=new Image();let maskOK=false;maskImg.onload=()=>{maskOK=true;wmKey='';moveWM(smooth)};maskImg.src='mask0.png';
+/* hero wordmark: letters are drawn on their own canvas and the building (per-frame masks cut from the footage) is
+   erased out of them, so the real video shows through. On scroll the word travels from the hero into the header logo,
+   and the mask follows the same video frames, so the occlusion stays glued to the building while it moves. */
+const wmc=document.getElementById('wmc'),wx=wmc.getContext('2d'),root0=document.documentElement,logoPh=document.querySelector('#topbar .logo .ph');
+let par=0,parT=0,introA=0,wmKey='',G=null;
+const NMASK=21,PT=0.075,maskImgs=[],maskOK=[];
+for(let i=0;i<NMASK;i++){const m=new Image();m.onload=()=>{maskOK[i]=true;wmKey=''};m.src='masks/m'+String(i).padStart(2,'0')+'.png';maskImgs[i]=m}
+const ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const WM_FAM='"Bodoni Moda","Playfair Display",Georgia,serif',WM_T='ARVENTAS',WM_TRACK=.14;
+function layoutWM(){
+  const vw=innerWidth,vh=innerHeight;if(!vw||!vh)return;
+  wx.font='400 100px '+WM_FAM;
+  const w100=[...WM_T].reduce((s,c)=>s+wx.measureText(c).width,0)+WM_TRACK*100*(WM_T.length-1);
+  const gfs=Math.min(vw*(vw<820?.9:.79)/w100*100,vh*.62),gw=w100*gfs/100;
+  const cs=getComputedStyle(logoPh),tfs=parseFloat(cs.fontSize)||24,tls=(parseFloat(cs.letterSpacing)||0)/tfs,r=logoPh.getBoundingClientRect();
+  G={gfs,gx:vw<820?(vw-gw)/2:vw*.47-gw/2,gb:Math.max(vh*.075+gfs*.7,gfs*.8)+(vw<820?vh*.03:0),tfs,tt:tls,lx:r.left,lb:r.top+r.height/2+tfs*.35};
+  wmKey='';drawWM(smooth);
+}
+window.__lay=()=>layoutWM();
 function drawWM(p){
-  const a=(1-sm(p/0.03))*introA;
-  wmc.style.opacity=a;
-  if(a<=0.001||!loaded[0]){return}
+  if(!G){return}
+  const t=ez(Math.min(1,Math.max(0,p/PT)));
+  const op=introA*(1-sm((t-.9)/.1));
+  wmc.style.opacity=op;root0.style.setProperty('--lg',sm((t-.88)/.12).toFixed(3));
+  if(op<=0.001||!loaded[0])return;
   const d=Math.min(devicePixelRatio||1,2),vw=innerWidth,vh=innerHeight,cw=Math.round(vw*d),ch=Math.round(vh*d);
-  const zoom=1.0+0.07*(1-p),key=cw+'x'+ch+'|'+zoom.toFixed(4)+'|'+maskOK;
+  const zoom=1.0+0.07*(1-p),useMask=vw>=820&&t<.985;
+  const key=[cw,ch,zoom.toFixed(4),t.toFixed(4),useMask?rA+'/'+rB+'/'+rAl.toFixed(3):'-',maskOK.filter(Boolean).length].join('|');
   if(key===wmKey)return;wmKey=key;
   if(wmc.width!==cw||wmc.height!==ch){wmc.width=cw;wmc.height=ch}
-  wx.setTransform(1,0,0,1,0,0);wx.globalCompositeOperation='source-over';wx.clearRect(0,0,cw,ch);
-  // thin, high-contrast editorial serif; fit the whole word inside the viewport
-  const T='ARVENTAS',track=.16,fam='"Cormorant Garamond","Cormorant",Georgia,serif';
-  wx.font='300 100px '+fam;
-  const ws=[...T].map(c=>wx.measureText(c).width),w100=ws.reduce((x,y)=>x+y,0)+track*100*(T.length-1);
-  const fs=Math.min(vw*(vw<820?.9:.79)/w100*100,vh*.62)*d,sc0=fs/100;
-  wx.font='300 '+fs+'px '+fam;wx.fillStyle='#f4efe5';wx.textBaseline='alphabetic';
-  const totalW=(w100)*sc0,capH=fs*.63,x0=(vw<820?(cw-totalW)/2:cw*.47-totalW/2),base=Math.max(vh*.075*d+capH,capH*1.15)+ (vw<820?vh*.03*d:0);
-  let x=x0;for(let i=0;i<T.length;i++){wx.fillText(T[i],x,base);x+=ws[i]*sc0+track*fs}
-  // foreground occlusion: same cover-fit and zoom as the video, so the mask sits exactly on the building
-  if(maskOK&&imgs[0]&&vw>=820){   // on phones the building covers most of the word, so it stays fully in front there
-
+  wx.setTransform(1,0,0,1,0,0);wx.globalCompositeOperation='source-over';wx.globalAlpha=1;wx.clearRect(0,0,cw,ch);
+  const L=(x,y)=>x+(y-x)*t,fs=L(G.gfs,G.tfs)*d,track=L(WM_TRACK,G.tt),x0=L(G.gx,G.lx)*d,base=L(G.gb,G.lb)*d;
+  wx.font='400 '+fs+'px '+WM_FAM;wx.fillStyle='#f4efe5';wx.textBaseline='alphabetic';
+  let x=x0;for(const c of WM_T){wx.fillText(c,x,base);x+=wx.measureText(c).width+track*fs}
+  if(useMask&&imgs[0]){
     const im=imgs[0],sc=Math.max(cw/im.width,ch/im.height)*zoom,ox=(cw-im.width*sc)/2,oy=(ch-im.height*sc)/2;
     wx.globalCompositeOperation='destination-out';wx.imageSmoothingEnabled=true;wx.imageSmoothingQuality='high';
-    wx.drawImage(maskImg,ox,oy,im.width*sc,maskImg.height*(im.width/maskImg.width)*sc);
-    wx.globalCompositeOperation='source-over';
+    const put=(i,al)=>{if(i<NMASK&&maskOK[i]&&al>.002){wx.globalAlpha=al;wx.drawImage(maskImgs[i],ox,oy,im.width*sc,maskImgs[i].height*(im.width/maskImgs[i].width)*sc)}};
+    if(rA===rB)put(rA,1);else{put(rA,1-rAl);put(rB,rAl)}
+    wx.globalAlpha=1;wx.globalCompositeOperation='source-over';
   }
 }
-function layoutWM(){wmKey='';drawWM(smooth)}
-window.__lay=()=>layoutWM();
-function moveWM(p){
-  drawWM(p);
-  root0.style.setProperty('--lg',sm((p-.02)/.03).toFixed(3));
-}
+function moveWM(p){drawWM(p)}
 function startIntro(){const t0=performance.now();(function f(t){introA=Math.min(1,(t-t0)/1500);introA=1-Math.pow(1-introA,3);wmKey='';moveWM(smooth);if((t-t0)<1500)requestAnimationFrame(f)})(t0)}
 
 /* push menu */
