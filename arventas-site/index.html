@@ -316,8 +316,8 @@ html.menu-open,.menu-open body{overflow:hidden}
 
 /* wordmark animation: light sweeps across the letters; ghost shows the name through the building; depth parallax */
 #wm,#wmg{text-shadow:none}
-#wm{filter:drop-shadow(0 2px 26px rgba(0,0,0,.4))}
-#wm .wl{background:linear-gradient(105deg,#e7e0cf 0%,#e7e0cf 36%,#fff 50%,#e7e0cf 64%,#e7e0cf 100%);background-size:320% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 6s linear infinite;animation-delay:calc(var(--i)*.22s)}
+#wm{filter:none}
+#wm .wl.x{background:linear-gradient(105deg,#e7e0cf 0%,#e7e0cf 36%,#fff 50%,#e7e0cf 64%,#e7e0cf 100%);background-size:320% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 6s linear infinite;animation-delay:calc(var(--i)*.22s)}
 @keyframes shine{from{background-position:130% 0}to{background-position:-130% 0}}
 #wm.docked{filter:none}#wm.docked .wl{animation:none;background:none;-webkit-text-fill-color:currentColor;color:var(--fg)}
 #wmg{position:fixed;left:0;top:0;z-index:62;pointer-events:none;transform-origin:0 0;white-space:nowrap;font-family:Marcellus,'Cormorant Garamond',serif;line-height:1;letter-spacing:.06em;color:#fff;mix-blend-mode:soft-light;display:none;will-change:transform}
@@ -790,11 +790,11 @@ const ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 function moveWM(p){
   if(!G.s1)return;
   const t=ez(Math.min(1,Math.max(0,p/0.1)));
-  const tx=G.x0+(G.x1-G.x0)*t+par*18*(1-t),ty=G.y0+(G.y1-G.y0)*t,sc=1+(G.s1-1)*t;
+  const tx=G.x0+(G.x1-G.x0)*t,ty=G.y0+(G.y1-G.y0)*t,sc=1+(G.s1-1)*t;
   const tr='translate3d('+tx+'px,'+ty+'px,0) scale('+sc+')';
   wm.style.transform=tr;wmg.style.transform=tr;
   wm.classList.toggle('docked',t>=1);
-  const ga=p<0.03?Math.max(0,1-p/0.022):0;wmg.style.opacity=ga*.9;wmg.style.display=ga>0?'block':'none';
+  const ga=p<0.03?Math.max(0,1-p/0.022):0;wmg.style.opacity=ga*.16;wmg.style.display=ga>0?'block':'none';
   drawCut(p);
   logoSm.style.opacity=Math.max(0,(t-.85)/.15);
 }
@@ -827,7 +827,6 @@ function setLang(l){
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
 let saved='de';try{saved=localStorage.getItem('arv-lang')||(/^en/i.test(navigator.language)?'en':'de')}catch(e){}
 if(saved==='en')setLang('en');
-addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;parT=(e.clientX/innerWidth-.5)*2;if(smooth<.05)kick()},{passive:true});
 let pq=0;addEventListener('scroll',()=>{kick();if(!pq){pq=1;requestAnimationFrame(()=>{pq=0;parallax()})}},{passive:true});
 addEventListener('resize',()=>{checkSize();kick()});
 if(window.ResizeObserver)new ResizeObserver(()=>{checkSize();kick()}).observe(document.documentElement);
