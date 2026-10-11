@@ -1,0 +1,2 @@
+# Local secrets for the scroll-site-generator skill
+.claude/skills/scroll-site-generator/.env
