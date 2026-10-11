@@ -1,5 +1,5 @@
 /* ARVENTAS homepage engine.
-   One pinned stage; scroll position drives video time. All chapter timing
+   One pinned stage; scroll position drives a frame sequence drawn on a canvas. All chapter timing
    lives in CHAPTERS below (video seconds + scroll length in viewport heights). */
 (() => {
   'use strict';
@@ -24,10 +24,11 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 
-  const track = $('#track'), stage = $('#stage'), video = $('#film');
+  const track = $('#track'), stage = $('#stage'), canvas = $('#film'), ctx = canvas.getContext('2d');
   const fallback = $('#fallback'), note = $('#video-note');
   const chapterEls = CHAPTERS.map((c) => $('#' + c.id));
   const railBtns = $$('.rail [data-goto]');
+  const headerEl = $('.header'), pillars = $('.pillars'), footerEl = $('.footer');
   const rail = $('.rail');
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const smooth = (v) => v * v * (3 - 2 * v);
@@ -53,27 +54,76 @@
     return { i, p: clamp((y - starts[i]) / spans[i]) };
   }
 
-  /* ── video scrubbing ───────────────────────────────────── */
-  let target = 0, cur = 0, raf = 0, lastT = 0, videoOK = true;
+  /* ── frame-sequence scrubbing (canvas) ─────────────────── */
+  // Frames are fetched as blobs; only a window around the playhead stays decoded.
+  const KEEP = 90, AHEAD = 24;
+  const fr = { count: 0, pattern: '', blobs: [], bitmaps: new Map(), decoding: new Set(), shown: -1, dir: 1, ready: false };
+  let target = 0, cur = 0, raf = 0, lastT = 0, videoOK = true, fx = 0.5;
 
-  function seek(t) {
-    if (!videoOK || video.readyState < 1) return;
-    if (video.seeking) return;               // never stack seeks; 'seeked' re-runs us
-    if (Math.abs(video.currentTime - t) < 1 / 60) return;
-    try { video.currentTime = t; } catch (e) { /* ignore */ }
+  const frameURL = (i) => fr.pattern.replace('%04d', String(i + 1).padStart(4, '0'));
+  async function fetchBlob(i) {
+    if (fr.blobs[i]) return fr.blobs[i];
+    const res = await fetch(frameURL(i));
+    if (!res.ok) throw new Error('frame ' + i);
+    return (fr.blobs[i] = await res.blob());
   }
-  video.addEventListener('seeked', () => seek(cur));
+  async function decode(i) {
+    if (fr.bitmaps.has(i) || fr.decoding.has(i)) return;
+    fr.decoding.add(i);
+    try {
+      if (!fr.blobs[i]) await fetchBlob(i);
+      fr.bitmaps.set(i, await createImageBitmap(fr.blobs[i]));
+    } catch (e) { /* retried on the next tick */ }
+    fr.decoding.delete(i);
+  }
+  function manageWindow(c) {
+    for (let d = 0; d <= AHEAD; d++) {
+      const f = c + d * fr.dir, bk = c - Math.min(d, 6) * fr.dir;
+      if (f >= 0 && f < fr.count) decode(f);
+      if (bk >= 0 && bk < fr.count) decode(bk);
+    }
+    if (fr.bitmaps.size > KEEP * 2) {
+      for (const [k, bmp] of fr.bitmaps) if (Math.abs(k - c) > KEEP) { bmp.close(); fr.bitmaps.delete(k); }
+    }
+  }
+  function nearest(i) {
+    if (fr.bitmaps.has(i)) return i;
+    for (let d = 1; d < fr.count; d++) {
+      if (fr.bitmaps.has(i - d)) return i - d;
+      if (fr.bitmaps.has(i + d)) return i + d;
+    }
+    return -1;
+  }
+  function sizeCanvas() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(canvas.clientWidth * dpr);
+    canvas.height = Math.round(canvas.clientHeight * dpr);
+    fr.shown = -1;
+  }
+  function draw(i) {
+    const j = nearest(i);
+    if (j < 0) return;
+    const bmp = fr.bitmaps.get(j), cw = canvas.width, ch = canvas.height;
+    // cover-fit; fx slides the crop sideways on narrow screens (like object-position)
+    const k = Math.max(cw / bmp.width, ch / bmp.height);
+    const w = bmp.width * k, h = bmp.height * k;
+    ctx.drawImage(bmp, (cw - w) * fx, (ch - h) / 2, w, h);
+    fr.shown = j;
+    if (!stage.classList.contains('is-ready')) stage.classList.add('is-ready');
+  }
+  const frameAt = (t) => Math.round(clamp(t / duration) * (fr.count - 1));
 
   function loop(now) {
     raf = 0;
     const dt = Math.min((now - lastT) / 1000, 0.1) || 0.016;
     lastT = now;
     cur += (target - cur) * (1 - Math.exp(-dt * SMOOTHING));
-    if (Math.abs(target - cur) < 0.005) cur = target;
-    seek(cur);
+    if (Math.abs(target - cur) < 0.004) cur = target;
+    const i = frameAt(cur);
+    if (i !== fr.shown) { fr.dir = i >= fr.shown ? 1 : -1; manageWindow(i); draw(i); }
     if (cur !== target) raf = requestAnimationFrame(loop);
   }
-  function kick() { if (!raf) { lastT = performance.now(); raf = requestAnimationFrame(loop); } }
+  function kick() { if (!raf && fr.ready) { lastT = performance.now(); raf = requestAnimationFrame(loop); } }
 
   /* ── per-frame UI (chapters, rail, focus) ──────────────── */
   let ticking = false, activeIdx = -1, shownFallback = -1;
@@ -114,11 +164,10 @@
     railBtns.forEach((b, k) => {
       if (k === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
     });
-    rail.classList.toggle('is-hidden', y >= total + 4 && track.getBoundingClientRect().bottom < innerHeight * 0.6);
 
     // narrow screens: slide object-position between chapter focus points
     const next = CHAPTERS[Math.min(i + 1, CHAPTERS.length - 1)];
-    const fx = c.fx + (next.fx - c.fx) * smooth(clamp((p - 0.7) / 0.3));
+    fx = c.fx + (next.fx - c.fx) * smooth(clamp((p - 0.7) / 0.3));
     stage.style.setProperty('--fx', (fx * 100).toFixed(1) + '%');
 
     // fallback still when the film is unavailable
@@ -127,7 +176,14 @@
       fallback.src = `img/still-${i + 1}.jpg`;
     }
   }
-  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  // the header and chapter rail are light-on-dark; switch to dark-on-light over the ivory section
+  function themeHeader() {
+    const hh = headerEl.offsetHeight;
+    const over = pillars.getBoundingClientRect().top < hh * 0.6 && footerEl.getBoundingClientRect().top > hh * 0.6;
+    headerEl.classList.toggle('on-light', over && !nav.classList.contains('is-open'));
+    rail.classList.toggle('is-hidden', pillars.getBoundingClientRect().top < innerHeight * 0.55);
+  }
+  function onScroll() { themeHeader(); if (!ticking) { ticking = true; requestAnimationFrame(update); } }
 
   /* ── navigation to chapters ────────────────────────────── */
   function goTo(n, opts = {}) {
@@ -151,12 +207,14 @@
     nav.classList.remove('is-open');
     menuBtn.setAttribute('aria-expanded', 'false');
     document.documentElement.style.overflow = '';
+    themeHeader();
   }
   menuBtn.addEventListener('click', () => {
     const open = !nav.classList.contains('is-open');
     nav.classList.toggle('is-open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
     document.documentElement.style.overflow = open ? 'hidden' : '';
+    themeHeader();
     if (open) $('a', nav).focus();
   });
   document.addEventListener('keydown', (e) => {
@@ -164,7 +222,7 @@
   });
   matchMedia('(min-width: 861px)').addEventListener('change', closeMenu);
 
-  /* ── video lifecycle ───────────────────────────────────── */
+  /* ── frame loading ─────────────────────────────────────── */
   function videoFailed() {
     videoOK = false;
     stage.classList.add('no-video');
@@ -172,18 +230,26 @@
     shownFallback = -1;
     update();
   }
-  video.addEventListener('error', videoFailed);
-  const source = $('source', video);
-  if (source) source.addEventListener('error', videoFailed);
-  video.addEventListener('loadedmetadata', () => {
-    if (isFinite(video.duration) && video.duration > 1) duration = video.duration;
-    video.pause();
-    update();
-  });
-  // the error event can fire before this script runs, so also inspect the state
-  const failedNow = () => video.error || video.networkState === 3;
-  if (failedNow()) videoFailed();
-  setTimeout(() => { if (!reduce.matches && videoOK && (failedNow() || video.readyState < 1)) videoFailed(); }, 12000);
+  async function loadFrames() {
+    if (reduce.matches) return;
+    try {
+      const res = await fetch('frames/frames.json');
+      if (!res.ok) throw new Error('manifest');
+      const m = await res.json();
+      fr.count = m.count; fr.pattern = m.pattern; fr.blobs = new Array(m.count).fill(null);
+      sizeCanvas();
+      // gate on the opening frames, then fetch the rest in the background
+      const eager = Math.min(Math.ceil(m.count * 0.12), 24);
+      await Promise.all(Array.from({ length: eager }, (_, i) => fetchBlob(i)));
+      await decode(0);
+      fr.ready = true;
+      update(); cur = target; draw(frameAt(cur)); kick();
+      let next = eager;
+      await Promise.all(Array.from({ length: 4 }, async () => {
+        while (next < m.count) { const i = next++; try { await fetchBlob(i); } catch (e) { /* fetched on demand */ } }
+      }));
+    } catch (e) { if (!fr.ready) videoFailed(); }
+  }
 
   /* ── inquiry panel ─────────────────────────────────────── */
   const dlg = $('#inquiry'), form = $('#inq-form'), status = $('#inq-status');
@@ -290,9 +356,9 @@
   });
 
   /* ── boot ──────────────────────────────────────────────── */
-  function boot() { measure(); update(); }
+  function boot() { measure(); themeHeader(); update(); }
   addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', () => { measure(); onScroll(); });
+  addEventListener('resize', () => { measure(); sizeCanvas(); onScroll(); });
   reduce.addEventListener('change', () => {
     if (reduce.matches) {
       chapterEls.forEach((el) => { el.inert = false; el.removeAttribute('aria-hidden'); el.style.opacity = ''; el.firstElementChild.style.transform = ''; });
@@ -302,6 +368,7 @@
   if (reduce.matches) chapterEls.forEach((el) => { el.inert = false; });
   else chapterEls.forEach((el, k) => { if (k) el.inert = true; });
   boot();
+  loadFrames();
   // honour #hash on load (works once layout is measured)
   const h = location.hash.match(/^#(eigentuemer|objektreport|investoren|begleitung|kontakt)$/);
   if (h) goTo({ eigentuemer: 2, objektreport: 3, investoren: 4, begleitung: 5, kontakt: 6 }[h[1]], { instant: true });

@@ -1,12 +1,12 @@
 # ARVENTAS Homepage
 
-Static homepage (no build step). One pinned, full-screen video stage; scroll position drives video time.
+Static homepage (no build step), built with the scroll-site-generator frame-sequence technique: one pinned, full-screen canvas; scroll position drives which frame is drawn.
 
 ```
 index.html   markup: header, chapter rail, six chapters, footer, inquiry dialog
 home.css     design tokens + layout (desktop, mobile, reduced motion)
 home.js      scroll timeline, video scrubbing, chapter nav, inquiry form
-video/arventas-scrub.mp4   web copy: 1280x732, no audio, keyframe every 2 frames, faststart (11.6 MB)
+frames/frame_0001..0182.webp + frames.json   the film as 18 fps WebP frames, 1280 px wide (13 MB)
 video/source/arventas-source.mp4   supplied original, untouched
 img/still-1..6.jpg   one still per chapter (poster, load-failure fallback, reduced motion)
 ```
@@ -26,14 +26,16 @@ All timing is in `CHAPTERS` at the top of `home.js`: video start/end in seconds,
 | 05 Begleitung | 6.1 – 7.6 | 100vh |
 | 06 Kontakt | 7.6 – end | 150vh |
 
-## Video encoding
+## Frame extraction
 
-The supplied MP4 has a keyframe roughly every 0.7 to 1 s, which makes backwards scrubbing slow. The web copy was re-encoded; the source is kept as is:
+The supplied MP4 has sparse keyframes, which makes `video.currentTime` scrubbing slow, so the page draws pre-extracted frames instead. The source is kept as is:
 
 ```
-ffmpeg -i source.mp4 -an -vf scale=1280:-2 -c:v libx264 -preset slow -crf 25 \
-  -g 2 -keyint_min 2 -sc_threshold 0 -pix_fmt yuv420p -movflags +faststart arventas-scrub.mp4
+ffmpeg -i video/source/arventas-source.mp4 -vf "fps=18,scale=1280:-2" frames/f_%04d.png
+# convert each PNG to frames/frame_%04d.webp (quality 74) and write frames/frames.json {"count":182,"pattern":"frames/frame_%04d.webp"}
 ```
+
+The engine fetches the first frames, decodes only a window around the current frame, and fetches the rest in the background. If frames fail to load, still images per chapter are shown instead.
 
 ## Missing items / open integrations
 

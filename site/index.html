@@ -42,9 +42,7 @@
   <main id="top">
     <div id="track">
       <div id="stage">
-        <video id="film" muted playsinline preload="auto" tabindex="-1" aria-hidden="true" poster="img/still-1.jpg">
-          <source src="video/arventas-scrub.mp4" type="video/mp4">
-        </video>
+        <canvas id="film" aria-hidden="true"></canvas>
         <img id="fallback" alt="" aria-hidden="true" src="img/still-1.jpg">
 
         <section class="chapter" id="ch1" data-pos="left-mid" aria-labelledby="t1">
@@ -123,6 +121,19 @@
         <p class="note-fallback" id="video-note" hidden>Der Film konnte nicht geladen werden. Die Inhalte bleiben vollständig nutzbar.</p>
       </div>
     </div>
+
+    <section class="pillars" id="saeulen" aria-labelledby="pillars-t">
+      <div class="pillars__inner">
+        <p class="pillars__eyebrow">Zugang · Analyse · Abwicklung</p>
+        <h2 id="pillars-t">Drei Säulen. Ein persönlicher Ansprechpartner.</h2>
+        <ol class="pillars__list">
+          <li><h3>Zugang</h3><p>Off-Market-Immobilien in Bayern und Baden-Württemberg, die nicht auf den Portalen erscheinen.</p></li>
+          <li><h3>Analyse</h3><p>Bewertung, Entwicklungspotenzial und nachvollziehbare Szenarien im ARVENTAS Objektreport.</p></li>
+          <li><h3>Abwicklung</h3><p>Begleitung von der ersten Einschätzung bis zum Abschluss Ihrer Transaktion.</p></li>
+        </ol>
+        <button class="btn btn--navy" type="button" data-open-inquiry>Gespräch vereinbaren</button>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
