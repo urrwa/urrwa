@@ -344,6 +344,13 @@ html.menu-open,.menu-open body{overflow:hidden}
   .hero-cap h2{font-size:clamp(34px,10vw,52px)}
   .chips{display:none}
 }
+
+/* motion quality: text is scrubbed with the scroll (set in JS), no blur anywhere */
+.cap{transition:none!important;opacity:0;will-change:opacity,transform}
+.rv{filter:none!important;transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1.1s cubic-bezier(.22,1,.36,1)!important}
+#wm .wl{filter:none!important}
+@keyframes tk{from{opacity:0;transform:translateY(.4em)}to{opacity:1;transform:none}}
+.lv-zone.sw{filter:none!important}
 </style>
 </head>
 <body>
@@ -428,7 +435,7 @@ html.menu-open,.menu-open body{overflow:hidden}
   <div class="stmt-mask"><h2 class="stmt-big" data-fit><span data-en="5 days.">5 Tage.</span></h2></div>
   <div class="stmt-row">
     <p class="stmt-txt" data-en="From engagement to the delivered property report — reviewed and signed by a partner. No public listing.">Von der Beauftragung bis zum gelieferten Objektreport — geprüft und gezeichnet von einem Partner. Ohne öffentliches Inserat.</p>
-    <div class="stmt-img" style="background-image:url(frames/0031.webp)"></div>
+    <div class="stmt-img" style="background-image:url(frames/0062.webp)"></div>
   </div>
 </div></section>
 <section class="s" id="these"><div class="wrap">
@@ -622,7 +629,7 @@ html.menu-open,.menu-open body{overflow:hidden}
   <div class="stmt-mask"><h2 class="stmt-big" data-fit><span data-en="8–12 units">8–12 Einheiten</span></h2></div>
   <div class="stmt-row">
     <p class="stmt-txt" data-en="notarised in the first 100 days. From one region, one segment and one repeatable playbook.">in den ersten 100 Tagen notariell beurkundet. Aus einer Region, einem Segment und einem wiederholbaren Playbook.</p>
-    <div class="stmt-img" style="background-image:url(frames/0106.webp)"></div>
+    <div class="stmt-img" style="background-image:url(frames/0212.webp)"></div>
   </div>
 </div></section>
 <section class="s cta" id="start"><div class="wrap">
@@ -642,11 +649,11 @@ html.menu-open,.menu-open body{overflow:hidden}
 
 <script>
 (()=>{
-const N=122, cv=document.getElementById('cv'), ctx=cv.getContext('2d');
+const N=243, cv=document.getElementById('cv'), ctx=cv.getContext('2d');
 const film=document.getElementById('film'), caps=[...document.querySelectorAll('.cap')];
 const trackEl=document.querySelector('.track'),levelEl=document.querySelector('.level'),bar=document.getElementById('bar'), hint=document.getElementById('hint');
 const imgs=new Array(N), loaded=new Array(N).fill(false);
-let target=0, smooth=0, lastKey='', raf=0, lastT=0, vw0=0, vh0=0;
+let target=0, smooth=0, vel=0, lastKey='', raf=0, lastT=0, vw0=0, vh0=0;
 function checkSize(){const w=innerWidth,h=innerHeight;if(!w||!h||(w===vw0&&h===vh0))return;vw0=w;vh0=h;size();if(window.__fit)__fit();if(window.__lay)__lay()}
 function size(){const d=Math.min(devicePixelRatio||1,1.5);cv.width=Math.round(innerWidth*d);cv.height=Math.round(innerHeight*d);lastKey='';kick()}
 function near(i){for(let k=0;k<N;k++){if(i-k>=0&&loaded[i-k])return i-k;if(i+k<N&&loaded[i+k])return i+k}return -1}
@@ -655,8 +662,8 @@ function blit(im,alpha,p){
   const s=Math.max(cw/im.width,ch/im.height)*zoom,w=im.width*s,h=im.height*s;
   ctx.globalAlpha=alpha;ctx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h);
 }
-let warmAt=-99;
-function warm(i){if(Math.abs(i-warmAt)<3)return;warmAt=i;for(let k=-10;k<=12;k++){const j=i+k;if(j>=0&&j<N&&loaded[j]&&imgs[j].decode)imgs[j].decode().catch(()=>{})}}
+let warmAt=-99,prevI=0;
+function warm(i){if(i===warmAt)return;const dir=i>=prevI?1:-1;prevI=i;warmAt=i;for(let k=-5;k<=18;k++){const j=i+k*dir;if(j>=0&&j<N&&loaded[j]&&imgs[j].decode)imgs[j].decode().catch(()=>{})}}
 function render(){
   const f=smooth*(N-1),i0=Math.min(N-1,Math.floor(f)),a=f-i0;
   const key=f.toFixed(3)+'|'+cv.width+'|'+near(i0)+'|'+near(Math.min(N-1,i0+1));if(key===lastKey)return;
@@ -666,13 +673,14 @@ function render(){
   if(B>=0&&B!==A&&a>0.04&&a<0.96)blit(imgs[B],a,smooth);else if(B>=0&&B!==A&&a>=0.96){ctx.globalAlpha=1;blit(imgs[B],1,smooth)}
   ctx.globalAlpha=1;
 }
+const sm=(x)=>{x=Math.min(1,Math.max(0,x));return x*x*(3-2*x)};
 function readTarget(){
   const r=film.getBoundingClientRect(),total=film.offsetHeight-innerHeight;
   const t=total>1?-r.top/total:0;target=isFinite(t)?Math.min(1,Math.max(0,t)):0;return r;
 }
 function ui(r){
   const p=smooth;
-  caps.forEach(c=>{const a=+c.dataset.in,b=+c.dataset.out;c.classList.toggle('on',p>=a&&p<b)});
+  caps.forEach(c=>{const a=+c.dataset.in,b=+c.dataset.out,o=sm((p-a)/.03)*sm((b-p)/.03);c.style.opacity=o;c.style.transform='translate3d(0,'+((1-o)*26)+'px,0)';c.classList.toggle('on',o>.02)});
   const hv=Math.min(1,Math.max(0,(p-.05)/.03));trackEl.style.opacity=hv;levelEl.style.opacity=hv;
   bar.style.width=(p*100)+'%';bar.style.opacity=(r.bottom>innerHeight*.5)?1:0;
   hint.style.opacity=p<.02?1:0;
@@ -692,7 +700,7 @@ function floorName(n){
 }
 function paintFloor(){fEl.textContent=floorName(flN);icEl.textContent=flN>=TOP?'R':String(flN).padStart(2,'0')}
 function paintZone(){zEl.textContent=ZONE[curLang][zIdx]}
-const sm=(x)=>{x=Math.min(1,Math.max(0,x));return x*x*(3-2*x)};
+
 function levelUI(p){
   const F=p<=F0?0:p>=F1?TOP:(p-F0)/(F1-F0)*TOP;     // continuous floor value
   const pct=F/TOP*100;tkDot.style.bottom=pct+'%';tkFill.style.height=pct+'%';
@@ -709,18 +717,21 @@ function tick(t){
   const r=readTarget();
   const dt=Math.min(64,Math.max(1,t-(lastT||t-16)));lastT=t;
   par+=(parT-par)*(1-Math.exp(-dt/260));if(Math.abs(parT-par)<.002)par=parT;
-  smooth+=(target-smooth)*(1-Math.exp(-dt/170));     // frame-rate independent glide (time constant 170ms)
-  if(Math.abs(target-smooth)<0.00002)smooth=target;
+  // critically damped spring: velocity changes smoothly, no sudden speed changes, no overshoot, same both directions
+  const ds=dt/1000,om=2/0.18,x=om*ds,ex=1/(1+x+.48*x*x+.235*x*x*x),ch=smooth-target,tmp=(vel+om*ch)*ds;
+  vel=(vel-om*tmp)*ex;smooth=target+(ch+tmp)*ex;
+  if(Math.abs(target-smooth)<0.00001&&Math.abs(vel)<0.0001){smooth=target;vel=0}
   render();ui(r);levelUI(smooth);moveWM(smooth);
-  raf=(smooth!==target||par!==parT)?requestAnimationFrame(tick):(lastT=0);
+  raf=(smooth!==target||vel!==0||par!==parT)?requestAnimationFrame(tick):(lastT=0);
 }
+window.__dbg=()=>({smooth,vel,target});
 function kick(){if(!raf)raf=requestAnimationFrame(tick)}
 function load(i){return new Promise(r=>{const im=new Image();im.decoding='async';im.onload=()=>{imgs[i]=im;loaded[i]=true;r()};im.onerror=r;im.src='frames/'+String(i+1).padStart(4,'0')+'.webp'})}
 async function boot(){
   // coarse-to-fine: every 6th frame first (page opens as soon as these are in), then 3rd, then the rest in the background
   const order=[],seen=new Set(),add=i=>{if(i>=0&&i<N&&!seen.has(i)){seen.add(i);order.push(i)}};
-  add(0);add(N-1);for(let i=0;i<N;i+=12)add(i);const coarse=order.length;      // ~12 frames: the page opens on these
-  for(let i=0;i<N;i+=6)add(i);for(let i=0;i<N;i+=3)add(i);for(let i=0;i<N;i++)add(i);
+  add(0);add(N-1);for(let i=0;i<N;i+=24)add(i);const coarse=order.length;      // ~12 frames: the page opens on these
+  for(let i=0;i<N;i+=12)add(i);for(let i=0;i<N;i+=6)add(i);for(let i=0;i<N;i+=3)add(i);for(let i=0;i<N;i++)add(i);
   const lb=document.getElementById('lb');let started=0,got=0,hidden=false;
   const hide=()=>{if(hidden)return;hidden=true;layoutWM();wm.classList.add('ready');setTimeout(()=>wm.classList.add('go'),250);const l=document.getElementById('loader');if(l){l.style.opacity=0;setTimeout(()=>l.remove(),700)}};
   smooth=target=0;size();readTarget();smooth=target;kick();
