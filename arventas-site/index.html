@@ -325,25 +325,6 @@ html.menu-open,.menu-open body{overflow:hidden}
 .menu-open #wmg{display:none!important}
 @media(prefers-reduced-motion:reduce){#wm .wl{animation:none}}
 
-/* DISCOVER-style hero: split headline across the two lower corners, proof chips on the right */
-.cap.hero-cap{top:0;bottom:0;left:0;right:0;padding:0;display:block;transform:none;max-width:none}
-.hero-cap .h-left,.hero-cap .h-right{position:absolute;bottom:clamp(36px,8vh,76px);display:flex;flex-direction:column}
-.hero-cap .h-left{left:min(6vw,100px);align-items:flex-start;gap:18px;max-width:min(560px,46vw)}
-.hero-cap .h-right{right:min(6vw,100px);align-items:flex-end;gap:22px;text-align:right}
-.hero-cap h2{font-family:Italiana,'Cormorant Garamond',serif;font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.98;font-size:clamp(34px,5.4vw,92px);margin:0;grid-column:auto}
-.hero-cap h2,.hero-cap p{text-shadow:0 2px 26px rgba(0,0,0,.8),0 0 2px rgba(0,0,0,.45)}
-.hero-cap .h-left p{font-size:clamp(12.5px,1vw,15px);line-height:1.65;color:#e4dfd3;max-width:380px;margin:0;padding:0}
-.hero-cap .h-left .pbtn{margin-top:4px}
-.chips{list-style:none;display:flex;flex-direction:column;align-items:flex-end;gap:9px}
-.chips li{padding:9px 17px;border:1px solid rgba(243,239,232,.42);border-radius:999px;font-size:12px;letter-spacing:.03em;color:var(--fg);background:rgba(10,10,11,.42);opacity:0;transform:translateX(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);transition-delay:calc(1.1s + var(--c)*.12s)}
-.hero-cap.on .chips li{opacity:1;transform:none}
-.hero-cap:not(.on) .chips li{transition-delay:0s}
-@media(max-width:820px){
-  .hero-cap .h-left{left:20px;right:20px;max-width:none;bottom:22vh}
-  .hero-cap .h-right{right:20px;bottom:calc(22vh + 250px);display:none}
-  .hero-cap h2{font-size:clamp(34px,10vw,52px)}
-  .chips{display:none}
-}
 
 /* motion quality: text is scrubbed with the scroll (set in JS), no blur anywhere */
 .cap{transition:none!important;opacity:0;will-change:opacity,transform}
@@ -380,16 +361,9 @@ html.menu-open,.menu-open body{overflow:hidden}
 <div id="film">
   <div id="stage">
     <canvas id="cv"></canvas>
-    <div class="cap hero-cap on" data-in="-1" data-out="0.075">
-      <div class="h-left">
-        <h2 class="no-sw" data-en="More than<br>a listing.">Mehr als<br>ein Inserat.</h2>
-        <p data-en="Off-market access, a proven analysis and a waiting buyer list — for Bavaria &amp; Baden-Württemberg.">Off-Market-Zugang, belegte Analyse und eine wartende Käuferliste — für Bayern &amp; Baden-Württemberg.</p>
-        <a class="pbtn" href="#these"><span class="pb-t" data-en="Explore the strategy">Strategie entdecken</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
-      </div>
-      <div class="h-right">
-        <ul class="chips"><li style="--c:0"><span data-en="8–12 units in 100 days">8–12 Einheiten in 100 Tagen</span></li><li style="--c:1"><span data-en="Property report in 5 days">5 Tage bis zum Objektreport</span></li><li style="--c:2"><span data-en="600 qualified investors">600 qualifizierte Investoren</span></li><li style="--c:3"><span data-en="3–5 properties under mandate">3–5 Objekte unter Mandat</span></li><li style="--c:4"><span data-en="Bavaria &amp; Baden-Württemberg">Bayern &amp; Baden-Württemberg</span></li></ul>
-        <h2 class="no-sw" data-en="It's an<br>access.">Es ist ein<br>Zugang.</h2>
-      </div>
+    <div class="cap f1 hero-cap on" data-in="-1" data-out="0.075">
+      <h2 data-en="Properties the market<br>never sees.">Objekte, die der Markt<br>nie zu sehen bekommt.</h2>
+      <div class="cr"><p data-en="Off-market access, a proven analysis and a waiting buyer list — for Bavaria &amp; Baden-Württemberg.">Off-Market-Zugang, belegte Analyse und eine wartende Käuferliste — für Bayern &amp; Baden-Württemberg.</p><a class="pbtn" href="#these"><span class="pb-t" data-en="Explore the strategy">Strategie entdecken</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
     </div>
     <div class="cap f2" data-in="0.15" data-out="0.34"><span class="eyebrow" data-en="01 · Access">01 · Zugang</span><h2 data-en="Properties that never reach a portal.">Objekte, die nie ein Portal erreichen.</h2><p data-en="Off-market inventory built on four decades of relationships — not on budget.">Off-Market-Bestand aus vier Jahrzehnten Beziehungen — nicht aus Budget.</p></div>
     <div class="cap f3" data-in="0.38" data-out="0.56"><span class="eyebrow" data-en="02 · Analysis">02 · Analyse</span><h2 data-en="Five days to the property report.">Fünf Tage bis zum Objektreport.</h2><p data-en="Value, potential, legal feasibility, yield — reviewed and signed by a partner.">Wert, Potenzial, Rechtsmachbarkeit, Rendite — von einem Partner geprüft und gezeichnet.</p></div>
@@ -404,8 +378,8 @@ html.menu-open,.menu-open body{overflow:hidden}
       <div class="lv-col"><small class="lv-zone" id="lvzone">STRASSENEBENE</small><span class="lv-big" id="lvfloor">ERDGESCHOSS</span></div>
       <span class="lv-ic" id="lvic">00</span>
     </div>
-    <div class="co" data-in="0.085" data-out="0.15" style="left:67%;top:50%"><i></i><span data-en="Off-market access">Off-Market-Zugang</span></div>
-    <div class="co" data-in="0.095" data-out="0.16" style="left:73%;top:38%"><i></i><span data-en="Bavaria &amp; Baden-Württemberg">Bayern &amp; Baden-Württemberg</span></div>
+    <div class="co" data-in="0.03" data-out="0.15" style="left:67%;top:50%"><i></i><span data-en="Off-market access">Off-Market-Zugang</span></div>
+    <div class="co" data-in="0.06" data-out="0.16" style="left:73%;top:38%"><i></i><span data-en="Bavaria &amp; Baden-Württemberg">Bayern &amp; Baden-Württemberg</span></div>
     <div class="co" data-in="0.19" data-out="0.32" style="left:67%;top:30%"><i></i><span data-en="Private arrival">Diskreter Empfang</span></div>
     <div class="co" data-in="0.22" data-out="0.33" style="left:72%;top:58%"><i></i><span data-en="Report in 5 days">Objektreport in 5 Tagen</span></div>
     <div class="co" data-in="0.37" data-out="0.50" style="left:67%;top:28%"><i></i><span data-en="Conversion traffic light">Umwandlungs-Ampel</span></div>
@@ -681,7 +655,6 @@ function readTarget(){
 function ui(r){
   const p=smooth;
   caps.forEach(c=>{const a=+c.dataset.in,b=+c.dataset.out,o=sm((p-a)/.03)*sm((b-p)/.03);c.style.opacity=o;c.style.transform='translate3d(0,'+((1-o)*26)+'px,0)';c.classList.toggle('on',o>.02)});
-  const hv=Math.min(1,Math.max(0,(p-.05)/.03));trackEl.style.opacity=hv;levelEl.style.opacity=hv;
   bar.style.width=(p*100)+'%';bar.style.opacity=(r.bottom>innerHeight*.5)?1:0;
   hint.style.opacity=p<.02?1:0;
 }
