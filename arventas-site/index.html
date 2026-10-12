@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ARVENTAS — Off-Market Immobilien-Intelligenz</title>
+<title>ARVENTAS | Off-Market Immobilien deutschlandweit</title>
 <meta name="description" content="Off-Market Immobilien-Intelligenz für Bayern & Baden-Württemberg. Go-to-Market- & Wachstumsstrategie.">
 
 <style>
@@ -349,26 +349,205 @@ html.menu-open,.menu-open body{overflow:hidden}
 #wmc{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 #topbar .logo{opacity:var(--lg,0);transition:none}
+#topbar.solid .logo{opacity:1}
 .menu-open #topbar .logo{opacity:0!important}
+
+/* ===== ARVENTAS theme: Deep Navy #192537 · Champagne Gold #B09E80 · Soft Ivory #F5F3EF · Deep Black #0B0B0B · White ===== */
+:root{--navy:#192537;--navy2:#1f3047;--gold:#B09E80;--gold2:#cfc2a5;--gold-d:#7a6a4d;--ivory:#F5F3EF;--black:#0B0B0B;
+ --serif:'Playfair Display',Georgia,'Times New Roman',serif;--sans:Inter,system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+ --bg:#192537;--bg2:#1f3047;--fg:#ffffff;--mut:#b7bfcc;--line:rgba(255,255,255,.14);--acc:#B09E80;--acc2:#cfc2a5;--ink:#192537;--cream:#F5F3EF}
+body{background:var(--navy);color:#fff;font-family:var(--sans);font-weight:400}
+h1,h2,h3,.quote p,.cap h2,.lv-big,#drawer .dr-nav li a{font-family:var(--serif)!important;font-weight:400}
+.cap h2{text-transform:none!important}
+#drawer .dr-nav li a{font-weight:400!important}
+.btn.fill,.pbtn .pb-a{background:var(--gold);color:var(--navy)}
+.pbtn{border-color:var(--gold)}
+.pb-t:before{background:var(--gold)}
+.pbtn:hover .pb-t,.pbtn:focus-visible .pb-t{color:var(--navy)}
+.pbtn.gold .pb-t{background:var(--gold);color:var(--navy)}
+.pbtn.gold .pb-t:before{background:#fff}
+.lv-ic,.tk-dot{background:var(--gold);color:var(--navy)}
+.eyebrow{color:var(--gold2)!important;font-family:var(--sans)!important;font-style:normal!important;font-size:11.5px!important;letter-spacing:.24em!important;text-transform:uppercase!important;font-weight:500}
+#drawer{background:var(--ivory);color:var(--navy)}
+#drawer .dr-nav li a:hover,#drawer .dr-nav li a:focus-visible{background:rgba(176,158,128,.3)}
+.lang{background:rgba(25,37,55,.07)}
+.menu-open .menubtn i{background:var(--navy)!important}
+
+/* hero copy block (bottom-left headline, right: copy + buttons) */
+.cap.hero-cap{grid-template-columns:minmax(0,1.25fr) minmax(260px,.8fr);align-items:end}
+.hero-cap .h-l{grid-column:1}.hero-cap .h-l .eyebrow{display:block;margin-bottom:16px}
+.hero-cap h2{font-size:clamp(34px,4.6vw,76px);line-height:1.04}
+.hero-cap .cr{grid-column:2;justify-self:end;max-width:420px}
+.hero-cap .cr>p{font-size:clamp(13.5px,1.1vw,16.5px);line-height:1.65;color:#eef0f4;margin:0 0 20px;padding:0}
+.hero-cap .hbtns{display:flex;flex-wrap:wrap;gap:12px}
+.hero-cap .hbtns .pbtn{font-size:10.5px;letter-spacing:.14em}
+.hero-cap .trust{display:block;margin-top:18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2)}
+@media(max-width:820px){.cap.hero-cap{grid-template-columns:minmax(0,1fr)}.hero-cap .cr{grid-column:1;justify-self:start}.hero-cap h2{font-size:clamp(30px,8.4vw,44px)}.hero-cap .cr>p{display:none}.hero-cap .hbtns{flex-direction:column;align-items:flex-start}}
+
+/* sections */
+.sx{position:relative;padding:clamp(72px,10vw,150px) 0}
+.sx .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.sx.dark{background:var(--navy);color:#fff}
+.sx.ivory{background:var(--ivory);color:var(--black)}
+.eb{display:block;font:500 11.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.sx.ivory .eb{color:var(--gold-d)}
+.sx h2{font-size:clamp(32px,4.4vw,58px);line-height:1.1;letter-spacing:-.01em;margin:18px 0 22px;max-width:16em;text-wrap:balance;color:inherit}
+.sx h3{font-size:clamp(22px,2vw,28px);line-height:1.2;color:inherit}
+.lead2{font-size:clamp(16px,1.3vw,19px);line-height:1.75;max-width:44em;opacity:.86}
+.fine{font-size:12.5px;line-height:1.6;opacity:.7;max-width:46em;margin-top:18px}
+.sx .pbtn{color:inherit}.sx.ivory .pbtn{color:var(--navy);background:transparent;border-color:var(--navy)}
+.sx.ivory .pbtn .pb-t:before{background:var(--navy)}.sx.ivory .pbtn:hover .pb-t{color:#fff}
+.sx.ivory .pbtn .pb-a{background:var(--navy);color:var(--ivory);border-left-color:rgba(245,243,239,.3)}
+.sx .pbtn.gold{border-color:var(--gold)}.sx .pbtn.gold .pb-t{background:var(--gold);color:var(--navy)}
+.sx .pbtn.gold .pb-t:before{background:var(--navy)}.sx .pbtn.gold:hover .pb-t{color:#fff}
+.sx.ivory .pbtn.gold .pb-t{background:var(--navy);color:#fff}.sx.ivory .pbtn.gold .pb-t:before{background:var(--gold)}.sx.ivory .pbtn.gold:hover .pb-t{color:var(--navy)}
+.sx.ivory .pbtn.gold .pb-a{background:var(--gold);color:var(--navy)}.sx.ivory .pbtn.gold{border-color:var(--navy)}
+.sx.dark .pbtn:not(.gold) .pb-t{background:transparent}
+.sx .pbtn{pointer-events:auto}
+
+/* two journeys */
+.jr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin-top:48px}
+.jc{position:relative;min-height:clamp(460px,48vw,620px);background:#000 center/cover;border-radius:4px;overflow:hidden;color:#fff;display:flex;align-items:flex-end}
+.jc:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,37,55,.35) 0%,rgba(25,37,55,.88) 70%);transition:opacity .6s}
+.jc:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .8s cubic-bezier(.16,1,.3,1)}
+.jc:hover:after{width:100%}.jc:hover:before{opacity:.92}
+.jc-in{position:relative;padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.jc p{font-size:15px;line-height:1.65;color:#e8ebf0;max-width:30em}
+.jc ul{list-style:none;display:grid;grid-template-columns:repeat(2,auto);gap:8px 28px;font-size:13px;letter-spacing:.04em;color:var(--gold2)}
+.jc ul li:before{content:"— ";color:var(--gold)}
+@media(max-width:900px){.jr{grid-template-columns:minmax(0,1fr)}}
+
+/* pillars */
+.pl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.pl article{padding:36px clamp(16px,2.4vw,36px) 12px;border-right:1px solid var(--line)}
+.pl article:last-child{border-right:0}.pl article:first-child{padding-left:0}
+.pl .ic{display:block;width:44px;height:44px;color:var(--gold);margin-bottom:22px}
+.pl .ic svg{width:100%;height:100%}
+.pl b{display:block;font:500 11px/1 var(--sans);letter-spacing:.22em;color:var(--gold);margin-bottom:14px}
+.pl h3{margin-bottom:12px}.pl p{font-size:15px;line-height:1.7;color:var(--mut)}
+@media(max-width:820px){.pl{grid-template-columns:minmax(0,1fr)}.pl article{border-right:0;border-bottom:1px solid var(--line);padding-left:0}}
+
+/* report */
+.rp{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,80px);align-items:center}
+.cap6{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:30px 0 26px;border-top:1px solid rgba(25,37,55,.15)}
+.cap6 li{padding:13px 0;border-bottom:1px solid rgba(25,37,55,.15);font-size:15px}
+.cap6 li:before{content:"◆";color:var(--gold-d);font-size:8px;margin-right:12px;vertical-align:middle}
+.strong{font:400 clamp(22px,2.2vw,30px)/1.25 var(--serif);color:var(--navy);margin-top:6px}
+.rp-b{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.rp-v{perspective:1600px}
+.rep{background:#fff;border-radius:6px;padding:20px;box-shadow:0 50px 90px -30px rgba(25,37,55,.45),0 0 0 1px rgba(25,37,55,.06);transform:rotateY(-9deg) rotateX(4deg) rotate(1deg);transform-origin:50% 50%;max-width:480px;margin:0 auto;color:var(--navy);transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.rp-v:hover .rep{transform:rotateY(-3deg) rotateX(1deg)}
+.rep-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(25,37,55,.12);padding-bottom:12px;margin-bottom:14px}
+.rep-h b{font:500 13px var(--sans);letter-spacing:.34em}.rep-h span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d)}
+.rep-img{height:150px;border-radius:3px;background:#222 center/cover}
+.rep-g{display:grid;gap:10px;margin:16px 0}
+.rep-g small{display:block;font-size:11px;color:#55607a;margin-bottom:5px}
+.rep-g i{display:block;height:5px;background:rgba(25,37,55,.1);border-radius:3px}.rep-g u{display:block;height:100%;background:var(--gold);border-radius:3px}
+.rep-c{width:100%;height:auto;background:rgba(25,37,55,.03);border-radius:3px}
+.rep-r{display:flex;justify-content:space-between;margin-top:14px;font-size:12px;border-top:1px solid rgba(25,37,55,.12);padding-top:12px}
+.rep-r em{font-style:normal;color:var(--gold-d);letter-spacing:.1em;text-transform:uppercase;font-size:10px}
+.rep-n{font-size:10.5px;color:#6c7690;margin-top:10px}
+@media(max-width:900px){.rp{grid-template-columns:minmax(0,1fr)}.cap6{grid-template-columns:minmax(0,1fr)}.rep{transform:none}}
+
+/* process */
+.pr{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-top:64px;position:relative}
+.pr:before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:linear-gradient(90deg,var(--gold),var(--gold) 100%);opacity:.35}
+.pr li{position:relative;padding:34px clamp(8px,1.2vw,18px) 0 0}
+.pr li:before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;background:var(--navy);border:1px solid var(--gold);transition:background .6s}
+.pr li.in:before{background:var(--gold)}
+.pr b{display:block;font:500 11px/1 var(--sans);letter-spacing:.2em;color:var(--gold);margin-bottom:12px}
+.pr h3{font-size:clamp(18px,1.5vw,22px);margin-bottom:8px}.pr p{font-size:13.5px;line-height:1.6;color:var(--mut)}
+@media(max-width:900px){.pr{grid-template-columns:minmax(0,1fr);margin-top:44px;gap:0}.pr:before{left:5px;right:auto;top:6px;bottom:0;width:1px;height:auto}
+.pr li{padding:0 0 30px 34px}.pr li:before{left:0;top:3px}}
+
+/* owners split */
+.sp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.sp-img{aspect-ratio:4/5;max-width:100%;background:#222 center/cover;border-radius:4px}
+.bl{list-style:none;margin:26px 0 30px;border-top:1px solid rgba(25,37,55,.15)}
+.bl li{padding:13px 0;border-bottom:1px solid rgba(25,37,55,.15);font-size:15.5px}
+.bl li:before{content:"◆";color:var(--gold-d);font-size:8px;margin-right:14px;vertical-align:middle}
+@media(max-width:900px){.sp{grid-template-columns:minmax(0,1fr)}.sp-img{aspect-ratio:16/10}}
+
+/* investors */
+.iv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:44px 0 40px}
+.iv article{background:var(--navy);padding:32px 26px 36px}
+.iv b{display:block;font:500 11px/1 var(--sans);letter-spacing:.22em;color:var(--gold);margin-bottom:34px}
+.iv h3{font-size:clamp(19px,1.6vw,24px)}
+@media(max-width:900px){.iv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* team */
+.tms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin:44px 0 36px}
+.tm{background:#fff;padding:28px;border-radius:4px;border:1px solid rgba(25,37,55,.08)}
+.tm-ph{width:100%;aspect-ratio:4/3;display:grid;place-items:center;background:rgba(25,37,55,.05);color:rgba(25,37,55,.35);margin-bottom:20px;border-radius:2px}
+.tm-ph svg{width:80px;height:80px}
+.tm h3{margin-bottom:4px}.tm .role{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);margin-bottom:12px}
+.tm .mut{font-size:14px;line-height:1.6;color:#4b566e}.tm .ph-note{font-size:11px;margin-top:14px;color:#8a93a8;border-top:1px dashed rgba(25,37,55,.2);padding-top:10px}
+.co2{margin-top:72px;border-top:1px solid rgba(25,37,55,.15);padding-top:40px}
+.cl{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.cl li{padding:10px 18px;border:1px solid rgba(25,37,55,.25);border-radius:999px;font-size:13.5px}
+@media(max-width:900px){.tms{grid-template-columns:minmax(0,1fr)}}
+
+/* map */
+.mp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(24px,5vw,80px);align-items:center}
+.mp-v{width:100%;max-width:440px;margin:0 auto;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35))}
+@media(max-width:900px){.mp{grid-template-columns:minmax(0,1fr)}.mp-v{max-width:300px}}
+
+/* articles */
+.ars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin:44px 0 34px}
+.ar{background:#fff;border-radius:3px;overflow:hidden;border:1px solid rgba(25,37,55,.08);display:flex;flex-direction:column}
+.ar-img{aspect-ratio:16/10;background:#222 center/cover;transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.ar{overflow:hidden}.ar:hover .ar-img{transform:scale(1.04)}
+.ar-b{padding:24px 24px 28px;display:flex;flex-direction:column;gap:12px;position:relative;background:#fff}
+.eb2{font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d)}
+.ar h3{font-size:clamp(20px,1.7vw,24px)}
+.lnk{font:500 11px/1 var(--sans);letter-spacing:.18em;color:var(--navy);margin-top:6px;border-bottom:1px solid var(--gold);padding-bottom:6px;align-self:flex-start}
+.lnk i{font-style:normal;margin-left:6px;transition:margin .3s}.lnk:hover i{margin-left:12px}
+@media(max-width:900px){.ars{grid-template-columns:minmax(0,1fr)}}
+
+/* final contact */
+.ct{background:linear-gradient(180deg,rgba(25,37,55,.94),rgba(25,37,55,.97)),var(--bgimg) center/cover}
+.cts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin-top:48px}
+.cts article{border:1px solid rgba(176,158,128,.4);padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;gap:26px;align-items:flex-start;background:rgba(25,37,55,.5)}
+@media(max-width:820px){.cts{grid-template-columns:minmax(0,1fr)}}
+
+/* footer */
+.ft{background:var(--black);color:#c9ced8;padding:clamp(56px,7vw,96px) 0 36px}
+.ft .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.ft-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.12)}
+.ft h4{font:500 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.ft ul{list-style:none;display:grid;gap:12px;font-size:14px}.ft a:hover{color:#fff}
+.ft .ph-l li{color:#8d95a6}
+.ft-b{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-top:32px}
+.ft-l{display:grid;gap:8px}.ft-l b{font:500 16px var(--sans);letter-spacing:.42em;color:#fff}
+.lg-ph{font-size:10.5px;color:#8d95a6;border:1px dashed rgba(255,255,255,.25);padding:6px 10px;justify-self:start}
+.ft-l em{font:italic 15px var(--serif);color:var(--gold2)}
+.ft-b ul{display:flex;gap:24px;font-size:13px}
+@media(max-width:820px){.ft-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* reveal for process line dots, list items */
+.sx .rv{transition-delay:var(--d,0s)}
+#topbar{transition:background .5s,backdrop-filter .5s}
+#topbar.solid{background:rgba(25,37,55,.96);box-shadow:0 1px 0 rgba(176,158,128,.25);padding-top:14px;padding-bottom:14px}
+.menu-open #topbar.solid{background:transparent;box-shadow:none}
+.sx .rv{opacity:0}.sx .rv.in{opacity:1}
 </style>
 </head>
 <body>
 <div id="loader"><div class="logo">ARVENTAS</div><i><b id="lb"></b></i></div>
 
 <header id="topbar">
-  <a class="logo" href="#top" aria-label="ARVENTAS"><span class="ph">ARVENTAS</span><small data-en="Real-Estate Intelligence">Immobilien-Intelligenz</small></a>
+  <a class="logo" href="#top" aria-label="ARVENTAS"><span class="ph">ARVENTAS</span><small data-en="Off-market real estate">Off-Market Immobilien</small></a>
   <button type="button" id="menubtn" class="menubtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><i></i><i></i></button>
 </header>
 <div id="scrim" aria-hidden="true"></div>
 <aside id="drawer" aria-label="Navigation" aria-hidden="true">
-  <div class="dr-nav"><ul><li style="--i:0"><a href="#these" data-go><span data-en="Thesis">These</span><em>01</em></a></li><li style="--i:1"><a href="#jetzt" data-go><span data-en="Market window">Marktfenster</span><em>02</em></a></li><li style="--i:2"><a href="#engine" data-go><span data-en="Engine">Engine</span><em>03</em></a></li><li style="--i:3"><a href="#zielgruppen" data-go><span data-en="Audiences">Zielgruppen</span><em>04</em></a></li><li style="--i:4"><a href="#portfolio" data-go><span data-en="Offer portfolio">Angebotsportfolio</span><em>05</em></a></li><li style="--i:5"><a href="#launch" data-go><span data-en="First 100 days">Erste 100 Tage</span><em>06</em></a></li><li style="--i:6"><a href="#roadmap" data-go><span data-en="Roadmap">Roadmap</span><em>07</em></a></li><li style="--i:7"><a href="#start" data-go><span data-en="Next steps">Nächste Schritte</span><em>08</em></a></li></ul></div>
+  <div class="dr-nav"><ul><li style="--i:0"><a href="#top" data-go><span data-en="Home">Startseite</span><em>01</em></a></li><li style="--i:1"><a href="#eigentuemer" data-go><span data-en="For owners">Für Eigentümer</span><em>02</em></a></li><li style="--i:2"><a href="#investoren" data-go><span data-en="For investors">Für Investoren</span><em>03</em></a></li><li style="--i:3"><a href="#objektreport" data-go><span data-en="Property report">Objektreport</span><em>04</em></a></li><li style="--i:4"><a href="#expertise" data-go><span data-en="About us">Über uns</span><em>05</em></a></li><li style="--i:5"><a href="#wissen" data-go><span data-en="Insights">Wissen</span><em>06</em></a></li><li style="--i:6"><a href="#kontakt" data-go><span data-en="Contact">Kontakt</span><em>07</em></a></li></ul></div>
   <div class="dr-foot">
     <div class="dr-cols">
       <div><h4 data-en="Language">Sprache</h4><div class="lang" role="group" aria-label="Sprache / Language" data-v="de"><span class="lg-thumb"></span><button type="button" data-l="de" aria-pressed="true"><svg class="fl" viewBox="0 0 24 24" aria-hidden="true"><clipPath id="cfD"><circle cx="12" cy="12" r="12"/></clipPath><g clip-path="url(#cfD)"><rect width="24" height="8" fill="#111"/><rect y="8" width="24" height="8" fill="#d4202f"/><rect y="16" width="24" height="8" fill="#f2c200"/></g></svg><span>DE</span></button><button type="button" data-l="en" aria-pressed="false"><svg class="fl" viewBox="0 0 24 24" aria-hidden="true"><clipPath id="cfE"><circle cx="12" cy="12" r="12"/></clipPath><g clip-path="url(#cfE)"><rect width="24" height="24" fill="#1f3a8a"/><path d="M0 0L24 24M24 0L0 24" stroke="#fff" stroke-width="4.4"/><path d="M0 0L24 24M24 0L0 24" stroke="#d6213b" stroke-width="1.6"/><path d="M12 0V24M0 12H24" stroke="#fff" stroke-width="7"/><path d="M12 0V24M0 12H24" stroke="#d6213b" stroke-width="4"/></g></svg><span>EN</span></button></div></div>
-      <div><h4 data-en="Region">Region</h4><p data-en="Bavaria &amp; Baden-Württemberg">Bayern &amp; Baden-Württemberg</p></div>
-      <div><h4 data-en="Status">Status</h4><p data-en="For approval · August 2026">Zur Freigabe · August 2026</p></div>
+      <div><h4 data-en="Region">Region</h4><p data-en="Active nationwide">Deutschlandweit tätig</p></div>
+      <div><h4 data-en="Motto">Leitsatz</h4><p data-en="Creating value. Building the future.">Werte schaffen. Zukunft bauen.</p></div>
     </div>
-    <a class="pbtn" href="#start" data-go><span class="pb-t" data-en="Next steps">Nächste Schritte</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+    <a class="pbtn " href="#kontakt"><span class="pb-t" data-en="REQUEST A CONSULTATION">BERATUNG ANFRAGEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
   </div>
 </aside>
 
@@ -379,13 +558,16 @@ html.menu-open,.menu-open body{overflow:hidden}
     <canvas id="cv"></canvas>
     <canvas id="wmc" aria-hidden="true"></canvas><h1 class="sr">ARVENTAS</h1>
     <div class="cap f1 hero-cap on" data-in="-1" data-out="0.075">
-      <h2 data-en="Properties the market<br>never sees.">Objekte, die der Markt<br>nie zu sehen bekommt.</h2>
-      <div class="cr"><p data-en="Off-market access, a proven analysis and a waiting buyer list — for Bavaria &amp; Baden-Württemberg.">Off-Market-Zugang, belegte Analyse und eine wartende Käuferliste — für Bayern &amp; Baden-Württemberg.</p><a class="pbtn" href="#these"><span class="pb-t" data-en="Explore the strategy">Strategie entdecken</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
+      <div class="h-l"><span class="eyebrow" data-en="OFF-MARKET REAL ESTATE · NATIONWIDE">OFF-MARKET IMMOBILIEN · DEUTSCHLANDWEIT</span>
+      <h2 data-en="Properties with potential.<br>Access with an edge.">Immobilien mit Potenzial.<br>Zugang mit Vorsprung.</h2></div>
+      <div class="cr"><p data-en="ARVENTAS connects selected off-market properties with suitable investors – through sound analysis, personal experience and discreet transaction support.">ARVENTAS verbindet ausgewählte Off-Market-Immobilien mit passenden Investoren – durch fundierte Analysen, persönliche Erfahrung und diskrete Transaktionsbegleitung.</p>
+      <div class="hbtns"><a class="pbtn gold" href="#eigentuemer"><span class="pb-t" data-en="SELL A PROPERTY">IMMOBILIE VERKAUFEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a><a class="pbtn " href="#investoren"><span class="pb-t" data-en="DISCOVER PROPERTIES">IMMOBILIEN ENTDECKEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
+      <small class="trust" data-en="Off-market access · Sound analysis · Personal support">Off-Market-Zugang · Fundierte Analysen · Persönliche Begleitung</small></div>
     </div>
-    <div class="cap f2" data-in="0.15" data-out="0.34"><span class="eyebrow" data-en="01 · Access">01 · Zugang</span><h2 data-en="Properties that never reach a portal.">Objekte, die nie ein Portal erreichen.</h2><p data-en="Off-market inventory built on four decades of relationships — not on budget.">Off-Market-Bestand aus vier Jahrzehnten Beziehungen — nicht aus Budget.</p></div>
-    <div class="cap f3" data-in="0.38" data-out="0.56"><span class="eyebrow" data-en="02 · Analysis">02 · Analyse</span><h2 data-en="Five days to the property report.">Fünf Tage bis zum Objektreport.</h2><p data-en="Value, potential, legal feasibility, yield — reviewed and signed by a partner.">Wert, Potenzial, Rechtsmachbarkeit, Rendite — von einem Partner geprüft und gezeichnet.</p></div>
-    <div class="cap f4" data-in="0.60" data-out="0.78"><span class="eyebrow" data-en="03 · Closing">03 · Abwicklung</span><h2 data-en="Both sides. One house.">Beide Seiten. Ein Haus.</h2><p data-en="From the first analysis to the notary — seller and buyer under one roof.">Von der ersten Analyse bis zum Notar — Verkäufer und Käufer aus einer Hand.</p></div>
-    <div class="cap f5" data-in="0.82" data-out="1.1"><span class="eyebrow" data-en="The thesis">Die These</span><h2 data-en="We already know who will buy it.">Wir wissen schon, wer es kauft.</h2><p data-en="The shortest path between a property that is not on the market and the buyer who should own it.">Der kürzeste Weg zwischen einem Objekt, das nicht am Markt ist, und dem Käufer, dem es gehören sollte.</p></div>
+    <div class="cap f2" data-in="0.15" data-out="0.34"><span class="eyebrow" data-en="01 · ACCESS">01 · ZUGANG</span><h2 data-en="Properties not everyone sees.">Immobilien, die nicht jeder sieht.</h2><p data-en="Selected off-market opportunities through established networks and personal contacts.">Ausgewählte Off-Market-Möglichkeiten über gewachsene Netzwerke und persönliche Kontakte.</p></div>
+    <div class="cap f3" data-in="0.38" data-out="0.56"><span class="eyebrow" data-en="02 · ANALYSIS">02 · ANALYSE</span><h2 data-en="Decisions based on facts.">Entscheidungen auf Basis von Fakten.</h2><p data-en="Sound valuations, market analyses and structured economic assessments.">Fundierte Bewertungen, Marktanalysen und strukturierte wirtschaftliche Betrachtungen.</p></div>
+    <div class="cap f4" data-in="0.60" data-out="0.78"><span class="eyebrow" data-en="03 · TRANSACTION">03 · ABWICKLUNG</span><h2 data-en="Personally guided.">Persönlich begleitet.</h2><p data-en="Experienced contacts and structured processes from the first analysis to the transaction.">Erfahrene Ansprechpartner und strukturierte Prozesse von der ersten Analyse bis zur Transaktion.</p></div>
+    <div class="cap f5" data-in="0.82" data-out="1.1"><span class="eyebrow" data-en="NATIONWIDE ACTIVE">DEUTSCHLANDWEIT TÄTIG</span><h2 data-en="Your property. Your goals. Our access.">Ihre Immobilie. Ihre Ziele. Unser Zugang.</h2><p data-en="Whether selling or investing – we help you recognise the right opportunities.">Ob Immobilienverkauf oder Kapitalanlage – wir helfen Ihnen, die passenden Möglichkeiten zu erkennen.</p></div>
     <div class="track" aria-hidden="true">
       <span class="tk-label" data-en="Address">Adresse</span>
       <div class="tk-line"><i class="tk-fill" id="tkfill"></i><b class="tk-dot" id="tkdot"></b><div class="tk-ticks" id="tkticks"></div></div>
@@ -396,245 +578,154 @@ html.menu-open,.menu-open body{overflow:hidden}
       <span class="lv-ic" id="lvic">00</span>
     </div>
     <div class="co" data-in="0.03" data-out="0.15" style="left:67%;top:50%"><i></i><span data-en="Off-market access">Off-Market-Zugang</span></div>
-    <div class="co" data-in="0.06" data-out="0.16" style="left:73%;top:38%"><i></i><span data-en="Bavaria &amp; Baden-Württemberg">Bayern &amp; Baden-Württemberg</span></div>
-    <div class="co" data-in="0.19" data-out="0.32" style="left:67%;top:30%"><i></i><span data-en="Private arrival">Diskreter Empfang</span></div>
-    <div class="co" data-in="0.22" data-out="0.33" style="left:72%;top:58%"><i></i><span data-en="Report in 5 days">Objektreport in 5 Tagen</span></div>
-    <div class="co" data-in="0.37" data-out="0.50" style="left:67%;top:28%"><i></i><span data-en="Conversion traffic light">Umwandlungs-Ampel</span></div>
-    <div class="co" data-in="0.43" data-out="0.56" style="left:73%;top:62%"><i></i><span data-en="Opportunity score">Opportunity Score</span></div>
-    <div class="co" data-in="0.52" data-out="0.65" style="left:67%;top:44%"><i></i><span data-en="Yield check">Rendite-Check</span></div>
-    <div class="co" data-in="0.69" data-out="0.82" style="left:68%;top:32%"><i></i><span data-en="600 qualified investors">600 qualifizierte Investoren</span></div>
-    <div class="co" data-in="0.76" data-out="0.9" style="left:67%;top:64%"><i></i><span data-en="8–12 units in 100 days">8–12 Einheiten in 100 Tagen</span></div>
+    <div class="co" data-in="0.06" data-out="0.16" style="left:73%;top:38%"><i></i><span data-en="Active nationwide">Deutschlandweit tätig</span></div>
+    <div class="co" data-in="0.19" data-out="0.32" style="left:67%;top:30%"><i></i><span data-en="Discreet reception">Diskreter Empfang</span></div>
+    <div class="co" data-in="0.22" data-out="0.33" style="left:72%;top:58%"><i></i><span data-en="Personal advice">Persönliche Beratung</span></div>
+    <div class="co" data-in="0.37" data-out="0.5" style="left:67%;top:28%"><i></i><span data-en="Location analysis">Standortanalyse</span></div>
+    <div class="co" data-in="0.43" data-out="0.56" style="left:73%;top:62%"><i></i><span data-en="Property valuation">Immobilienbewertung</span></div>
+    <div class="co" data-in="0.52" data-out="0.65" style="left:67%;top:44%"><i></i><span data-en="Yield scenarios">Renditeszenarien</span></div>
+    <div class="co" data-in="0.69" data-out="0.82" style="left:68%;top:32%"><i></i><span data-en="Investor circle">Investorenkreis</span></div>
+    <div class="co" data-in="0.76" data-out="0.9" style="left:67%;top:64%"><i></i><span data-en="Transaction support">Transaktionsbegleitung</span></div>
     <div class="hint" id="hint" data-en="Scroll">Scrollen</div>
     <div class="bar" id="bar"></div>
   </div>
 </div>
 
 <main>
-<section class="s" id="inhalt"><div class="wrap">
-  <span class="eyebrow rv" data-en="Contents">Inhalt</span>
-  <h2 class="rv" data-en="One single operating plan.">Ein einziger Operationsplan.</h2>
-  <p class="lead rv" data-en="Where ARVENTAS competes, who it sells to, how supply and demand are generated, what happens in the first 100 days and what the business should look like in twelve months.">Wo ARVENTAS antritt, an wen verkauft wird, wie Angebot und Nachfrage erzeugt werden, was in den ersten 100 Tagen geschieht und wie das Geschäft in zwölf Monaten aussehen soll.</p>
-  <div class="stats rv">
-    <div><b>8–12</b><span data-en="Units notarised in the first 100 days">Einheiten notariell beurkundet in den ersten 100 Tagen</span></div>
-    <div><b>3–5</b><span data-en="Off-market properties secured under mandate">Off-Market-Objekte unter Mandat gesichert</span></div>
-    <div><b>600</b><span data-en="Qualified investors in the buyer pool">Qualifizierte Investoren im Käuferpool</span></div>
-    <div><b data-en="5 days">5 Tage</b><span data-en="From engagement to the delivered property report">Von der Beauftragung bis zum gelieferten Objektreport</span></div>
+<section class="sx ivory" id="wege"><div class="wrap">
+  <span class="eb rv"><span data-en="Two journeys">Zwei Wege</span></span>
+  <h2 class="rv" data-en="Your property. Your goals. Our access.">Ihre Immobilie. Ihre Ziele. Unser Zugang.</h2>
+  <div class="jr">
+    <article class="jc rv" style="background-image:url(frames/0060.webp)"><div class="jc-in">
+      <h3 data-en="Sell a property discreetly">Immobilie diskret verkaufen</h3>
+      <p data-en="Find out what value and potential your property has – and which options a discreet sale opens up.">Erfahren Sie, welchen Wert und welches Potenzial Ihre Immobilie besitzt – und welche Möglichkeiten ein diskreter Verkauf eröffnet.</p>
+      <ul><li data-en="Sound valuation">Fundierte Bewertung</li><li data-en="Discreet advice">Diskrete Beratung</li><li data-en="Targeted buyer outreach">Gezielte Käuferansprache</li><li data-en="Personal support">Persönliche Begleitung</li></ul>
+      <a class="pbtn gold" href="#eigentuemer"><span class="pb-t" data-en="REQUEST A PROPERTY REPORT">OBJEKTREPORT ANFRAGEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div></article>
+    <article class="jc rv" style="background-image:url(frames/0300.webp)"><div class="jc-in">
+      <h3 data-en="Discover off-market properties">Off-Market Immobilien entdecken</h3>
+      <p data-en="Gain access to selected property opportunities that are not marketed publicly.">Erhalten Sie Zugang zu ausgewählten Immobilienmöglichkeiten, die nicht öffentlich vermarktet werden.</p>
+      <ul><li data-en="Off-market access">Off-Market-Zugang</li><li data-en="Analysed properties">Analysierte Immobilien</li><li data-en="Individual search profiles">Individuelle Suchprofile</li><li data-en="Personal contacts">Persönliche Ansprechpartner</li></ul>
+      <a class="pbtn gold" href="#investoren"><span class="pb-t" data-en="DISCOVER THE INVESTOR CIRCLE">INVESTORENKREIS ENTDECKEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div></article>
   </div>
 </div></section>
 
-<section class="stmt" id="st1"><div class="wrap">
-  <div class="stmt-mask"><h2 class="stmt-big" data-fit><span data-en="5 days.">5 Tage.</span></h2></div>
-  <div class="stmt-row">
-    <p class="stmt-txt" data-en="From engagement to the delivered property report — reviewed and signed by a partner. No public listing.">Von der Beauftragung bis zum gelieferten Objektreport — geprüft und gezeichnet von einem Partner. Ohne öffentliches Inserat.</p>
-    <div class="stmt-img" style="background-image:url(frames/0077.webp)"></div>
-  </div>
-</div></section>
-<section class="s" id="these"><div class="wrap">
-  <span class="eyebrow rv" data-en="01 · The strategic thesis">01 · Die strategische These</span>
-  <h2 class="rv" data-en="ARVENTAS masters both sides of the hardest business in the German property market.">ARVENTAS beherrscht beide Seiten des schwierigsten Geschäfts im deutschen Immobilienmarkt.</h2>
-  <p class="lead rv" data-en="Brokers have buyers but struggle for inventory. Investors have capital but no access. Data providers have analysis but no transactions. Unit-splitters have properties but no reliable demand. ARVENTAS holds off-market inventory the public market never sees — and a pool of qualified buyers ready to act.">Makler haben Käufer, kämpfen aber um Bestand. Investoren haben Kapital, aber keinen Zugang. Datenanbieter haben Analysen, aber keine Transaktion. Aufteiler haben Objekte, aber keine verlässliche Nachfrage. ARVENTAS hält Off-Market-Bestand, den der öffentliche Markt nicht sieht — und einen Pool qualifizierter Käufer, die bereit sind zu handeln.</p>
-  <div class="quote rv"><small data-en="THE THESIS IN ONE SENTENCE">DIE THESE IN EINEM SATZ</small><p data-en="ARVENTAS is the shortest path between a property that is not on the market and the buyer who should own it — proven by an analysis nobody else can deliver in five days.">ARVENTAS ist der kürzeste Weg zwischen einem Objekt, das nicht am Markt ist, und dem Käufer, dem es gehören sollte — belegt durch eine Analyse, die sonst niemand in fünf Tagen liefern kann.</p></div>
-  <div class="grid g3">
-    <div class="card rv"><span class="n">01</span><h3 data-en="Transaction before technology">Transaktion vor Technologie</h3><p data-en="The engine is why ARVENTAS wins mandates — it is not the product being sold. Owners buy certainty, investors buy yield.">Die Engine ist der Grund, warum ARVENTAS Mandate gewinnt — nicht das Produkt, das verkauft wird. Eigentümer kaufen Sicherheit, Investoren Rendite.</p></div>
-    <div class="card rv"><span class="n">02</span><h3 data-en="Win supply with demand">Angebot mit Nachfrage gewinnen</h3><p data-en="“We already have qualified buyers for this property” beats every pitch. The buyer pool is the acquisition weapon.">„Wir haben bereits qualifizierte Käufer für dieses Objekt" schlägt jeden Pitch. Der Käuferpool ist die Akquisewaffe.</p></div>
-    <div class="card rv"><span class="n">03</span><h3 data-en="Start narrow, prove the economics">Eng starten, Economics beweisen</h3><p data-en="Bavaria &amp; Baden-Württemberg, residential and mixed-use off-market, €150,000 – €300,000. A proven engine scales.">Bayern &amp; Baden-Württemberg, Wohn- und Mischnutzung off-market, 150.000 – 300.000 €. Eine bewiesene Engine skaliert.</p></div>
+<section class="sx dark" id="warum"><div class="wrap">
+  <span class="eb rv"><span data-en="Why ARVENTAS">Warum ARVENTAS</span></span>
+  <h2 class="rv" data-en="The difference is in how it works together.">Der Unterschied liegt im Zusammenspiel.</h2>
+  <p class="lead2 rv" data-en="ARVENTAS brings together the decisive factors of sound property decisions.">ARVENTAS vereint die entscheidenden Faktoren fundierter Immobilienentscheidungen.</p>
+  <div class="pl">
+    <article class="rv"><span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17" cy="24" r="8"/><path d="M25 24h18M36 24v7M42 24v5"/></svg></span><b>01 · <span data-en="ACCESS">ZUGANG</span></b><h3 data-en="Properties not everyone sees.">Immobilien, die nicht jeder sieht.</h3><p data-en="Selected off-market opportunities through established networks and personal contacts.">Ausgewählte Off-Market-Möglichkeiten über gewachsene Netzwerke und persönliche Kontakte.</p></article>
+    <article class="rv"><span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 40h36M10 40V26M20 40V16M30 40V22M40 40V10"/></svg></span><b>02 · <span data-en="ANALYSIS">ANALYSE</span></b><h3 data-en="Decisions based on facts.">Entscheidungen auf Basis von Fakten.</h3><p data-en="Sound valuations, market analyses and structured economic assessments.">Fundierte Bewertungen, Marktanalysen und strukturierte wirtschaftliche Betrachtungen.</p></article>
+    <article class="rv"><span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 26l8-10 8 4 6-5 14 8-6 12-8 5-8-3-6 2z"/><path d="M22 20l-4 6 6 4"/></svg></span><b>03 · <span data-en="TRANSACTION">ABWICKLUNG</span></b><h3 data-en="Personally guided.">Persönlich begleitet.</h3><p data-en="Experienced contacts and structured processes from the first analysis to the transaction.">Erfahrene Ansprechpartner und strukturierte Prozesse von der ersten Analyse bis zur Transaktion.</p></article>
   </div>
 </div></section>
 
-<section class="s" id="jetzt"><div class="wrap">
-  <span class="eyebrow rv" data-en="02 · Why now">02 · Warum jetzt</span>
-  <h2 class="rv" data-en="The market window is open — for exactly this model.">Das Marktfenster ist offen — genau für dieses Modell.</h2>
-  <p class="lead rv" data-en="Four forces converge in 2026. Each one favours an off-market, analysis-led, regionally focused player.">Vier Kräfte laufen 2026 zusammen. Jede einzelne begünstigt einen off-market-orientierten, analysegeführten, regional fokussierten Marktteilnehmer.</p>
-  <div class="grid g2">
-    <div class="card rv"><span class="n">01</span><h3 data-en="Off-market is the rule">Off-Market ist die Regel</h3><p data-en="Off-market volume rose by about a fifth in Q1 2026. Residential accounts for almost 46% of off-market purchases. The appeal: closing certainty and discretion.">Das Off-Market-Volumen stieg im Q1 2026 um rund ein Fünftel. Wohnimmobilien machen knapp 46 % der Off-Market-Ankäufe aus. Der Reiz: Abschlusssicherheit und Diskretion.</p></div>
-    <div class="card rv"><span class="n">02</span><h3 data-en="Yield decides">Rendite entscheidet</h3><p data-en="Ten-year fixed rates sit around 4.0%. Private investors buy on yield and on numbers they can verify — exactly what the property report delivers.">Zehnjährige Zinsbindungen bei rund 4,0 %. Privatanleger kaufen nach Rendite und nach Zahlen, die sie überprüfen können — genau das liefert der Objektreport.</p></div>
-    <div class="card rv"><span class="n">03</span><h3 data-en="Ownership is changing hands">Eigentum wechselt den Besitzer</h3><p data-en="Inheritance communities, estate administrations, insolvency proceedings: these owners need discretion, a reliable valuation and a sale without a public listing.">Erbengemeinschaften, Nachlassverwaltungen, Insolvenzverfahren: Diese Eigentümer brauchen Diskretion, eine belastbare Bewertung und Abwicklung ohne öffentliches Inserat.</p></div>
-    <div class="card rv"><span class="n">04</span><h3 data-en="Energy regulation reprices stock">Energieregulierung bepreist neu</h3><p data-en="Retrofit obligations push unmodernised stock into transactions — supply for ARVENTAS and a valuation problem the intelligence layer was built for.">Sanierungspflichten drängen unmodernisierten Bestand in Transaktionen — Angebot für ARVENTAS und ein Bewertungsproblem, für das die Intelligence-Ebene gebaut ist.</p></div>
+<section class="sx ivory" id="objektreport"><div class="wrap rp">
+  <div class="rp-t">
+    <span class="eb rv"><span data-en="ARVENTAS Property Report">ARVENTAS Objektreport</span></span>
+    <h2 class="rv" data-en="More clarity. Better property decisions.">Mehr Klarheit. Bessere Immobilienentscheidungen.</h2>
+    <p class="lead2 rv" data-en="The ARVENTAS property report combines data-based property analysis with personal expert review.">Der ARVENTAS Objektreport verbindet datenbasierte Immobilienanalyse mit persönlicher Expertenprüfung.</p>
+    <ul class="cap6"><li class="rv"><span data-en="Market and location analysis">Markt- und Standortanalyse</span></li><li class="rv"><span data-en="Property valuation">Immobilienbewertung</span></li><li class="rv"><span data-en="Development potential">Entwicklungspotenzial</span></li><li class="rv"><span data-en="Yield scenarios">Renditeszenarien</span></li><li class="rv"><span data-en="Preliminary legal review">Rechtliche Vorprüfung</span></li><li class="rv"><span data-en="Buyer demand">Käufernachfrage</span></li></ul>
+    <p class="strong rv" data-en="Intelligently analysed. Personally reviewed.">Intelligent analysiert. Persönlich geprüft.</p>
+    <p class="fine rv" data-en="Target standard: one reviewed report within five working days after complete commissioning and provision of the required documents.">Zielstandard: Ein geprüfter Report innerhalb von fünf Arbeitstagen nach vollständiger Beauftragung und Bereitstellung der erforderlichen Unterlagen.</p>
+    <div class="rp-b rv"><a class="pbtn " href="#kontakt"><span class="pb-t" data-en="VIEW SAMPLE REPORT">MUSTERREPORT ANSEHEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a><a class="pbtn gold" href="#kontakt"><span class="pb-t" data-en="REQUEST A PROPERTY REPORT">OBJEKTREPORT ANFRAGEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
+  </div>
+  <div class="rp-v rv" aria-label="Beispielhafte Vorschau des Objektreports">
+    <div class="rep"><div class="rep-h"><b>ARVENTAS</b><span data-en="Property report · SAMPLE DATA">Objektreport · BEISPIELDATEN</span></div>
+      <div class="rep-img" style="background-image:url(frames/0001.webp)"></div>
+      <div class="rep-g"><div><small data-en="Location score">Standortscore</small><i><u style="width:72%"></u></i></div><div><small data-en="Market analysis">Marktanalyse</small><i><u style="width:58%"></u></i></div><div><small data-en="Development potential">Entwicklungspotenzial</small><i><u style="width:81%"></u></i></div></div>
+      <svg class="rep-c" viewBox="0 0 300 90" role="img" aria-label="Beispiel Renditeszenarien"><path d="M0 80 L60 66 L120 58 L180 40 L240 30 L300 14" fill="none" stroke="#B09E80" stroke-width="2"/><path d="M0 80 L60 72 L120 68 L180 58 L240 52 L300 44" fill="none" stroke="#192537" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 4"/></svg>
+      <div class="rep-r"><span data-en="Risk assessment">Risikobewertung</span><em data-en="Example">Beispiel</em></div>
+      <p class="rep-n" data-en="Illustrative mock-up with example values. No real property, no real figures.">Illustratives Mockup mit Beispielwerten. Keine reale Immobilie, keine realen Kennzahlen.</p></div>
   </div>
 </div></section>
 
-<section class="s" id="vorsprung"><div class="wrap">
-  <span class="eyebrow rv" data-en="03 · The edge">03 · Der Vorsprung</span>
-  <h2 class="rv" data-en="Four assets most competitors cannot buy.">Vier Assets, die die meisten Wettbewerber nicht kaufen können.</h2>
-  <div class="grid g4">
-    <div class="card rv"><span class="n">01</span><h3 data-en="Off-market inventory">Off-Market-Bestand</h3><p data-en="Properties that never reach a portal. Built from relationships, not budget.">Objekte, die nie ein Portal erreichen. Entsteht aus Beziehungen, nicht aus Budget.</p></div>
-    <div class="card rv"><span class="n">02</span><h3 data-en="The founding bench">Die Gründerbank</h3><p data-en="Five to six partners with decades of transaction experience — credibility, network, judgement.">Fünf bis sechs Partner mit jahrzehntelanger Transaktionserfahrung — Glaubwürdigkeit, Netzwerk, Urteilsvermögen.</p></div>
-    <div class="card rv"><span class="n">03</span><h3 data-en="Intelligence layer">Intelligence-Ebene</h3><p data-en="AI-assisted analysis: fragmented market, valuation and regulatory data in days instead of weeks.">KI-gestützte Analyse: fragmentierte Markt-, Bewertungs- und Regulierungsdaten in Tagen statt Wochen.</p></div>
-    <div class="card rv"><span class="n">04</span><h3 data-en="Both sides">Beide Seiten</h3><p data-en="Seller and buyer in the same house — matching, timing and closing certainty from one source.">Verkäufer und Käufer im selben Haus — Matching, Timing und Abschlusssicherheit aus einer Hand.</p></div>
-  </div>
-  <div class="quote rv"><small data-en="THE DEFENSIBLE POSITION">DIE VERTEIDIGBARE POSITION</small><p data-en="“We know what this building is worth, we know whether it can legally be divided, and we already know who will buy it.”">„Wir wissen, was dieses Gebäude wert ist, wir wissen, ob es rechtlich aufgeteilt werden darf, und wir wissen bereits, wer es kaufen wird."</p></div>
-  <div class="tw rv"><table>
-    <tr><th></th><th data-en="BAVARIA">BAYERN</th><th data-en="BADEN-WÜRTTEMBERG">BADEN-WÜRTTEMBERG</th></tr>
-    <tr><td data-en="Regime">Regime</td><td data-en="§ 250 BauGB via GBestV-Bau, since June 2023">§ 250 BauGB über die GBestV-Bau, seit Juni 2023</td><td data-en="No rule under § 250; older conversion ordinance under § 172 BauGB">Keine Regelung nach § 250; ältere Umwandlungsverordnung nach § 172 BauGB</td></tr>
-    <tr><td data-en="Scope">Geltungsbereich</td><td data-en="50 designated municipalities">50 ausgewiesene Gemeinden</td><td data-en="Only in municipal preservation areas">Nur in kommunalen Milieuschutzgebieten</td></tr>
-    <tr><td data-en="Threshold">Schwelle</td><td data-en="Existing buildings with 11+ units; up to 10 units exempt">Bestand mit 11+ Einheiten; bis 10 Einheiten ausgenommen</td><td data-en="Plot-level review; new builds exempt">Prüfung auf Grundstücksebene; Neubauten ausgenommen</td></tr>
-    <tr><td data-en="Valid until">Gültig bis</td><td data-en="Currently end of 2026; federal authorisation until end of 2030">Derzeit Ende 2026; Bundesermächtigung bis Ende 2030</td><td data-en="November 2028">November 2028</td></tr>
-  </table></div>
-  <p class="lead rv" style="margin-top:28px">Daraus entsteht die <b style="color:var(--acc2)">Umwandlungs-Ampel</b>: grün, gelb oder rot — eine sofortige Rechtsmachbarkeitsbewertung, die kein regionaler Wettbewerber bietet.</p>
+<section class="sx dark" id="prozess"><div class="wrap">
+  <span class="eb rv"><span data-en="The ARVENTAS process">Der ARVENTAS Prozess</span></span>
+  <h2 class="rv" data-en="A clear process. From property to transaction.">Ein klarer Prozess. Von der Immobilie zur Transaktion.</h2>
+  <ol class="pr"><li class="rv" style="--d:0.0s"><b>01</b><h3 data-en="Property access">Immobilienzugang</h3><p data-en="Identify selected off-market properties.">Ausgewählte Off-Market-Objekte identifizieren.</p></li><li class="rv" style="--d:0.12s"><b>02</b><h3 data-en="Analysis">Analyse</h3><p data-en="Review value, potential and risks.">Wert, Potenzial und Risiken prüfen.</p></li><li class="rv" style="--d:0.24s"><b>03</b><h3 data-en="Investor circle">Investorenkreis</h3><p data-en="Build qualified buyer profiles.">Qualifizierte Käuferprofile aufbauen.</p></li><li class="rv" style="--d:0.36s"><b>04</b><h3 data-en="Matching">Matching</h3><p data-en="Connect properties with suitable prospects.">Immobilien mit geeigneten Interessenten verbinden.</p></li><li class="rv" style="--d:0.48s"><b>05</b><h3 data-en="Transaction">Transaktion</h3><p data-en="Guide the closing professionally.">Den Abschluss professionell begleiten.</p></li><li class="rv" style="--d:0.6s"><b>06</b><h3 data-en="Continuous improvement">Weiterentwicklung</h3><p data-en="Use insights for future decisions.">Erkenntnisse für zukünftige Entscheidungen nutzen.</p></li></ol>
 </div></section>
 
-<section class="s" id="engine"><div class="wrap">
-  <span class="eyebrow rv" data-en="04 · The engine">04 · Die Engine</span>
-  <h2 class="rv" data-en="One loop, six stages, stronger with every cycle.">Ein Kreislauf, sechs Stufen, mit jedem Zyklus stärker.</h2>
-  <div class="cycle rv">
-    <div><span class="n eyebrow">01</span><h3 data-en="Sourcing">Sourcing</h3><p data-en="Partner network, administrators, referrals, signal monitoring.">Partnernetzwerk, Verwalter, Empfehlungen, Signalmonitoring.</p></div>
-    <div><span class="n eyebrow">02</span><h3 data-en="Analysis">Analyse</h3><p data-en="Property report in five working days.">Objektreport in fünf Arbeitstagen.</p></div>
-    <div><span class="n eyebrow">03</span><h3 data-en="Attraction">Anziehung</h3><p data-en="Analysed properties draw investors into the circle.">Analysierte Objekte ziehen Investoren in den Kreis.</p></div>
-    <div><span class="n eyebrow">04</span><h3 data-en="Matching">Matching</h3><p data-en="Pool by ticket, region, risk, financing.">Pool nach Ticket, Region, Risiko, Finanzierung.</p></div>
-    <div><span class="n eyebrow">05</span><h3 data-en="Closing">Abwicklung</h3><p data-en="Mandate, transaction, both sides from one house.">Mandat, Transaktion, beide Seiten aus einem Haus.</p></div>
-    <div><span class="n eyebrow">06</span><h3 data-en="Learning">Lernen</h3><p data-en="Every outcome sharpens the scoring model.">Jedes Ergebnis schärft das Scoring-Modell.</p></div>
-  </div>
-  <div class="quote rv"><small data-en="THE SEQUENCE RULE">DIE SEQUENZREGEL</small><p data-en="Supply first, demand after — always. Build inventory first, then open the demand taps.">Angebot zuerst, Nachfrage danach — immer. Erst Bestand aufbauen, dann die Nachfragehähne öffnen.</p></div>
-</div></section>
-
-<section class="s" id="positionierung"><div class="wrap">
-  <span class="eyebrow rv" data-en="05 · Positioning">05 · Positionierung</span>
-  <h2 class="rv" data-en="One brand, two conversations.">Eine Marke, zwei Gespräche.</h2>
-  <p class="lead rv" data-en="ARVENTAS — off-market real-estate intelligence for Bavaria and Baden-Württemberg. We find properties that are not on the market, value them in days instead of weeks and bring them to the right owner or investor.">ARVENTAS — Off-Market Immobilien-Intelligenz für Bayern und Baden-Württemberg. Wir finden Objekte, die nicht am Markt sind, bewerten sie in Tagen statt Wochen und bringen sie zum passenden Eigentümer oder Investor.</p>
-  <div class="grid g3">
-    <div class="card rv"><span class="n" data-en="ACCESS">ZUGANG</span><h3 data-en="Never on a portal">Nie am Portal</h3><p data-en="Proof: the live off-market list, deal stories, the partners' named track record.">Beleg: die laufende Off-Market-Liste, Deal-Geschichten, namentlicher Track Record der Partner.</p></div>
-    <div class="card rv"><span class="n" data-en="ANALYSIS">ANALYSE</span><h3 data-en="Decision-ready in 5 days">Entscheidungsreif in 5 Tagen</h3><p data-en="Proof: the property report itself, handed over as a sample at the first meeting.">Beleg: der Objektreport selbst, im ersten Termin als Muster übergeben.</p></div>
-    <div class="card rv"><span class="n" data-en="CLOSING">ABWICKLUNG</span><h3 data-en="Through to the notary">Bis zum Notar</h3><p data-en="Proof: completed transactions, named references, closing times.">Beleg: abgeschlossene Transaktionen, namentliche Referenzen, Abwicklungszeiten.</p></div>
-  </div>
-  <p class="lead rv" style="margin-top:40px" data-en="Not a software platform. Not a classic broker. Not a data vendor. Discretion is the product.">Keine Softwareplattform. Kein klassischer Makler. Kein Datenanbieter. Diskretion ist das Produkt.</p>
-</div></section>
-
-<section class="s" id="zielgruppen"><div class="wrap">
-  <span class="eyebrow rv" data-en="06 · Audiences">06 · Zielgruppen</span>
-  <h2 class="rv" data-en="Who we sell to — and in what order.">An wen wir verkaufen — und in welcher Reihenfolge.</h2>
-  <div class="grid g2">
-    <div class="card rv"><span class="n" data-en="SELL SIDE · TIER 1">VERKAUFSSEITE · TIER 1</span><h3 data-en="Source inventory">Bestand beschaffen</h3><p data-en="Inheritance communities &amp; estate administrators · insolvency administrators · private multi-family owners 60+ · multiplier network (tax advisers, notaries, inheritance lawyers, property managers, banks).">Erbengemeinschaften &amp; Nachlassverwalter · Insolvenzverwalter · Private MFH-Eigentümer 60+ · Multiplikatoren-Netzwerk (Steuerberater, Notare, Erbrechtsanwälte, Hausverwaltungen, Banken).</p></div>
-    <div class="card rv"><span class="n" data-en="BUY SIDE · LAUNCH FOCUS">KÄUFERSEITE · LAUNCH-FOKUS</span><h3 data-en="Place inventory">Bestand platzieren</h3><p data-en="Experienced investors (1–5 prior deals), aged 35–55, skilled professionals, financing-ready. Property first, short cycle. Then beginner tier (from month 4) and professionals (relationship-led).">Fortgeschrittene Investoren (1–5 Vortransaktionen), 35–55, Fachkräfte, finanzierungsbereit. Objekt zuerst, kurzer Zyklus. Danach Anfänger-Tier (ab Monat 4) und Profis (beziehungsgeführt).</p></div>
+<section class="sx ivory split" id="eigentuemer"><div class="wrap sp">
+  <div class="sp-img rv" style="background-image:url(frames/0130.webp)" role="img" aria-label="Mehrfamilienhaus-Fassade mit Balkonen"></div>
+  <div class="sp-t">
+    <span class="eb rv"><span data-en="For owners">Für Eigentümer</span></span>
+    <h2 class="rv" data-en="Sell discreetly. Decide on solid ground.">Diskret verkaufen. Fundiert entscheiden.</h2>
+    <p class="lead2 rv" data-en="Not every property should be marketed publicly. ARVENTAS supports owners with sound analysis and a structured, discreet sales approach.">Nicht jede Immobilie sollte öffentlich vermarktet werden. ARVENTAS unterstützt Eigentümer mit fundierten Analysen und einem strukturierten, diskreten Verkaufsansatz.</p>
+    <ul class="bl"><li class="rv"><span data-en="Discretion">Diskretion</span></li><li class="rv"><span data-en="Market knowledge">Marktkenntnis</span></li><li class="rv"><span data-en="Property valuation">Immobilienbewertung</span></li><li class="rv"><span data-en="Suitable buyers">Geeignete Käufer</span></li><li class="rv"><span data-en="Personal support">Persönliche Begleitung</span></li></ul>
+    <div class="rv"><a class="pbtn gold" href="#kontakt"><span class="pb-t" data-en="REQUEST A FREE PROPERTY REPORT">KOSTENLOSEN OBJEKTREPORT ANFRAGEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
+    <p class="fine rv" data-en="The free report applies to qualified properties and is subject to an initial review.">Der kostenlose Objektreport gilt für qualifizierte Immobilien und unterliegt einer Erstprüfung.</p>
   </div>
 </div></section>
 
-<section class="s" id="portfolio"><div class="wrap">
-  <span class="eyebrow rv" data-en="07 · The offer portfolio">07 · Das Angebotsportfolio</span>
-  <h2 class="rv" data-en="Five products, two revenue engines.">Fünf Produkte, zwei Umsatzmotoren.</h2>
-  <div class="tw rv"><table>
-    <tr><th data-en="PRODUCT">PRODUKT</th><th data-en="SIDE">SEITE</th><th data-en="ROLE">ROLLE</th></tr>
-    <tr><td data-en="ARVENTAS Property Report">ARVENTAS Objektreport</td><td data-en="Both">Beide</td><td data-en="The door-opener. Free for qualified owners, included for investors.">Der Türöffner. Kostenlos für qualifizierte Eigentümer, für Investoren inklusive.</td></tr>
-    <tr><td data-en="Sales mandate">Verkaufs-/Vertriebsmandat</td><td data-en="Sell">Verkauf</td><td data-en="Revenue engine 1. Commission on the transaction.">Umsatzmotor 1. Provision auf die Transaktion.</td></tr>
-    <tr><td data-en="Off-Market Investor Circle">Off-Market Investorenkreis</td><td data-en="Buy">Kauf</td><td data-en="The pool. Free membership, builds the leverage for mandates.">Der Pool. Kostenlose Mitgliedschaft, baut den Hebel für Mandate.</td></tr>
-    <tr><td data-en="Acquisition advisory">Ankaufsberatung</td><td data-en="Buy">Kauf</td><td data-en="Revenue engine 2. Fee or buyer-side commission.">Umsatzmotor 2. Honorar oder käuferseitige Provision.</td></tr>
-    <tr><td data-en="Development &amp; repositioning advisory">Entwicklungs- &amp; Repositionierungsberatung</td><td data-en="Both">Beide</td><td data-en="Margin extension — a valuation becomes a project.">Margenverlängerung — aus Bewertung wird Projekt.</td></tr>
-  </table></div>
-  <div class="quote rv"><small data-en="NON-NEGOTIABLE">NICHT VERHANDELBAR</small><p data-en="A human partner reviews and signs every report before it leaves the house. Machine speed with named human accountability.">Ein menschlicher Partner prüft und zeichnet jeden Report, bevor er das Haus verlässt. Maschinentempo mit namentlicher menschlicher Verantwortung.</p></div>
+<section class="sx dark" id="investoren"><div class="wrap">
+  <span class="eb rv"><span data-en="For investors">Für Investoren</span></span>
+  <h2 class="rv" data-en="Spot opportunities before they become public.">Chancen erkennen, bevor sie öffentlich werden.</h2>
+  <p class="lead2 rv" data-en="The ARVENTAS investor circle opens access to selected off-market properties and sound property information.">Der ARVENTAS Investorenkreis eröffnet Zugang zu ausgewählten Off-Market-Immobilien und fundierten Objektinformationen.</p>
+  <div class="iv"><article class="rv"><b>01</b><h3><span data-en="Selected property opportunities">Ausgewählte Immobilienmöglichkeiten</span></h3></article><article class="rv"><b>02</b><h3><span data-en="Sound property analyses">Fundierte Objektanalysen</span></h3></article><article class="rv"><b>03</b><h3><span data-en="Individual matching">Individuelles Matching</span></h3></article><article class="rv"><b>04</b><h3><span data-en="Personal support">Persönliche Betreuung</span></h3></article></div>
+  <div class="rv"><a class="pbtn gold" href="#kontakt"><span class="pb-t" data-en="JOIN THE INVESTOR CIRCLE NOW">JETZT INVESTORENKREIS BEITRETEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
+  <p class="fine rv" data-en="Offers depend on availability. No specific returns are guaranteed.">Angebote sind abhängig von der Verfügbarkeit. Es werden keine konkreten Renditen zugesichert.</p>
 </div></section>
 
-<section class="s" id="kanaele"><div class="wrap">
-  <span class="eyebrow rv" data-en="08 · Go-to-market channels">08 · Go-to-Market-Kanäle</span>
-  <h2 class="rv" data-en="How each side is actually generated.">Wie jede Seite tatsächlich erzeugt wird.</h2>
-  <div class="grid g2">
-    <div class="card rv"><span class="n" data-en="SELL SIDE">VERKAUFSSEITE</span><h3 data-en="Starts first">Startet zuerst</h3><p data-en="Administrator network · multiplier referral programme · addressed direct mail · signal monitoring · LinkedIn ABM · regional presence (chambers of commerce, owners' associations).">Verwalternetzwerk · Multiplikatoren-Empfehlungsprogramm · adressiertes Direktmailing · Signalmonitoring · LinkedIn ABM · regionale Präsenz (IHK, Haus &amp; Grund).</p></div>
-    <div class="card rv"><span class="n" data-en="BUY SIDE">KÄUFERSEITE</span><h3 data-en="Once inventory exists">Sobald Bestand existiert</h3><p data-en="Financing brokers · Meta Ads · Google Search · investor circle &amp; webinar · yield check · founder content.">Finanzierungsvermittler · Meta Ads · Google Search · Investorenkreis &amp; Webinar · Rendite-Check · Gründer-Content.</p></div>
-  </div>
-  <p class="lead rv" style="margin-top:36px" data-en="Private investors strictly consent-based (double opt-in). No cold calls, no cold emails, no guarantees.">Privatanleger ausschließlich einwilligungsbasiert (Double-Opt-in). Keine Kaltanrufe, keine Kalt-E-Mails, keine Garantien.</p>
-</div></section>
-
-<section class="s" id="launch"><div class="wrap">
-  <span class="eyebrow rv" data-en="09 · The launch">09 · Der Launch</span>
-  <h2 class="rv" data-en="The first 100 days. Three phases, one gate each.">Die ersten 100 Tage. Drei Phasen, je ein Gate.</h2>
-  <div class="tl">
-    <div class="ph rv"><small data-en="WEEKS 1–3">WOCHEN 1–3</small><h3 data-en="Phase 0 · Foundation">Phase 0 · Fundament</h3><ul><li data-en="Sales materials &amp; sample property report">Vertriebsunterlagen &amp; Muster-Objektreport</li><li data-en="onOffice pipeline &amp; measurement">onOffice-Pipeline &amp; Messung</li><li data-en="Owners per function">Verantwortliche je Funktion</li><li data-en="Compliance &amp; approved-claims list">Compliance &amp; Aussagenliste</li></ul><p class="gate" data-en="GATE → Nothing goes live until a sample report can be handed over.">GATE → Nichts geht live, bevor ein Musterreport übergeben werden kann.</p></div>
-    <div class="ph rv"><small data-en="WEEKS 3–8">WOCHEN 3–8</small><h3 data-en="Phase 1 · Supply">Phase 1 · Angebot</h3><ul><li data-en="Administrator list BY &amp; BW">Verwalterliste BY &amp; BW</li><li data-en="6 multiplier partners">6 Multiplikatorenpartner</li><li data-en="First direct-mail wave">Erste Direktmailing-Welle</li><li data-en="10 property reports">10 Objektreports</li></ul><p class="gate" data-en="GATE → 3 properties under mandate or LOI.">GATE → 3 Objekte unter Mandat oder LOI.</p></div>
-    <div class="ph rv"><small data-en="WEEKS 6–12">WOCHEN 6–12</small><h3 data-en="Phase 2 · Demand">Phase 2 · Nachfrage</h3><ul><li data-en="Meta &amp; Google (~€12,000/month)">Meta &amp; Google (~12.000 €/Monat)</li><li data-en="Yield check &amp; landing pages">Rendite-Check &amp; Landingpages</li><li data-en="First investor webinar">Erstes Investorenwebinar</li><li data-en="Speed-to-lead: 5 minutes">Speed-to-Lead: 5 Minuten</li></ul><p class="gate" data-en="GATE → Stable cost per qualified appointment.">GATE → Stabile Kosten pro qualifiziertem Termin.</p></div>
-    <div class="ph rv"><small data-en="WEEKS 12–16">WOCHEN 12–16</small><h3 data-en="Phase 3 · Proof">Phase 3 · Beweis</h3><ul><li data-en="First units notarised">Erste Einheiten beurkundet</li><li data-en="2 case studies">2 Fallstudien</li><li data-en="Playbook documented">Playbook dokumentiert</li><li data-en="Go/no-go for region two">Go/No-Go Region zwei</li></ul><p class="gate" data-en="GATE → 8–12 notarised units.">GATE → 8–12 beurkundete Einheiten.</p></div>
+<section class="sx ivory" id="expertise"><div class="wrap">
+  <span class="eb rv"><span data-en="About us">Über uns</span></span>
+  <h2 class="rv" data-en="Experience builds trust. Technology creates an edge.">Erfahrung schafft Vertrauen. Technologie schafft Vorsprung.</h2>
+  <p class="lead2 rv" data-en="Behind ARVENTAS stand experienced entrepreneurs and property experts who combine personal market knowledge with modern analysis.">Hinter ARVENTAS stehen erfahrene Unternehmer und Immobilienexperten, die persönliche Marktkenntnis mit modernen Analysemöglichkeiten verbinden.</p>
+  <div class="tms"><article class="tm rv"><div class="tm-ph" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="40" cy="30" r="12"/><path d="M16 70c2-16 14-22 24-22s22 6 24 22"/></svg></div>
+<h3><span data-en="Name to follow">Name folgt</span></h3><p class="role"><span data-en="Role to follow">Rolle folgt</span></p><p class="mut"><span data-en="Focus area and short biography follow once verified details are available.">Schwerpunkt und Kurzbiografie folgen, sobald die verifizierten Angaben vorliegen.</span></p><p class="ph-note"><span data-en="Placeholder – portrait and details to be added">Platzhalter – Porträt und Angaben werden ergänzt</span></p></article><article class="tm rv"><div class="tm-ph" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="40" cy="30" r="12"/><path d="M16 70c2-16 14-22 24-22s22 6 24 22"/></svg></div>
+<h3><span data-en="Name to follow">Name folgt</span></h3><p class="role"><span data-en="Role to follow">Rolle folgt</span></p><p class="mut"><span data-en="Focus area and short biography follow once verified details are available.">Schwerpunkt und Kurzbiografie folgen, sobald die verifizierten Angaben vorliegen.</span></p><p class="ph-note"><span data-en="Placeholder – portrait and details to be added">Platzhalter – Porträt und Angaben werden ergänzt</span></p></article><article class="tm rv"><div class="tm-ph" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="40" cy="30" r="12"/><path d="M16 70c2-16 14-22 24-22s22 6 24 22"/></svg></div>
+<h3><span data-en="Name to follow">Name folgt</span></h3><p class="role"><span data-en="Role to follow">Rolle folgt</span></p><p class="mut"><span data-en="Focus area and short biography follow once verified details are available.">Schwerpunkt und Kurzbiografie folgen, sobald die verifizierten Angaben vorliegen.</span></p><p class="ph-note"><span data-en="Placeholder – portrait and details to be added">Platzhalter – Porträt und Angaben werden ergänzt</span></p></article></div>
+  <div class="rv"><a class="pbtn " href="#kontakt"><span class="pb-t" data-en="MORE ABOUT ARVENTAS">MEHR ÜBER ARVENTAS</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
+  <div class="co2">
+    <h3 class="rv" data-en="Specialist competencies under one brand">Spezialisierte Kompetenzen unter einer Marke</h3>
+    <ul class="cl"><li class="rv"><span data-en="Real estate & sales">Immobilien & Vertrieb</span></li><li class="rv"><span data-en="Construction & development">Bau & Entwicklung</span></li><li class="rv"><span data-en="Protection & financing">Absicherung & Finanzierung</span></li><li class="rv"><span data-en="Digital analysis & systems">Digitale Analyse & Systeme</span></li><li class="rv"><span data-en="Living & residential concepts">Living & Wohnkonzepte</span></li></ul>
+    <p class="fine rv" data-en="Services may be provided by different independent operating companies or partners. Not every service is necessarily provided by a single legal entity.">Leistungen können von unterschiedlichen, eigenständig tätigen operativen Unternehmen oder Partnern erbracht werden. Nicht jede Leistung wird zwingend von einer einzelnen Rechtseinheit erbracht.</p>
   </div>
 </div></section>
 
-<section class="s" id="funnel"><div class="wrap">
-  <span class="eyebrow rv" data-en="10 · Funnel model">10 · Funnel-Modell</span>
-  <h2 class="rv" data-en="What the numbers must look like.">Wie die Zahlen aussehen müssen.</h2>
-  <div class="tw rv"><table>
-    <tr><th data-en="STAGE">STUFE</th><th data-en="CONVERSION">CONVERSION</th><th data-en="MONTHLY">MONATLICH</th></tr>
-    <tr><td data-en="Media budget">Mediabudget</td><td>—</td><td>12.000 €</td></tr>
-    <tr><td data-en="Raw leads (avg. €35 CPL)">Rohleads (Ø 35 € CPL)</td><td>—</td><td>340</td></tr>
-    <tr><td data-en="Contacted within 5 min">Innerhalb 5 Min. kontaktiert</td><td>65 %</td><td>220</td></tr>
-    <tr><td data-en="Passes qualification">Besteht Qualifizierung</td><td>45 %</td><td>100</td></tr>
-    <tr><td data-en="Appointment booked → attended">Termin gebucht → wahrgenommen</td><td>60 % · 70 %</td><td>60 → 42</td></tr>
-    <tr><td data-en="Financing commitment">Finanzierungszusage</td><td>35 %</td><td>15</td></tr>
-    <tr><td data-en="Reservation / notary">Reservierung / Notar</td><td>30 %</td><td data-en="4–5 units">4–5 Einheiten</td></tr>
-  </table></div>
-  <div class="stats rv">
-    <div><b data-en="~€285">~285 €</b><span data-en="Media cost per attended appointment">Mediakosten je wahrgenommenem Termin</span></div>
-    <div><b data-en="~€2,600">~2.600 €</b><span data-en="Media cost per notarised unit">Mediakosten je beurkundeter Einheit</span></div>
-    <div><b>42</b><span data-en="Qualified appointments / month">Qualifizierte Termine / Monat</span></div>
-    <div><b>40–60</b><span data-en="Realistic launch target, appointments / month">Realistisches Launch-Ziel Termine / Monat</span></div>
+<section class="sx dark" id="deutschland"><div class="wrap mp">
+  <div class="mp-t">
+    <span class="eb rv"><span data-en="ACTIVE NATIONWIDE">DEUTSCHLANDWEIT TÄTIG</span></span>
+    <h2 class="rv" data-en="Regional know-how. Nationwide perspectives.">Regionales Know-how. Deutschlandweite Perspektiven.</h2>
+    <p class="lead2 rv" data-en="ARVENTAS combines regional market knowledge with a nationwide network of property experts, investors and specialised partners.">ARVENTAS verbindet regionale Marktkenntnis mit einem deutschlandweiten Netzwerk aus Immobilienexperten, Investoren und spezialisierten Partnern.</p>
+    <p class="fine rv" data-en="Stylised map. It shows nationwide positioning, not office locations.">Stilisierte Darstellung. Sie zeigt die deutschlandweite Ausrichtung, keine Standorte.</p>
   </div>
+  <svg class="mp-v rv" viewBox="0 0 100 104" role="img" aria-label="Stilisierte Karte von Deutschland"><defs><linearGradient id="gm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B09E80" stop-opacity=".28"/><stop offset="1" stop-color="#B09E80" stop-opacity=".06"/></linearGradient></defs>
+  <path d="M38 2 L44 3 L48 8 L56 5 L66 7 L72 12 L70 18 L76 22 L78 30 L76 38 L82 46 L84 54 L78 60 L80 68 L76 76 L70 82 L62 86 L56 94 L48 98 L40 94 L34 96 L30 90 L26 80 L20 74 L22 64 L18 56 L22 48 L16 40 L20 32 L14 26 L22 20 L24 12 L32 9 Z" fill="url(#gm)" stroke="#B09E80" stroke-width=".7" stroke-linejoin="round"/>
+  <g stroke="#B09E80" stroke-opacity=".3" stroke-width=".3" fill="none"><path d="M20 32 L76 38"/><path d="M22 48 L82 46"/><path d="M22 64 L80 68"/><path d="M44 3 L48 98"/><path d="M60 5 L56 94"/></g></svg>
 </div></section>
 
-<section class="s" id="prozess"><div class="wrap">
-  <span class="eyebrow rv" data-en="11 · Process &amp; standards">11 · Prozess &amp; Standards</span>
-  <h2 class="rv" data-en="Nine stages, one pipeline, no exceptions.">Neun Stufen, eine Pipeline, keine Ausnahmen.</h2>
-  <p class="lead rv" data-en="Lead identified → first contact → qualified → appointment → analysis → offer → follow-up → mandate → transaction.">Lead identifiziert → Erstkontakt → Qualifiziert → Termin → Analyse → Angebot → Nachfassen → Mandat → Transaktion.</p>
-  <div class="grid g3">
-    <div class="card rv"><span class="n" data-en="STANDARD">STANDARD</span><h3 data-en="5 minutes">5 Minuten</h3><p data-en="to first contact on inbound buyer enquiries. The cheapest performance gain.">bis zum Erstkontakt bei eingehenden Käuferanfragen. Der günstigste Performance-Gewinn.</p></div>
-    <div class="card rv"><span class="n" data-en="STANDARD">STANDARD</span><h3 data-en="5 working days">5 Arbeitstage</h3><p data-en="from engagement to the delivered property report.">von der Beauftragung bis zum gelieferten Objektreport.</p></div>
-    <div class="card rv"><span class="n" data-en="STANDARD">STANDARD</span><h3 data-en="24 hours">24 Stunden</h3><p data-en="to follow up after every attended appointment. Everything logged in the CRM the same day.">zum Nachfassen nach jedem wahrgenommenen Termin. Alles taggleich im CRM.</p></div>
-  </div>
+<section class="sx ivory" id="wissen"><div class="wrap">
+  <span class="eb rv"><span data-en="Market insights">Marktbrief</span></span>
+  <h2 class="rv" data-en="Knowledge creates an edge.">Wissen schafft Vorsprung.</h2>
+  <p class="lead2 rv" data-en="Property markets change. Sound information helps you assess opportunities and risks better.">Immobilienmärkte verändern sich. Fundierte Informationen helfen dabei, Chancen und Risiken besser einzuordnen.</p>
+  <div class="ars"><article class="ar rv"><div class="ar-img" style="background-image:url(frames/0150.webp)"></div><div class="ar-b"><span class="eb2"><span data-en="Real estate market">Immobilienmarkt</span></span><h3><span data-en="Understanding off-market real estate">Off-Market Immobilien verstehen</span></h3><a class="lnk" href="#wissen"><span data-en="READ ARTICLE">ARTIKEL LESEN</span> <i>→</i></a></div></article><article class="ar rv"><div class="ar-img" style="background-image:url(frames/0240.webp)"></div><div class="ar-b"><span class="eb2"><span data-en="Investment">Kapitalanlage</span></span><h3><span data-en="Yield and property valuation">Rendite und Immobilienbewertung</span></h3><a class="lnk" href="#wissen"><span data-en="READ ARTICLE">ARTIKEL LESEN</span> <i>→</i></a></div></article><article class="ar rv"><div class="ar-img" style="background-image:url(frames/0265.webp)"></div><div class="ar-b"><span class="eb2"><span data-en="Development">Immobilienentwicklung</span></span><h3><span data-en="Renovation and development potential">Sanierung und Entwicklungspotenzial</span></h3><a class="lnk" href="#wissen"><span data-en="READ ARTICLE">ARTIKEL LESEN</span> <i>→</i></a></div></article></div>
+  <div class="rv"><a class="pbtn " href="#wissen"><span class="pb-t" data-en="ALL MARKET ANALYSES">ALLE MARKTANALYSEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></div>
 </div></section>
 
-<section class="s" id="tech"><div class="wrap">
-  <span class="eyebrow rv" data-en="12 · Technology &amp; data">12 · Technologie &amp; Daten</span>
-  <h2 class="rv" data-en="One backbone. In-house builds only where they create an edge.">Ein Rückgrat. Eigenentwicklung nur, wo sie Vorsprung schafft.</h2>
-  <p class="lead rv" data-en="onOffice · DeepImmo · PriceHubble · n8n · Supabase · LLM layer · GA4 with server-side tracking.">onOffice · DeepImmo · PriceHubble · n8n · Supabase · LLM-Ebene · GA4 mit serverseitigem Tracking.</p>
-  <div class="grid g4">
-    <div class="card rv"><span class="n">01</span><h3 data-en="Opportunity Score">Opportunity Score</h3><p data-en="One score per property: valuation, yield, retrofit, legal feasibility, buyer match.">Eine Kennzahl je Objekt: Bewertung, Rendite, Sanierung, Rechtsmachbarkeit, Käufer-Match.</p></div>
-    <div class="card rv"><span class="n">02</span><h3 data-en="Conversion Traffic Light">Umwandlungs-Ampel</h3><p data-en="Automated legal feasibility per property — a screening filter.">Automatisierte Rechtsmachbarkeit je Objekt — ein Screening-Filter.</p></div>
-    <div class="card rv"><span class="n">03</span><h3 data-en="Matching layer">Matching-Ebene</h3><p data-en="Buyer pool queryable by region, ticket, type, risk, financing.">Käuferpool abfragbar nach Region, Ticket, Typ, Risiko, Finanzierung.</p></div>
-    <div class="card rv"><span class="n">04</span><h3 data-en="Feedback loop">Feedback-Kreislauf</h3><p data-en="Every outcome flows back into scoring — year two beats year one.">Jedes Ergebnis fließt zurück ins Scoring — Jahr zwei wird besser als Jahr eins.</p></div>
+<section class="sx dark ct" id="kontakt" style="--bgimg:url(frames/0212.webp)"><div class="wrap">
+  <span class="eb rv"><span data-en="Contact">Kontakt</span></span>
+  <h2 class="rv" data-en="Your next property decision begins with a conversation.">Ihre nächste Immobilienentscheidung beginnt mit einem Gespräch.</h2>
+  <p class="lead2 rv" data-en="Whether selling a property or investing – we help you recognise the right opportunities.">Ob Immobilienverkauf oder Kapitalanlage – wir unterstützen Sie dabei, die passenden Möglichkeiten zu erkennen.</p>
+  <div class="cts">
+    <article class="rv"><h3 data-en="Have your property valued">Immobilie bewerten lassen</h3><a class="pbtn gold" href="#kontakt"><span class="pb-t" data-en="START AN ENQUIRY">ANFRAGE STARTEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></article>
+    <article class="rv"><h3 data-en="Discover investment opportunities">Investitionsmöglichkeiten entdecken</h3><a class="pbtn gold" href="#kontakt"><span class="pb-t" data-en="JOIN THE INVESTOR CIRCLE">INVESTORENKREIS BEITRETEN</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></article>
   </div>
-</div></section>
-
-<section class="s" id="marke"><div class="wrap">
-  <span class="eyebrow rv" data-en="13 · Brand">13 · Marke</span>
-  <h2 class="rv" data-en="The partners are the brand.">Die Partner sind die Marke.</h2>
-  <p class="lead rv" data-en="Four decades of transaction experience spread across five or six people — credibility a competitor would need a generation to build. ARVENTAS makes it visible, systematically: market brief, partner commentary, deal stories, investor webinar, regional presence.">Vier Jahrzehnte Transaktionserfahrung auf fünf oder sechs Personen verteilt — Glaubwürdigkeit, für deren Aufbau ein Wettbewerber eine Generation bräuchte. Sie macht ARVENTAS systematisch sichtbar: Marktbrief, Partnerkommentar, Deal-Geschichten, Investorenwebinar, regionale Präsenz.</p>
-  <div class="quote rv"><small data-en="THE BRAND TEST">DER MARKENTEST</small><p data-en="“They tell you what it is really worth, fast — and they already know who will buy it.”">„Die sagen einem, was es wirklich wert ist, schnell — und die wissen schon, wer es kauft."</p></div>
-</div></section>
-
-<section class="s" id="roadmap"><div class="wrap">
-  <span class="eyebrow rv" data-en="14 · Growth roadmap">14 · Wachstums-Roadmap</span>
-  <h2 class="rv" data-en="Twelve months, three horizons — four stages.">Zwölf Monate, drei Horizonte — vier Etappen.</h2>
-  <div class="tl">
-    <div class="ph rv"><small data-en="MONTHS 1–3">MONATE 1–3</small><h3 data-en="Prove">Beweisen</h3><ul><li data-en="One region, one segment">Eine Region, ein Segment</li><li data-en="8–12 units notarised">8–12 Einheiten beurkundet</li><li data-en="Unit economics established">Unit Economics etabliert</li></ul></div>
-    <div class="ph rv"><small data-en="MONTHS 4–6">MONATE 4–6</small><h3 data-en="Deepen">Vertiefen</h3><ul><li data-en="15 multiplier partners">15 Multiplikatorenpartner</li><li data-en="Open beginner tier">Anfänger-Tier öffnen</li><li data-en="Paid acquisition advisory">Ankaufsberatung kostenpflichtig</li></ul></div>
-    <div class="ph rv"><small data-en="MONTHS 7–9">MONATE 7–9</small><h3 data-en="Expand">Ausweiten</h3><ul><li data-en="Region two by playbook">Region zwei nach Playbook</li><li data-en="Care, heritage, participations">Pflege, Denkmal, Beteiligungen</li><li data-en="Professional tier formalised">Profi-Tier formalisiert</li></ul></div>
-    <div class="ph rv"><small data-en="MONTHS 10–12">MONATE 10–12</small><h3 data-en="Reinforce">Verstärken</h3><ul><li data-en="Off-market database">Off-Market-Datenbank</li><li data-en="Buyer pool as an asset">Käuferpool als Asset</li><li data-en="Larger tickets">Größere Tickets</li></ul></div>
-  </div>
-</div></section>
-
-<section class="s" id="kpi"><div class="wrap">
-  <span class="eyebrow rv" data-en="15 · Governance">15 · Governance</span>
-  <h2 class="rv" data-en="What we measure — and what can go wrong.">Was wir messen — und was schiefgehen kann.</h2>
-  <p class="lead rv">Die zwei Zahlen, die alles steuern: <b style="color:var(--acc2)">Kosten pro qualifiziertem Termin</b> und <b style="color:var(--acc2)">Bestandsreichweite in Tagen</b>. Läuft der Bestand leer, wird das Nachfragebudget in derselben Woche gekürzt.</p>
-  <div class="grid g3">
-    <div class="card rv"><span class="n" data-en="RISK">RISIKO</span><h3 data-en="Inventory runs dry">Bestand läuft leer</h3><p data-en="Two people permanently on the supply side; throttle budget automatically.">Dauerhaft zwei Personen auf der Angebotsseite; Budget automatisch drosseln.</p></div>
-    <div class="card rv"><span class="n" data-en="RISK">RISIKO</span><h3 data-en="Regulatory friction">Regulatorische Reibung</h3><p data-en="Traffic-light screening before the pipeline; focus on the permit-free band of 6–10 units.">Ampel-Screening vor der Pipeline; Fokus auf das genehmigungsfreie Band von 6–10 Einheiten.</p></div>
-    <div class="card rv"><span class="n" data-en="RISK">RISIKO</span><h3 data-en="Compliance in outreach">Compliance in der Ansprache</h3><p data-en="Documented opt-in, approved-claims list, legal sign-off before launch.">Dokumentiertes Opt-in, freigegebene Aussagenliste, rechtliche Freigabe vor Launch.</p></div>
-  </div>
-</div></section>
-
-<section class="stmt" id="st2"><div class="wrap">
-  <div class="stmt-mask"><h2 class="stmt-big" data-fit><span data-en="8–12 units">8–12 Einheiten</span></h2></div>
-  <div class="stmt-row">
-    <p class="stmt-txt" data-en="notarised in the first 100 days. From one region, one segment and one repeatable playbook.">in den ersten 100 Tagen notariell beurkundet. Aus einer Region, einem Segment und einem wiederholbaren Playbook.</p>
-    <div class="stmt-img" style="background-image:url(frames/0265.webp)"></div>
-  </div>
-</div></section>
-<section class="s cta" id="start"><div class="wrap">
-  <span class="eyebrow rv" data-en="16 · Next steps">16 · Nächste Schritte</span>
-  <h2 class="rv" data-en="Start narrow. Supply first. Prove it.">Enger starten. Angebot zuerst. Beweisen.</h2>
-  <p class="lead rv" data-en="One pair of regions, one buyer tier, one property profile. Put the property report at the centre of every conversation, make the partners visible — eight to twelve units and a repeatable playbook in 100 days.">Ein Regionenpaar, ein Käufertier, ein Objektprofil. Den Objektreport in den Mittelpunkt jedes Gesprächs stellen, die Partner sichtbar machen — acht bis zwölf Einheiten und ein wiederholbares Playbook in 100 Tagen.</p>
-  <a class="pbtn rv" href="#top"><span class="pb-t" data-en="For approval — start Phase 0">Zur Freigabe — Phase 0 starten</span><span class="pb-a" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
-  <div class="pic rv" style="background-image:url(frames/0304.webp)"></div>
+  <p class="fine rv" data-en="Contact details and forms will be connected once verified company data and a secure backend are available.">Kontaktdaten und Formulare werden angebunden, sobald verifizierte Unternehmensdaten und ein sicheres Backend vorliegen.</p>
 </div></section>
 </main>
 
-<footer><div class="wrap">
-  <div><div class="logo" style="color:var(--fg);margin-bottom:12px">ARVENTAS</div><p data-en="Prepared by Branded Genius for the ARVENTAS founding partners, August 2026. Status: for approval. Funnel rates, CPL assumptions and capacity figures are planning estimates. Regulatory references require confirmation by ARVENTAS legal counsel before customer-facing use.">Erstellt von Branded Genius für die ARVENTAS Gründungspartner, August 2026. Status: Zur Freigabe. Funnel-Raten, CPL-Annahmen und Kapazitätswerte sind Planungsschätzungen. Regulatorische Verweise bedürfen vor kundenseitiger Verwendung der Bestätigung durch die Rechtsberatung von ARVENTAS.</p></div>
-  <div><p data-en="Off-market real-estate intelligence<br>Bavaria &amp; Baden-Württemberg">Off-Market Immobilien-Intelligenz<br>Bayern &amp; Baden-Württemberg</p></div>
+<footer class="ft"><div class="wrap">
+  <div class="ft-g">
+    <div><h4 data-en="Company">Unternehmen</h4><ul><li><a href="#expertise" data-en="About ARVENTAS">Über ARVENTAS</a></li><li><a href="#expertise" data-en="Our team">Unser Team</a></li><li><a href="#expertise" data-en="Partner network">Partnernetzwerk</a></li></ul></div>
+    <div><h4 data-en="Real estate">Immobilien</h4><ul><li><a href="#eigentuemer" data-en="Sell a property">Immobilie verkaufen</a></li><li><a href="#investoren" data-en="Capital investment">Kapitalanlage</a></li><li><a href="#investoren" data-en="Investor circle">Investorenkreis</a></li><li><a href="#objektreport" data-en="Property report">Objektreport</a></li></ul></div>
+    <div><h4 data-en="Information">Information</h4><ul><li><a href="#wissen" data-en="Market brief">Marktbrief</a></li><li><a href="#wissen" data-en="Property knowledge">Immobilienwissen</a></li><li><a href="#wissen" data-en="FAQ">Häufige Fragen</a></li></ul></div>
+    <div><h4 data-en="Contact">Kontakt</h4><ul class="ph-l"><li data-en="Telephone: to follow (verified)">Telefon: folgt (verifiziert)</li><li data-en="Email: to follow (verified)">E-Mail: folgt (verifiziert)</li><li data-en="Address: to follow (verified)">Anschrift: folgt (verifiziert)</li><li><a href="#kontakt" data-en="Contact form">Kontaktformular</a></li></ul></div>
+  </div>
+  <div class="ft-b">
+    <div class="ft-l"><span class="lg-ph" data-en="Logo placeholder – official logo to be supplied">Logo-Platzhalter – offizielles Logo folgt</span><b>ARVENTAS</b><em data-en="Creating value. Building the future.">Werte schaffen. Zukunft bauen.</em></div>
+    <ul><li><a href="#" data-en="Imprint">Impressum</a></li><li><a href="#" data-en="Privacy">Datenschutz</a></li><li><a href="#" data-en="Cookie settings">Cookie-Einstellungen</a></li></ul>
+  </div>
 </div></footer>
 </div>
 
@@ -668,7 +759,9 @@ function readTarget(){
   const r=film.getBoundingClientRect(),total=film.offsetHeight-innerHeight;
   const t=total>1?-r.top/total:0;target=isFinite(t)?Math.min(1,Math.max(0,t)):0;return r;
 }
+const topbarEl=document.getElementById('topbar');
 function ui(r){
+  topbarEl.classList.toggle('solid',r.bottom<innerHeight*.5);
   const p=smooth;
   caps.forEach(c=>{const a=+c.dataset.in,b=+c.dataset.out,o=sm((p-a)/.03)*sm((b-p)/.03);c.style.opacity=o;c.style.transform='translate3d(0,'+((1-o)*26)+'px,0)';c.classList.toggle('on',o>.02)});
   bar.style.width=(p*100)+'%';bar.style.opacity=(r.bottom>innerHeight*.5)?1:0;
@@ -731,7 +824,7 @@ async function boot(){
 }
 
 /* swash italics: some A/E letters in big headings turn italic, like a hand-lettered serif */
-const swEls=[...document.querySelectorAll('.cap h1,.cap h2,section.s h2')].filter(e=>!e.classList.contains('no-sw'));
+const swEls=[];
 function swash(el){
   el.querySelectorAll('.sw').forEach(n=>n.replaceWith(document.createTextNode(n.textContent)));
   el.normalize();
