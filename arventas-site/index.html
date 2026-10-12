@@ -630,6 +630,17 @@ h1,h2,h3,.quote p,.cap h2,.lv-big,#drawer .dr-nav li a{font-family:var(--serif)!
 .s2 .rv{opacity:0}.s2 .rv.in{opacity:1}
 /* mobile hero: keep it clean */
 @media(max-width:820px){.hero-cap .h-l .eyebrow{font-size:10px!important}.hero-cap .hbtns .pbtn{font-size:10px}}
+/* hero buttons: identical size and type, only fill differs */
+.hero-cap .hbtns{display:flex;flex-direction:row;gap:12px;flex-wrap:wrap}
+.hero-cap .hbtns .pbtn{font-family:var(--sans)!important;font-weight:500;font-size:11px;letter-spacing:.14em;min-width:0;text-shadow:none}
+.hero-cap .hbtns .pbtn .pb-t{font-family:var(--sans)!important;padding:15px 22px}
+.hero-cap .hbtns .pbtn:not(.gold){background:rgba(25,37,55,.55);border-color:rgba(255,255,255,.7)}
+.hero-cap .hbtns .pbtn:not(.gold) .pb-t{color:#fff}
+.hero-cap .hbtns .pbtn:not(.gold) .pb-a{background:#fff;color:var(--navy);border-left-color:rgba(25,37,55,.25)}
+.hero-cap .hbtns .pbtn.gold .pb-a{background:var(--navy);color:#fff;border-left-color:rgba(255,255,255,.3)}
+.hero-cap .hbtns .pbtn:hover .pb-t{color:var(--navy)}
+@media(max-width:820px){.hero-cap .hbtns{flex-direction:column;align-items:flex-start}}
+.hero-cap .hbtns{display:grid!important;grid-template-columns:1fr;gap:10px;max-width:300px}.hero-cap .hbtns .pbtn{display:flex;width:100%}.hero-cap .hbtns .pbtn .pb-t{flex:1;justify-content:flex-start}
 </style>
 </head>
 <body>
