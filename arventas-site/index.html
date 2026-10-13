@@ -847,7 +847,7 @@ function blit(i,alpha){
   ctx.globalAlpha=alpha;ctx.drawImage(im,0,sy,im.width,fh,(cw-w)/2,(ch-h)/2,w,h);
 }
 let rA=0,rB=0,rAl=0,warmAt=-99,prevI=0,dirN=1;
-const AHEAD=70,BEHIND=28,KEEP_F=130,KEEP_B=90;
+const AHEAD=60,BEHIND=24,KEEP_F=110,KEEP_B=80;
 function manage(i){
   if(i===warmAt)return;dirN=i>=prevI?1:-1;prevI=i;warmAt=i;
   const lo=dirN>0?i-BEHIND:i-AHEAD,hi=dirN>0?i+AHEAD:i+BEHIND;
@@ -930,7 +930,9 @@ async function boot(){
   // warm the HTTP cache for the rest, in playback order, without holding decoded images in memory
   const rest=[];for(let i=0;i<N;i++)if(!pinned.has(FILE[i])&&!rest.includes(FILE[i]))rest.push(FILE[i]);
   let ri=0;const pf=async()=>{while(ri<rest.length){const f=rest[ri++];try{await fetch(frameURL(f)).then(r=>r.blob())}catch(e){}}};
-  for(let k=0;k<4;k++)pf();
+  // background prefetch only on fast, unmetered connections; otherwise frames stream in just ahead of the playhead
+  const cn=navigator.connection||{};const fast=!cn.saveData&&(!cn.effectiveType||cn.effectiveType==='4g')&&!/Mobi|Android/i.test(navigator.userAgent);
+  if(fast){for(let k=0;k<3;k++)pf()}
 }
 
 /* swash italics: some A/E letters in big headings turn italic, like a hand-lettered serif */
